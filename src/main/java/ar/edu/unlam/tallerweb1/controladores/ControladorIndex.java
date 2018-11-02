@@ -7,15 +7,24 @@ import org.springframework.web.servlet.ModelAndView;
 
 @Controller
 public class ControladorIndex {
+	
+	@RequestMapping("/")
+	public ModelAndView indexDefault() {
+		ModelMap modelo = new ModelMap();
+		return new ModelAndView("index",modelo);
+	}
 
 	@RequestMapping("/index")
 	public ModelAndView index() {
 		ModelMap modelo = new ModelMap();
-		
 		return new ModelAndView("index",modelo);
 	}
-	
-	
+		
+	@RequestMapping("/liguilla")
+	public ModelAndView crearFixture() {
+		ModelMap modelo = new ModelMap();
+		return new ModelAndView("fixture", modelo);
+	}
 	
 	
 }

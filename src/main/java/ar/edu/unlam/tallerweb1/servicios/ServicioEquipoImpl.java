@@ -24,8 +24,6 @@ public class ServicioEquipoImpl implements ServicioEquipo {
 		return equipoDao.findAll();
 	}
 
-	
-
 	@Transactional(readOnly = false , propagation = Propagation.REQUIRED , rollbackFor = { Exception.class } )
 	@Override
 	public void guardarEquipo(Equipo equipo) {

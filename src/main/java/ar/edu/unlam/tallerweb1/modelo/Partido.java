@@ -21,8 +21,10 @@ public class Partido {
 	private Equipo equipoVisitante;
 	
 	@DateTimeFormat(pattern = "yyyy/MM/dd HH:mm")
-	private Date fecha;
+	private Date fechaPartido;
 	
+	@ManyToOne(cascade = { CascadeType.ALL } , fetch = FetchType.LAZY)
+	private Fecha fecha;
 	
 	private Boolean isTerminado = false;
 	private Boolean isResultadoFinal = false;
@@ -67,11 +69,19 @@ public class Partido {
 		this.equipoVisitante = equipoVisitante;
 	}
 
-	public Date getFecha() {
+	public Date getFechaPartido() {
+		return fechaPartido;
+	}
+
+	public void setFechaPartido(Date fechaPartido) {
+		this.fechaPartido = fechaPartido;
+	}
+
+	public Fecha getFecha() {
 		return fecha;
 	}
 
-	public void setFecha(Date fecha) {
+	public void setFecha(Fecha fecha) {
 		this.fecha = fecha;
 	}
 

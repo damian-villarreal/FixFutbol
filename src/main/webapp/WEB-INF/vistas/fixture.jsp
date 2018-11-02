@@ -10,20 +10,7 @@
 	<body>
 		<div>
 		<%@ include file="includes/navbar.jsp" %>
-		</div>
-		<br>
-		<br>
-		<br>
-		<br>
-		<div>
-		<p>
-			Elegir tipo de torneo
-		</p>
-		
-		<button><a href="./liguilla">Liguilla</a></button>
-		<button>Eliminacion directa</button>
-		<button>Mundial</button>
-		</div>
+	
 		
 		<!-- Placed at the end of the document so the pages load faster -->
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js" ></script>
