@@ -35,7 +35,7 @@ public class ServicioEquipoImpl implements ServicioEquipo {
 	@Override
 	public void actualizarEquipo(Equipo equipo) {
 		equipoDao.update(equipo);
-		
+
 	}
 
 	@Override
