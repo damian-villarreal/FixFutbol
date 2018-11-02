@@ -24,11 +24,7 @@ public class ServicioEquipoImpl implements ServicioEquipo {
 		return equipoDao.findAll();
 	}
 
-	@Transactional(readOnly = false , propagation = Propagation.REQUIRED , rollbackFor = {Exception.class})
-	@Override
-	public List<Equipo> agregarEquipo(Equipo equipo) {
-		return equipoDao.add(equipo);
-	}
+	
 
 	@Transactional(readOnly = false , propagation = Propagation.REQUIRED , rollbackFor = { Exception.class } )
 	@Override

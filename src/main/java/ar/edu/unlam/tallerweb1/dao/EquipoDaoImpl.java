@@ -27,16 +27,6 @@ public class EquipoDaoImpl implements EquipoDao {
 		return equipo;
 	}
 
-	@SuppressWarnings("unchecked")
-	@Override
-	public List<Equipo> add(Equipo equipo) {
-		List<Equipo> equipos = sessionFactory.getCurrentSession().createCriteria(Equipo.class)
-					.add(Restrictions.eq("id", equipo.getId()))
-					.add(Restrictions.eq("nombre", equipo.getNombre()))
-					.list();
-		return equipos;
-	}
-
 	@Override
 	public void save(Equipo equipo) {
 		sessionFactory.getCurrentSession().save(equipo);
