@@ -18,10 +18,11 @@ public class FechaDaoImpl implements FechaDao{
 	@Inject
 	private SessionFactory sessionFactory;
 
+	@SuppressWarnings("unchecked")
 	@Override
 	public List<Fecha> findAll() {
 		List <Fecha> fechas = sessionFactory.getCurrentSession().createCriteria(Fecha.class).list();
-		return null;
+		return fechas;
 	}
 
 	@Override
