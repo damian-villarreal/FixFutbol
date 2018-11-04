@@ -9,4 +9,5 @@ public interface ServicioFecha {
 	List<Fecha> listarTodosLasFechas();
 	void guardarFecha(Fecha fecha);
 	void ActualizarFecha(Fecha fecha);
+	void crearLiguilla();
 }

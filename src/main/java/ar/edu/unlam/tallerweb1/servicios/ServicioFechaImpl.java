@@ -28,5 +28,10 @@ public class ServicioFechaImpl implements ServicioFecha{
 	@Override
 	public void ActualizarFecha(Fecha fecha) {
 		fechaDao.update(fecha);		
+	}
+
+	@Override
+	public void crearLiguilla() {
+				
 	}	
 }
