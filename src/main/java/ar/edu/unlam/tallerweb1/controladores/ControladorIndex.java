@@ -20,11 +20,4 @@ public class ControladorIndex {
 		return new ModelAndView("index",modelo);
 	}
 		
-	@RequestMapping("/liguilla")
-	public ModelAndView crearFixture() {
-		ModelMap modelo = new ModelMap();
-		return new ModelAndView("fixture", modelo);
-	}
-	
-	
 }

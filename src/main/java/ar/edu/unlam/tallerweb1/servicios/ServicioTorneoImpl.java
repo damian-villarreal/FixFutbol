@@ -18,13 +18,13 @@ public class ServicioTorneoImpl implements ServicioTorneo {
 
 	@Override
 	@Transactional(readOnly = false , propagation = Propagation.REQUIRED , rollbackFor = { Exception.class } )
-	public void guardarEquipo(Torneo torneo) {
+	public void guardarTorneo(Torneo torneo) {
 		torneoDao.save(torneo);
 	}
 
 	@Override
 	@Transactional(readOnly = false , propagation = Propagation.REQUIRED , rollbackFor = { Exception.class } )
-	public void actualizarEquipo(Torneo torneo) {
+	public void actualizarTorneo(Torneo torneo) {
 		torneoDao.update(torneo);
 	}
 
