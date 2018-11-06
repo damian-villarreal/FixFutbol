@@ -11,6 +11,12 @@
 		<div>
 		<%@ include file="includes/navbar.jsp" %>
 		</div>
+		
+		<div class="jumbotron">
+  			<h1>Elija un tipo de torneo</h1>
+  			<p>...</p>
+  		<p><a class="btn btn-primary btn-lg" href="#" role="button">Learn more</a></p>
+		</div>
 		<br>
 		<br>
 		<br>

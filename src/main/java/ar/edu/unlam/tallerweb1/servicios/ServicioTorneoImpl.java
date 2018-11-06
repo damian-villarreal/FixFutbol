@@ -14,7 +14,7 @@ import ar.edu.unlam.tallerweb1.modelo.Fecha;
 import ar.edu.unlam.tallerweb1.modelo.Partido;
 import ar.edu.unlam.tallerweb1.modelo.Torneo;
 
-@Service("ServicioTorneo")
+@Service("servicioTorneo")
 @Transactional(readOnly = true , propagation = Propagation.SUPPORTS)
 
 public class ServicioTorneoImpl implements ServicioTorneo {
