@@ -29,6 +29,14 @@ public class Partido {
 	private Boolean isTerminado = false;
 	private Boolean isResultadoFinal = false;
 	
+	
+	public Partido() {}
+	
+	public Partido(Equipo equipoLocal, Equipo equipoVisitante) {
+		this.equipoLocal = equipoLocal;
+		this.equipoVisitante = equipoVisitante;
+	}
+
 	public Long getId() {
 		return id;
 	}
@@ -177,6 +185,5 @@ public class Partido {
 			return false;
 		return true;
 	}
-	
-	
+
 }

@@ -8,9 +8,8 @@
 		<%@ include file="includes/header.jsp"%>
 	</head>
 	<body>
-		<div>
 		<%@ include file="includes/navbar.jsp" %>
-	
+
 		
 		<!-- Placed at the end of the document so the pages load faster -->
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js" ></script>

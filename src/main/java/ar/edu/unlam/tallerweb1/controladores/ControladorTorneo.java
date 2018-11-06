@@ -24,22 +24,7 @@ public class ControladorTorneo {
 	
 	
 	@RequestMapping("/liguilla")
-	public ModelAndView crearFixture() {
-		
-		Integer cantidadDeEquipos = servicioEquipo.listarTodosLosEquipo().size();
-		Integer cantidadDeFechas = cantidadDeEquipos/2;
-		Integer cantidadDePartidosPorFecha = cantidadDeEquipos-1;
-		
-		//creo un nuevo torneo
-		Torneo torneo = new Torneo();
-		torneo.setNombre("Torneo1");
-		
-		//creo todas las fechas 
-		for (int i = 0; i<cantidadDeFechas;i++) {
-			Fecha fecha = new Fecha();
-			fecha.setNumero(i+1);
-			fecha.setTorneo(torneo);
-		}
+	public ModelAndView crearLiguilla() {
 		
 		ModelMap modelo = new ModelMap();
 		return new ModelAndView("fixture", modelo);
