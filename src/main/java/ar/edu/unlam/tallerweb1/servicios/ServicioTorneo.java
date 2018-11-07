@@ -11,4 +11,5 @@ public interface ServicioTorneo {
 	void actualizarTorneo(Torneo torneo);
 	List<Partido> crearLiguilla(Equipo equipoLocal, Equipo equipoVisitante);
 	Torneo consultarTorneo(Torneo torneo);
+	List<Torneo> listarTodosLosTorneos();
 }

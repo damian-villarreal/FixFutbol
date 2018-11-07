@@ -39,7 +39,14 @@ public class ControladorTorneo {
 	@RequestMapping(path = "fixture" , method = RequestMethod.POST)
 	public ModelAndView consultarTorneo(HttpServletRequest request) {
 		ModelMap modelo = new ModelMap();
-		return null;
+		
+		Torneo torneo = new Torneo();
+		modelo.put("torneo", torneo);
+		
+		List<Torneo> torneos = servicioTorneo.listarTodosLosTorneos();
+		modelo.put("torneos", torneos);
+		
+		return new ModelAndView("fixture",modelo);
 	}
 	
 	@RequestMapping(path = "crear-torneo" , method = RequestMethod.POST)
@@ -62,5 +69,28 @@ public class ControladorTorneo {
 		modelo.put("equiposSinPartidos", equiposSinPartidos);
 		
 		return new ModelAndView("fixture", modelo);
+	}
+	
+	@RequestMapping(path = "actualizar-torneo" , method = RequestMethod.POST)
+	public ModelAndView actualizarTorneo(@ModelAttribute("torneo") Torneo torneo , HttpServletRequest request) {
+		ModelMap modelo = new ModelMap();
+		
+		if(servicioTorneo.consultarTorneo(torneo) == null) {
+			servicioTorneo.actualizarTorneo(torneo);
+			modelo.put("aviso", "Se actualizo correctamente");
+		} else {
+			modelo.put("aviso", "El nombre se encuentra en uso");
+		}
+		
+		Torneo torneoCreado = new Torneo();
+		modelo.put("torneo", torneoCreado);
+		
+		List<Equipo> equipos = servicioEquipo.listarTodosLosEquipo();
+		modelo.put("equipos", equipos);
+		
+		List<Equipo> equiposSinEncuentros = servicioEquipo.traerEquiposQueNoJueganPartidos(equipos);
+		modelo.put("equiposSinPartidos", equiposSinEncuentros);
+		
+		return new ModelAndView("fixture",modelo);
 	}
 }

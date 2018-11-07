@@ -72,4 +72,9 @@ public class ServicioTorneoImpl implements ServicioTorneo {
 	public Torneo consultarTorneo(Torneo torneo) {
 		return torneoDao.findByTournament(torneo);
 	}
+
+	@Override
+	public List<Torneo> listarTodosLosTorneos() {
+		return torneoDao.findAll();
+	}
 }

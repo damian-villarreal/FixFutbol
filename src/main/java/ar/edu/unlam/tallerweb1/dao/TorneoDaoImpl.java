@@ -1,5 +1,7 @@
 package ar.edu.unlam.tallerweb1.dao;
 
+import java.util.List;
+
 import javax.inject.Inject;
 
 import org.hibernate.SessionFactory;
@@ -31,6 +33,12 @@ public class TorneoDaoImpl implements TorneoDao{
 		return (Torneo) sessionFactory.getCurrentSession().createCriteria(Torneo.class)
 				.add(Restrictions.eq("nombre", torneo.getNombre()))
 				.uniqueResult();
+	}
+
+	@SuppressWarnings("unchecked")
+	@Override
+	public List<Torneo> findAll() {
+		return (List<Torneo>) sessionFactory.getCurrentSession().createCriteria(Torneo.class).list();
 	}
 
 }
