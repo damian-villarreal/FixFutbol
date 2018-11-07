@@ -156,7 +156,7 @@
 								<div class="col-md-10 col-md-offset-1">
 									<div class="input-group">
 										<span class="input-group-addon">Nombre</span> 												
-										<form:input type="text" class="form-control" path="nombre" name="nombreTorneo" placeholder="Ingrese nombre." required="required"/>
+										<form:input type="text" class="form-control" path="nombreTorneo" name="nombreTorneo" placeholder="Ingrese nombre." required="required"/>
 									</div>
 								</div>
 							</div>
@@ -200,7 +200,7 @@
 								<div class="col-md-10 col-md-offset-1">
 									<div class="input-group center">
 										<span class="input-group-addon">Nombre</span> 											
-										<form:input path="nombre" type="text" class="form-control" name="nombreTorneo" placeholder="Ingrese un nuevo nombre." required="required"/>
+										<form:input path="nombreTorneo" type="text" class="form-control" name="nombreTorneo" placeholder="Ingrese un nuevo nombre." required="required"/>
 									</div>											
 								</div>
 							</div>							

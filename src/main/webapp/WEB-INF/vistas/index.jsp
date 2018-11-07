@@ -14,7 +14,7 @@
 		
 		<div class="jumbotron">
   			<h1>Elija un tipo de torneo</h1>
-  			<a href="http://localhost:8080/proyecto-limpio-spring/fixture.jsp">
+  			<a href="http://localhost:8080/proyecto-limpio-spring/fixture">
   				<button class="btn btn-primary btn-lg">Liguilla</button>
   			</a> 
   			

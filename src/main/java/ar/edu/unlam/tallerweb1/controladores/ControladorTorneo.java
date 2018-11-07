@@ -93,4 +93,10 @@ public class ControladorTorneo {
 		
 		return new ModelAndView("fixture",modelo);
 	}
+	
+	@RequestMapping("/fixture")
+	public ModelAndView fixture() {
+		ModelMap modelo = new ModelMap();
+		return new ModelAndView("fixture",modelo);
+	}
 }
