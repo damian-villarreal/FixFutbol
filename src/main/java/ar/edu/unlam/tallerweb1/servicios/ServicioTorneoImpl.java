@@ -21,6 +21,9 @@ public class ServicioTorneoImpl implements ServicioTorneo {
 
 	@Inject
 	private TorneoDao torneoDao;
+	
+	@Inject
+	private ServicioEquipo servicioEquipo;
 
 	@Override
 	@Transactional(readOnly = false , propagation = Propagation.REQUIRED , rollbackFor = { Exception.class } )
@@ -82,6 +85,14 @@ public class ServicioTorneoImpl implements ServicioTorneo {
 	@Override
 	
 	public void crearLiguilla() {
+		
+		Integer cantidadDeEquipos = servicioEquipo.listarTodosLosEquipo().size();
+		Integer cantidadDeFechas = cantidadDeEquipos/2;
+		Integer cantidadDePartidosPorFecha = cantidadDeEquipos-1;
+		
+		Torneo torneo = new Torneo();
+		torneo.setNombre("nombreTorneo");
+		torneoDao.save(torneo);
 		
 	}
 }

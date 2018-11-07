@@ -14,12 +14,17 @@
 		
 		<div class="jumbotron">
   			<h1>Elija un tipo de torneo</h1>
-  			<a href="http://localhost:8080/proyecto-limpio-spring/fixture">
+  			<a href="http://localhost:8080/proyecto-limpio-spring/crear-liguilla">
   				<button class="btn btn-primary btn-lg">Liguilla</button>
   			</a> 
   			
+  			<a href="http://localhost:8080/proyecto-limpio-spring/crear-eliminacion">
   			<button class="btn btn-primary btn-lg">Eliminación Directa</button>
+  			</a>
+  			
+  			<a href="http://localhost:8080/proyecto-limpio-spring/crear-mundial">
   			<button class="btn btn-primary btn-lg">Mundial</button>
+  			</a>
 		</div>
 		
 		<!-- Placed at the end of the document so the pages load faster -->
