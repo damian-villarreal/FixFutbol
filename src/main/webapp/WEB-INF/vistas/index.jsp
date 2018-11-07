@@ -14,7 +14,9 @@
 		
 		<div class="jumbotron">
   			<h1>Elija un tipo de torneo</h1>
-  			<p>...</p>
+  			<button class="btn btn-primary" >Liguilla</button>
+  			<button>Eliminacion Directa</button>
+  			<button>Mundial</button>
   		<p><a class="btn btn-primary btn-lg" href="#" role="button">Learn more</a></p>
 		</div>
 		<br>
