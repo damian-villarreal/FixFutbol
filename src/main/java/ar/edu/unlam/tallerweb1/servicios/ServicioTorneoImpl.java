@@ -67,4 +67,9 @@ public class ServicioTorneoImpl implements ServicioTorneo {
 		}
 		return listaDePartidos;
 	}
+
+	@Override
+	public Torneo consultarTorneo(Torneo torneo) {
+		return torneoDao.findByTournament(torneo);
+	}
 }

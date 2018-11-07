@@ -8,29 +8,18 @@
 		<%@ include file="includes/header.jsp"%>
 	</head>
 	<body>
-		<div>
+		
 		<%@ include file="includes/navbar.jsp" %>
-		</div>
+		
 		
 		<div class="jumbotron">
   			<h1>Elija un tipo de torneo</h1>
-  			<button class="btn btn-primary" >Liguilla</button>
-  			<button>Eliminacion Directa</button>
-  			<button>Mundial</button>
-  		<p><a class="btn btn-primary btn-lg" href="#" role="button">Learn more</a></p>
-		</div>
-		<br>
-		<br>
-		<br>
-		<br>
-		<div>
-		<p>
-			Elegir tipo de torneo
-		</p>
-		
-		<button><a href="./liguilla">Liguilla</a></button>
-		<button>Eliminacion directa</button>
-		<button>Mundial</button>
+  			<a href="http://localhost:8080/proyecto-limpio-spring/fixture.jsp">
+  				<button class="btn btn-primary btn-lg">Liguilla</button>
+  			</a> 
+  			
+  			<button class="btn btn-primary btn-lg">Eliminación Directa</button>
+  			<button class="btn btn-primary btn-lg">Mundial</button>
 		</div>
 		
 		<!-- Placed at the end of the document so the pages load faster -->

@@ -3,6 +3,7 @@ package ar.edu.unlam.tallerweb1.dao;
 import javax.inject.Inject;
 
 import org.hibernate.SessionFactory;
+import org.hibernate.criterion.Restrictions;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -23,6 +24,13 @@ public class TorneoDaoImpl implements TorneoDao{
 	@Override
 	public void update(Torneo torneo) {
 		sessionFactory.getCurrentSession().update(torneo);		
+	}
+
+	@Override
+	public Torneo findByTournament(Torneo torneo) {
+		return (Torneo) sessionFactory.getCurrentSession().createCriteria(Torneo.class)
+				.add(Restrictions.eq("nombre", torneo.getNombre()))
+				.uniqueResult();
 	}
 
 }
