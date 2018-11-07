@@ -44,7 +44,7 @@ public class ServicioTorneoImpl implements ServicioTorneo {
 		
 		Integer cantidadDeEquipos = servicioEquipo.listarTodosLosEquipo().size();
 		Integer cantidadDeFechas = cantidadDeEquipos/2;
-		Integer cantidadDePartidosPorFecha = cantidadDeEquipos-1;
+		//Integer cantidadDePartidosPorFecha = cantidadDeEquipos-1;
 		
 		//creo un nuevo torneo
 		Torneo torneo = new Torneo();

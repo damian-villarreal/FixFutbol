@@ -14,10 +14,6 @@ import ar.edu.unlam.tallerweb1.modelo.Equipo;
 import ar.edu.unlam.tallerweb1.modelo.Torneo;
 import ar.edu.unlam.tallerweb1.servicios.ServicioEquipo;
 
-import ar.edu.unlam.tallerweb1.servicios.ServicioFecha;
-
-import ar.edu.unlam.tallerweb1.servicios.ServicioPartido;
-
 import ar.edu.unlam.tallerweb1.servicios.ServicioTorneo;
 
 
@@ -26,12 +22,6 @@ public class ControladorTorneo {
 	
 	@Inject
 	private ServicioTorneo servicioTorneo;
-	
-	@Inject
-	private ServicioFecha servicioFecha;
-	
-	@Inject
-	private ServicioPartido servicioPartido;
 	
 	@Inject
 	private ServicioEquipo servicioEquipo;
