@@ -9,6 +9,93 @@
 	</head>
 	<body>
 		<%@ include file="includes/navbar.jsp" %>
+		
+		<div class="modal fade in" id="add" role="dialog">
+						<div class="modal-dialog" role="document">
+							<div class="modal-content">
+
+								<div class="modal-header">
+									<a class="btn pull-right" data-dismiss="modal"><span
+										class="glyphicon glyphicon-remove"></span></a>
+									<h3 class="modal-title">Crear nuevo torneo:</h3>
+								</div>
+								<div class="modal-body">
+									<h4>¿Esta seguro que sea agregar un nuevo torneo? Se guardaran los datos ingresados.</h4>
+								</div>
+								<div class="modal-footer">
+									<div class="form-group text-center">
+
+										<button name="enviar" class="btn btn-success" onclick="CrearTorneo()">
+											<span class="glyphicon glyphicon-check"></span> Confirmar
+										</button>
+
+									</div>
+								</div>
+
+							</div>
+						</div>
+					</div>
+   	
+   	
+   	
+   	
+   		<div class="modal fade in" id="update" role="dialog">
+						<div class="modal-dialog" role="document">
+							<div class="modal-content">
+
+								<div class="modal-header">
+									<a class="btn pull-right" data-dismiss="modal"><span
+										class="glyphicon glyphicon-remove"></span></a>
+									<h3 class="modal-title">Modicar torneo existente:</h3>
+								</div>
+								<div class="modal-body">
+									<h4>¿Está seguro que quiere modificar el torneo? Se perderán datos anteriores.</h4>
+								</div>
+								<div class="modal-footer">
+									<div class="form-group text-center">
+
+										<button  onclick="ModificarTorneo()" name="enviar" class="btn btn-warning">
+											<span class="glyphicon glyphicon-check"></span> Confirmar
+										</button>
+
+									</div>
+								</div>
+
+							</div>
+						</div>
+					</div>
+					
+					
+					
+			<div class="modal fade in" id="delete" role="dialog">
+						<div class="modal-dialog" role="document">
+							<div class="modal-content">
+
+								<div class="modal-header">
+									<a class="btn pull-right" data-dismiss="modal"><span
+										class="glyphicon glyphicon-remove"></span></a>
+									<h3 class="modal-title">Eliminar torneo seleccionado:</h3>
+								</div>
+								<div class="modal-body">
+									<h4>¿Está seguro que desea eliminar el torneo? Se perderán todos sus datos.</h4>
+								</div>
+								<div class="modal-footer">
+									<div class="form-group text-center">
+
+										<button  name="enviar" class="btn btn-danger" onclick="EliminarTorneo()">
+											<span class="glyphicon glyphicon-trash"></span> Eliminar
+										</button>
+
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>					
+		
+		
+		
+		
+		
 
 		<div class="container-fluid">
 			<div class="col-md-12 main">
