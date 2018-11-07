@@ -84,9 +84,22 @@ public class ControladorTorneo {
 		return new ModelAndView("fixture",modelo);
 	}
 	
-	@RequestMapping("/fixture")
-	public ModelAndView fixture() {
+	@RequestMapping(path="/crear-liguilla")
+	public ModelAndView CrearLiguilla() {
+		servicioTorneo.crearLiguilla();
 		ModelMap modelo = new ModelMap();
-		return new ModelAndView("fixture",modelo);
+		return new ModelAndView("liguilla",modelo);
+	}
+	
+	@RequestMapping(path="/crear-eliminacion")
+	public ModelAndView CrearEliminacion() {
+		ModelMap modelo = new ModelMap();
+		return new ModelAndView("eliminacion",modelo);
+	}
+	
+	@RequestMapping(path="/crear-mundial")
+	public ModelAndView CrearMundial() {
+		ModelMap modelo = new ModelMap();
+		return new ModelAndView("mundial",modelo);
 	}
 }

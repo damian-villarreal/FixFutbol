@@ -34,39 +34,39 @@ public class ServicioTorneoImpl implements ServicioTorneo {
 		torneoDao.update(torneo);
 	}
 
-	@SuppressWarnings("unchecked")
-	@Override
-	public List<Partido> crearLiguilla(Equipo equipoLocal, Equipo equipoVisitante) {
-		
-		ServicioEquipoImpl servicioEquipo = new ServicioEquipoImpl();
-		List<Partido> listaDePartidos = new ArrayList<>();
-		List<Equipo> listaDeEquipos = new ArrayList<>();
-		
-		Integer cantidadDeEquipos = servicioEquipo.listarTodosLosEquipo().size();
-		Integer cantidadDeFechas = cantidadDeEquipos/2;
-		//Integer cantidadDePartidosPorFecha = cantidadDeEquipos-1;
-		
-		//creo un nuevo torneo
-		Torneo torneo = new Torneo();
-		torneo.setNombre("Torneo1");
-		
-		//creo todas las fechas 
-		for (Integer i = 0; i<cantidadDeFechas;i++) {
-			Fecha fecha = new Fecha();
-			fecha.setNumero(i+1);
-			fecha.setTorneo(torneo);
-		}
-		
-		//se generan los cruces
-		for(Integer i=0; i<cantidadDeEquipos; i++){
-			for(Integer j=0; j<cantidadDeEquipos; j++){
-				if(listaDeEquipos.get(i) != listaDeEquipos.get(j)) {
-					listaDePartidos= (List<Partido>) new Partido(listaDeEquipos.get(i), listaDeEquipos.get(j));
-				}
-			}
-		}
-		return listaDePartidos;
-	}
+//	@SuppressWarnings("unchecked")
+//	@Override
+//	public List<Partido> crearLiguilla(Equipo equipoLocal, Equipo equipoVisitante) {
+//		
+//		ServicioEquipoImpl servicioEquipo = new ServicioEquipoImpl();
+//		List<Partido> listaDePartidos = new ArrayList<>();
+//		List<Equipo> listaDeEquipos = new ArrayList<>();
+//		
+//		Integer cantidadDeEquipos = servicioEquipo.listarTodosLosEquipo().size();
+//		Integer cantidadDeFechas = cantidadDeEquipos/2;
+//		//Integer cantidadDePartidosPorFecha = cantidadDeEquipos-1;
+//		
+//		//creo un nuevo torneo
+//		Torneo torneo = new Torneo();
+//		torneo.setNombre("Torneo1");
+//		
+//		//creo todas las fechas 
+//		for (Integer i = 0; i<cantidadDeFechas;i++) {
+//			Fecha fecha = new Fecha();
+//			fecha.setNumero(i+1);
+//			fecha.setTorneo(torneo);
+//		}
+//		
+//		//se generan los cruces
+//		for(Integer i=0; i<cantidadDeEquipos; i++){
+//			for(Integer j=0; j<cantidadDeEquipos; j++){
+//				if(listaDeEquipos.get(i) != listaDeEquipos.get(j)) {
+//					listaDePartidos= (List<Partido>) new Partido(listaDeEquipos.get(i), listaDeEquipos.get(j));
+//				}
+//			}
+//		}
+//		return listaDePartidos;
+//	}
 
 	@Override
 	public Torneo consultarTorneo(Torneo torneo) {
@@ -76,5 +76,12 @@ public class ServicioTorneoImpl implements ServicioTorneo {
 	@Override
 	public List<Torneo> listarTodosLosTorneos() {
 		return torneoDao.findAll();
+	}
+	
+	@SuppressWarnings("unchecked")
+	@Override
+	
+	public void crearLiguilla() {
+		
 	}
 }

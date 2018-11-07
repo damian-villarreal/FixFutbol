@@ -9,7 +9,9 @@ import ar.edu.unlam.tallerweb1.modelo.Torneo;
 public interface ServicioTorneo {
 	void guardarTorneo(Torneo torneo);
 	void actualizarTorneo(Torneo torneo);
-	List<Partido> crearLiguilla(Equipo equipoLocal, Equipo equipoVisitante);
+	//List<Partido> crearLiguilla(Equipo equipoLocal, Equipo equipoVisitante);
 	Torneo consultarTorneo(Torneo torneo);
 	List<Torneo> listarTodosLosTorneos();
+	void crearLiguilla();
+	
 }
