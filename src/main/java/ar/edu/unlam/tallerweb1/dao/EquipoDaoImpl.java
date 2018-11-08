@@ -68,4 +68,11 @@ public class EquipoDaoImpl implements EquipoDao {
 		return equiposSinPartidos;
 	}
 
+	@Override
+	public Equipo findById(Integer id) {
+		return (Equipo) sessionFactory.getCurrentSession().createCriteria(Equipo.class)
+				.add(Restrictions.eq("id", id))
+				.uniqueResult();
+	}
+
 }

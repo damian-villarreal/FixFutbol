@@ -1,13 +1,20 @@
 package ar.edu.unlam.tallerweb1.servicios;
 
 import java.util.ArrayList;
+import java.util.stream.IntStream;
 import java.util.List;
+import java.util.Arrays;
+
 
 import javax.inject.Inject;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
+import ar.edu.unlam.tallerweb1.dao.EquipoDao;
+import ar.edu.unlam.tallerweb1.dao.EquipoDaoImpl;
+import ar.edu.unlam.tallerweb1.dao.FechaDao;
+import ar.edu.unlam.tallerweb1.dao.PartidoDao;
 import ar.edu.unlam.tallerweb1.dao.TorneoDao;
 import ar.edu.unlam.tallerweb1.modelo.Equipo;
 import ar.edu.unlam.tallerweb1.modelo.Fecha;
@@ -21,6 +28,12 @@ public class ServicioTorneoImpl implements ServicioTorneo {
 
 	@Inject
 	private TorneoDao torneoDao;
+	@Inject
+	private FechaDao fechaDao;
+	@Inject
+	private PartidoDao partidoDao;
+	@Inject
+	private EquipoDao equipoDao;
 	
 	@Inject
 	private ServicioEquipo servicioEquipo;
@@ -87,12 +100,33 @@ public class ServicioTorneoImpl implements ServicioTorneo {
 	public void crearLiguilla() {
 		
 		Integer cantidadDeEquipos = servicioEquipo.listarTodosLosEquipo().size();
-		Integer cantidadDeFechas = cantidadDeEquipos/2;
-		Integer cantidadDePartidosPorFecha = cantidadDeEquipos-1;
+		Integer cantidadDeFechas = cantidadDeEquipos-1;
+		Integer cantidadDePartidosPorFecha = cantidadDeFechas;
 		
 		Torneo torneo = new Torneo();
 		torneo.setNombre("nombreTorneo");
 		torneoDao.save(torneo);
 		
+		for(int i=0;i<cantidadDeFechas;i++) {
+			
+			Fecha fecha = new Fecha();
+			fecha.setNumero(i);
+			fecha.setTorneo(torneo);
+			fechaDao.save(fecha);
+		
+			for(int j=0; j< cantidadDePartidosPorFecha; j++) {
+				
+				Partido partido = new Partido();
+				partido.setFecha(fecha);
+				//aca va la logica para ir rotando los equipos segun el numero de fecha
+				Equipo equipoLocal = equipoDao.findById(j);
+				Equipo equipoVisitante = equipoDao.findById(j+2);
+				
+				partido.setEquipoLocal(equipoLocal);
+				partido.setEquipoVisitante(equipoVisitante);
+				partidoDao.save(partido);
+			}
+		}
+				
 	}
 }

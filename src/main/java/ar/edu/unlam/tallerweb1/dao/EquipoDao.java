@@ -9,5 +9,6 @@ public interface EquipoDao {
 	void save(Equipo equipo);
 	void update(Equipo equipo);
 	Equipo findByMatch(Equipo equipo);
+	Equipo findById(Integer id);
 	List<Equipo> findTeamsWithoutMatches(List<Equipo> equipos);
 }
