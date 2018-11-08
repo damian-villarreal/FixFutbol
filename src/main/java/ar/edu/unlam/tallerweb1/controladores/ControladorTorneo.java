@@ -86,8 +86,8 @@ public class ControladorTorneo {
 	
 	@RequestMapping(path="/crear-liguilla")
 	public ModelAndView CrearLiguilla() {
-		servicioTorneo.crearLiguilla();
 		ModelMap modelo = new ModelMap();
+		servicioTorneo.crearLiguilla();
 		return new ModelAndView("liguilla",modelo);
 	}
 	

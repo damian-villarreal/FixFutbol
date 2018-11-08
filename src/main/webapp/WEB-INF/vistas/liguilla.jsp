@@ -9,6 +9,24 @@
 	</head>
 	<body>
 		<%@ include file="includes/navbar.jsp" %>
+		
+		<div class="col-md-8 col-md-offset-2">
+			<ol class="breadcrumb text-center">
+				<li class="breadcrumb-item active">
+					Partidos disponibles
+				</li>
+			</ol>
+			<c:forEach items="${equipos}" var="e">
+				<div class="panel panel-primary">
+					<div class="panel-heading text-center">
+						${e.nombre} 
+					</div>
+					<div class="panel-body text-center">
+						hola
+					</div>
+				</div>
+			</c:forEach>
+		</div>
 						
 		<!-- Placed at the end of the document so the pages load faster -->
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js" ></script>
