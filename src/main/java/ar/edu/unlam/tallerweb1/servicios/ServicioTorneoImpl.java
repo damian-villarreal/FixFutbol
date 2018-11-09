@@ -94,10 +94,8 @@ public class ServicioTorneoImpl implements ServicioTorneo {
 		return torneoDao.findAll();
 	}
 	
-	@SuppressWarnings("unchecked")
 	@Override
-	
-	public void crearLiguilla() {
+	public  void crearLiguilla() {
 		
 		Integer cantidadDeEquipos = servicioEquipo.listarTodosLosEquipo().size();
 		Integer cantidadDeFechas = cantidadDeEquipos-1;
@@ -126,7 +124,6 @@ public class ServicioTorneoImpl implements ServicioTorneo {
 				partido.setEquipoVisitante(equipoVisitante);
 				partidoDao.save(partido);
 			}
-		}
-				
+		}		
 	}
 }
