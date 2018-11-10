@@ -98,35 +98,65 @@ public class ServicioTorneoImpl implements ServicioTorneo {
 	@Override
 	
 	public void crearLiguilla() {
-		
-		Integer cantidadDeEquipos = servicioEquipo.listarTodosLosEquipo().size();
-		Integer cantidadDeFechas = cantidadDeEquipos-1;
-		Integer cantidadDePartidosPorFecha = cantidadDeFechas;
-		
 		Torneo torneo = new Torneo();
-		torneo.setNombre("nombreTorneo");
-		torneoDao.save(torneo);
+		torneo.setNombre("Torneo1");
+		Integer cantidadDeEquipos = equipoDao.findAll().size();		
+		Integer cantidadDePartidosPorFecha = cantidadDeEquipos/2;
+		Integer cantidadDeFechas = cantidadDeEquipos-1;
 		
-		for(int i=0;i<cantidadDeFechas;i++) {
-			
+		Long auxLocal = null;
+		Long auxVisitante = null;
+		
+		//creo todas las fechas
+		for (int f=1; f<=cantidadDeFechas;f++) {
 			Fecha fecha = new Fecha();
-			fecha.setNumero(i);
+			fecha.setNumero(f+1);
 			fecha.setTorneo(torneo);
 			fechaDao.save(fecha);
 		
-			for(int j=0; j< cantidadDePartidosPorFecha; j++) {
-				
-				Partido partido = new Partido();
-				partido.setFecha(fecha);
-				//aca va la logica para ir rotando los equipos segun el numero de fecha
-				Equipo equipoLocal = equipoDao.findById(j);
-				Equipo equipoVisitante = equipoDao.findById(j+2);
-				
-				partido.setEquipoLocal(equipoLocal);
-				partido.setEquipoVisitante(equipoVisitante);
-				partidoDao.save(partido);
-			}
+		//primer partido de cada fecha
+		
+		Partido primerPartido = new Partido();
+		primerPartido.setFecha(fecha);
+		primerPartido.setEquipoLocal(equipoDao.findById(1L));
+		int c=cantidadDeEquipos-f
+		primerPartido.setEquipoVisitante(equipoDao.findById((long)(cantidadDeEquipos-f)));
+		
+		partidoDao.save(primerPartido);
+		
+		//creo el resto de los partidos de la primer fecha
+		
+		for(int i=2; i>=cantidadDePartidosPorFecha;i++) {
+			Partido partido = new Partido();
+			partido.setEquipoLocal(equipoDao.findById((long)i));
+			partido.setEquipoVisitante(equipoDao.findById((long)cantidadDeEquipos-i+1));
+			auxLocal=partido.getEquipoLocal().getId();
+			auxVisitante=partido.getEquipoVisitante().getId();
+			partido.setFecha(fecha);
+			partidoDao.save(partido);
 		}
-				
-	}
+		
+		//creo el resto de los partidos
+		for (int p=2;p<=cantidadDePartidosPorFecha;p++) {
+			Partido partido = new Partido();
+			
+			if(auxLocal == 2) {
+				partido.setEquipoLocal(equipoDao.findById((long)cantidadDeEquipos));
+			}
+			else {
+				partido.setEquipoLocal(equipoDao.findById(auxLocal-1));
+			}
+			
+			if(auxVisitante == 2) {
+				partido.setEquipoVisitante(equipoDao.findById((long)cantidadDeEquipos));
+			}
+			else {
+				partido.setEquipoVisitante(equipoDao.findById(auxVisitante-1));
+			}
+			partido.setFecha(fecha);
+			partidoDao.save(partido);
+			}
+		}	
+	}						
 }
+

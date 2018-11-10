@@ -69,7 +69,7 @@ public class EquipoDaoImpl implements EquipoDao {
 	}
 
 	@Override
-	public Equipo findById(Integer id) {
+	public Equipo findById(Long id) {
 		return (Equipo) sessionFactory.getCurrentSession().createCriteria(Equipo.class)
 				.add(Restrictions.eq("id", id))
 				.uniqueResult();
