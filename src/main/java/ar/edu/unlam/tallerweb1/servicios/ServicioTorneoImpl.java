@@ -94,14 +94,19 @@ public class ServicioTorneoImpl implements ServicioTorneo {
 		return torneoDao.findAll();
 	}
 	
-	@SuppressWarnings("unchecked")
 	@Override
+<<<<<<< HEAD
 	
 	public void crearLiguilla() {
 		Torneo torneo = new Torneo();
 		torneo.setNombre("Torneo1");
 		Integer cantidadDeEquipos = equipoDao.findAll().size();		
 		Integer cantidadDePartidosPorFecha = cantidadDeEquipos/2;
+=======
+	public  void crearLiguilla() {
+		
+		Integer cantidadDeEquipos = servicioEquipo.listarTodosLosEquipo().size();
+>>>>>>> 513914c2c2eeea5945c164c1574c21517afd193d
 		Integer cantidadDeFechas = cantidadDeEquipos-1;
 		
 		Long auxLocal = null;
@@ -114,6 +119,7 @@ public class ServicioTorneoImpl implements ServicioTorneo {
 			fecha.setTorneo(torneo);
 			fechaDao.save(fecha);
 		
+<<<<<<< HEAD
 		//primer partido de cada fecha
 		
 		Partido primerPartido = new Partido();
@@ -158,5 +164,21 @@ public class ServicioTorneoImpl implements ServicioTorneo {
 			}
 		}	
 	}						
+=======
+			for(int j=0; j< cantidadDePartidosPorFecha; j++) {
+				
+				Partido partido = new Partido();
+				partido.setFecha(fecha);
+				//aca va la logica para ir rotando los equipos segun el numero de fecha
+				Equipo equipoLocal = equipoDao.findById(j);
+				Equipo equipoVisitante = equipoDao.findById(j+2);
+				
+				partido.setEquipoLocal(equipoLocal);
+				partido.setEquipoVisitante(equipoVisitante);
+				partidoDao.save(partido);
+			}
+		}		
+	}
+>>>>>>> 513914c2c2eeea5945c164c1574c21517afd193d
 }
 

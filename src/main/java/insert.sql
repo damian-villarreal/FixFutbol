@@ -11,8 +11,8 @@ INSERT INTO Equipo 	(id, nombre) VALUES
 					(3, "Racing Club"),
 					(4, "Independiente"),
  					(5, "San Lorenzo"),
-					(6, "Rosario Central"),
- 					(7, "Newells"),
+					(6, "Rosario Central");
+ 					/*(7, "Newells"),
 					(8, "Talleres(CBA)"),
  					(9, "Belgrano"),
 					(10, "Estudiantes LP"),
@@ -25,5 +25,42 @@ INSERT INTO Equipo 	(id, nombre) VALUES
  					(17, "Atletico Tucuman"),
  					(18, "San Martin de Tucuman"), 
  					(19, "Tigre"),
- 					(20, "Colon");
+ 					(20, "Colon");*/
  					
+ NSERT INTO Torneo (id, nombre) VALUES
+ 					(1, "Liguilla"),
+ 					(2, "Copa Libertadores"),
+ 					(3, "Copa Sudamericana");
+				
+INSERT INTO Fecha (id, numero, torneo_id) VALUES
+ 				   (1 , 1, 1),
+ 				   (2 , 2, 1),
+ 				   (3 , 3, 1),
+ 				   (4 , 4, 1),
+ 				   (5 , 5, 1); 
+                    
+                    
+ 					
+ INSERT INTO Partido (id, golesLocales, golesVisitantes, equipoLocal_id, equipoVisitante_id, fechaPartido, fecha_id, isResultadoFinal, isTerminado) VALUES
+ 					 /*Fecha 1*/
+ 					 (1, 2, 2, 1, 2, 20181104, 1, true, true),
+ 					 (2, 3, 1, 3, 4, 20181104, 1, true, true),
+ 					 (3, 2, 4, 5, 6, 20181104, 1, true, true),
+ 					  /*Fecha 2*/
+ 					 (4, 2, 1, 1, 3, 20181111, 2, true, true),
+ 					 (5, 3, 1, 2, 5, 20181111, 2, true, true),
+ 					 (6, 3, 5, 4, 6, 20181111, 2, true, true),
+ 					  /*Fecha 3*/
+ 					 (7, 1, 1, 1, 4, 20181118, 3, true, true),
+ 					 (8, 1, 0, 2, 6, 20181118, 3, true, true),
+ 					 (9, 2, 1, 3, 5, 20181118, 3, true, true),
+ 					  /*Fecha 4*/
+ 					 (10, 2, 1, 1, 5, 20181125, 4, true, true),
+ 					 (11, 3, 1, 2, 4, 20181125, 4, true, true),
+ 					 (12, 2, 2, 3, 6, 20181125, 4, true, true),
+ 					  /*Fecha 5*/
+ 					 (13, 1, 1, 1, 6, 20181202, 5, true, true),
+ 					 (14, 3, 0, 2, 3, 20181202, 5, true, true),
+ 					 (15, 2, 2, 4, 5, 20181202, 5, true, true);
+ 					 
+ 
