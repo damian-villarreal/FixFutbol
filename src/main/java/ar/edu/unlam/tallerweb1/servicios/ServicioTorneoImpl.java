@@ -101,8 +101,10 @@ public class ServicioTorneoImpl implements ServicioTorneo {
 						auxVisitante = partido.getEquipoVisitante().getId();
 
 					partidoDao.save(partido);
+					}
 				}
 			}
 		}
 	}
+
 }
