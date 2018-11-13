@@ -14,10 +14,10 @@ public class Partido {
 	private Integer golesLocales = 0;
 	private Integer golesVisitantes = 0;
 	
-	@ManyToOne(cascade = { CascadeType.ALL } , fetch = FetchType.LAZY)
+	@ManyToOne//(cascade = { CascadeType.ALL } , fetch = FetchType.LAZY)
 	private Equipo equipoLocal;
 	
-	@ManyToOne(cascade = { CascadeType.ALL } , fetch = FetchType.LAZY)
+	@ManyToOne//(cascade = { CascadeType.ALL } , fetch = FetchType.LAZY)
 	private Equipo equipoVisitante;
 	
 	@DateTimeFormat(pattern = "yyyy/MM/dd HH:mm")

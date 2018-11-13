@@ -9,6 +9,7 @@ import ar.edu.unlam.tallerweb1.dao.EquipoDao;
 import ar.edu.unlam.tallerweb1.dao.FechaDao;
 import ar.edu.unlam.tallerweb1.dao.PartidoDao;
 import ar.edu.unlam.tallerweb1.dao.TorneoDao;
+import ar.edu.unlam.tallerweb1.modelo.Equipo;
 import ar.edu.unlam.tallerweb1.modelo.Fecha;
 import ar.edu.unlam.tallerweb1.modelo.Partido;
 import ar.edu.unlam.tallerweb1.modelo.Torneo;
@@ -52,8 +53,7 @@ public class ServicioTorneoImpl implements ServicioTorneo {
 		return torneoDao.findAll();
 	}
 
-	@Override
-	public void crearLiguilla() {
+	public List<Partido> crearLiguilla() {
 
 		Integer cantidadDeEquipos = equipoDao.findAll().size();
 		Integer cantidadDeFechas = cantidadDeEquipos - 1;
@@ -63,15 +63,16 @@ public class ServicioTorneoImpl implements ServicioTorneo {
 
 		Torneo torneo = new Torneo();
 
-		for (int f = 0; f < cantidadDeFechas; f++) {
+		 
+		for (Integer f = 0; f < cantidadDeFechas; f++) {
 			Fecha fecha = new Fecha();
 			fecha.setNumero(f + 1);
 			fecha.setTorneo(torneo);
 
-			for (int p = 0; p < cantidadDePartidosPorFecha; p++) {
+			for (Integer p = 0; p < cantidadDePartidosPorFecha; p++) {
 				Partido partido = new Partido();
 				partido.setFecha(fecha);
-
+			
 				if (p == 0) {
 					partido.setEquipoLocal(equipoDao.findById(1L));
 					partido.setEquipoVisitante(equipoDao.findById(Long.valueOf(cantidadDeEquipos - f)));
@@ -105,6 +106,7 @@ public class ServicioTorneoImpl implements ServicioTorneo {
 				}
 			}
 		}
+		return partidoDao.findAll();
 	}
 
 }

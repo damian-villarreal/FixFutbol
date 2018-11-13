@@ -58,5 +58,4 @@ public class PartidoDaoImpl implements PartidoDao {
 				.add(Restrictions.eq("isTerminado", false))
 				.list();
 	}
-
 }

@@ -16,13 +16,13 @@
 					Partidos disponibles
 				</li>
 			</ol>
-			<c:forEach items="${equipos}" var="e">
+			<c:forEach items="${partidos}" var="p">
 				<div class="panel panel-primary">
 					<div class="panel-heading text-center">
-						${e.nombre} 
+						${p.equipoLocal.nombre} 
 					</div>
 					<div class="panel-body text-center">
-						hola
+						${p.equipoVisitante.nombre}
 					</div>
 				</div>
 			</c:forEach>

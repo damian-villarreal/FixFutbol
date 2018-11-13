@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 import java.util.*;
 import ar.edu.unlam.tallerweb1.modelo.Equipo;
+import ar.edu.unlam.tallerweb1.modelo.Partido;
 import ar.edu.unlam.tallerweb1.modelo.Torneo;
 import ar.edu.unlam.tallerweb1.servicios.ServicioEquipo;
 
@@ -87,7 +88,8 @@ public class ControladorTorneo {
 	@RequestMapping(path="/crear-liguilla")
 	public ModelAndView CrearLiguilla() {
 		ModelMap modelo = new ModelMap();
-		servicioTorneo.crearLiguilla();
+		List<Partido> partidos = servicioTorneo.crearLiguilla();
+		modelo.put("partidos", partidos);
 		return new ModelAndView("liguilla",modelo);
 	}
 	
