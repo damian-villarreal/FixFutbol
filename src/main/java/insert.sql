@@ -62,5 +62,19 @@ INSERT INTO Fecha (id, numero, torneo_id) VALUES
  					 (13, 1, 1, 1, 6, 20181202, 5, true, true),
  					 (14, 3, 0, 2, 3, 20181202, 5, true, true),
  					 (15, 2, 2, 4, 5, 20181202, 5, true, true);
- 					 
+ 		
+ INSERT INTO Tabla (id, puntos,	ganados, empatados, perdidos, golesfavor, golescontra, diferenciagoles, equipo_id) VALUES
+ 
+ 	/*BOCA*/
+ 	(1,4,1,1,0,6,2,4,1),
+ 	/*RIVER*/
+ 	(2,6,2,0,0,7,3,4,2),
+ 	/*RACING*/
+ 	(3,6,2,0,0,10,1,9,3),
+ 	/*INDEPENDIENTE*/
+ 	(4,0,0,0,2,2,4,-2,4),
+ 	/*SAN LORENZO*/
+ 	(5,2,0,2,0,0,0,0,5),
+ 	/*ROSARIO CENTRAL*/
+ 	(6,3,1,0,1,3,0,3,6);
  
