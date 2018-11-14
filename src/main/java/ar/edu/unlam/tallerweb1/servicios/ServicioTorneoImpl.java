@@ -63,50 +63,61 @@ public class ServicioTorneoImpl implements ServicioTorneo {
 
 		Torneo torneo = new Torneo();
 
-		 
 		for (Integer f = 0; f < cantidadDeFechas; f++) {
 			Fecha fecha = new Fecha();
 			fecha.setNumero(f + 1);
 			fecha.setTorneo(torneo);
 
+			auxVisitante = Long.valueOf(cantidadDeEquipos - f);
+			auxLocal = 1L;
+
 			for (Integer p = 0; p < cantidadDePartidosPorFecha; p++) {
 				Partido partido = new Partido();
 				partido.setFecha(fecha);
-			
+
 				if (p == 0) {
 					partido.setEquipoLocal(equipoDao.findById(1L));
 					partido.setEquipoVisitante(equipoDao.findById(Long.valueOf(cantidadDeEquipos - f)));
-					auxLocal = partido.getEquipoLocal().getId();
 					auxVisitante = partido.getEquipoVisitante().getId();
+					auxLocal = auxVisitante;
+				}
 
-				
-				} else {
-
-					if (auxLocal == 1L || auxLocal == Long.valueOf(cantidadDeEquipos)) {
-
-						partido.setEquipoLocal(equipoDao.findById(2L));
+				else {
+					if (p == 1) {
+						if (auxVisitante == Long.valueOf(cantidadDeEquipos)) {
+							partido.setEquipoLocal(equipoDao.findById(2L));
+						} else {
+							partido.setEquipoLocal(equipoDao.findById(auxVisitante + 1L));
+						}
 						auxLocal = partido.getEquipoLocal().getId();
 
-					} else {
-						partido.setEquipoLocal(equipoDao.findById(auxLocal + 1));
-						auxLocal = partido.getEquipoLocal().getId();
-
+						if (auxVisitante == 2L) {
+							partido.setEquipoVisitante(equipoDao.findById(Long.valueOf(cantidadDeEquipos)));
+						} else {
+							partido.setEquipoVisitante(equipoDao.findById(auxVisitante - 1L));
+						}
+						auxVisitante = partido.getEquipoVisitante().getId();
 					}
 
-					if (auxVisitante == 2) {
-						partido.setEquipoVisitante(equipoDao.findById(Long.valueOf(cantidadDeEquipos)));
-						auxVisitante = partido.getEquipoVisitante().getId();
+					else {
+						if (auxLocal == Long.valueOf(cantidadDeEquipos)) {
+							partido.setEquipoLocal(equipoDao.findById(2L));
+						} else {
+							partido.setEquipoLocal(equipoDao.findById(auxLocal + 1L));
+						}
+						auxLocal = partido.getEquipoLocal().getId();
 
-					} else {
-						partido.setEquipoVisitante(equipoDao.findById(auxVisitante - 1));
+						if (auxVisitante == 2L) {
+							partido.setEquipoVisitante(equipoDao.findById(Long.valueOf(cantidadDeEquipos)));
+						} else {
+							partido.setEquipoVisitante(equipoDao.findById(auxVisitante - 1L));
+						}
 						auxVisitante = partido.getEquipoVisitante().getId();
-
-					partidoDao.save(partido);
 					}
 				}
+				partidoDao.save(partido);
 			}
 		}
 		return partidoDao.findAll();
 	}
-
 }
