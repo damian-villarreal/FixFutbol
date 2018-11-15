@@ -2,7 +2,10 @@ package ar.edu.unlam.tallerweb1.controladores;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
-
+import org.springframework.web.servlet.ModelAndView;
+import static org.assertj.core.api.Assertions.assertThat;
+import static org.mockito.Mockito.*;
+import org.junit.Test;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
@@ -31,5 +34,19 @@ public class ControladorTorneoTest {
 		MockitoAnnotations.initMocks(this);
 	}
 	
+	@Test
+	public void testQuePuedaCrearUnaLiguilla() {
+		when(request.getSession()).thenReturn(sesion);
+		when(servicioTorneo.consultarTorneo(any(Torneo.class))).thenReturn(torneo);
+		when(torneo.getId()).thenReturn(91L);
+		when(torneo.getNombre()).thenReturn("Superliga");
+		
+		ModelAndView model = controladorTorneo.CrearLiguilla();
+		
+		assertThat(model.getViewName()).isEqualTo("liguilla");
+		assertThat(model.getModel()).isNotEmpty();
+		
+		verify(servicioTorneo , times(1)).listarTodosLosTorneos();
+	}
 	
 }
