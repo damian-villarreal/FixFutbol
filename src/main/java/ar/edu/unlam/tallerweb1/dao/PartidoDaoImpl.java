@@ -58,4 +58,16 @@ public class PartidoDaoImpl implements PartidoDao {
 				.add(Restrictions.eq("isTerminado", false))
 				.list();
 	}
+
+	@SuppressWarnings("unchecked")
+	@Override
+	public List<Partido> findByTournament(Long id) {
+		
+		return (List<Partido>) sessionFactory.getCurrentSession().createCriteria(Partido.class)
+				.createAlias("fecha", "f")
+				.createAlias("f.torneo", "t")
+				.add(Restrictions.eq("t.id", id))
+				.list();
+				
+	}
 }

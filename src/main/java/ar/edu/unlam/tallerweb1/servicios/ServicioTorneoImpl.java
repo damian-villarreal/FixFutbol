@@ -118,6 +118,6 @@ public class ServicioTorneoImpl implements ServicioTorneo {
 				partidoDao.save(partido);
 			}
 		}
-		return partidoDao.findAll();
+		return partidoDao.findByTournament(torneo.getId());
 	}
 }
