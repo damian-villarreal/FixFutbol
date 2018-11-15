@@ -3,16 +3,18 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 
 	<!-- CSS Y JS DE BOOTSTRAP Y JQUERY -->
-	<script type="text/javascript" src="js/jquery-1.11.3.min.js"></script>
 	<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="css/estilos.css">
+	<script type="text/javascript" src="js/jquery-1.11.3.min.js"></script>
+	
 	<script type="text/javascript" src="js/bootstrap.min.js"></script>
 	
 	<!-- ACÁ DEBERÍA IR CSS Y JS PROPIOS -->
-	<link rel="stylesheet" type="text/css" href="css/estilos.css">
+	
 	
 	
 	<!-- TÍTULO DEL PROYECTO -->
 	<title>FixFútbol</title>
 
 	<!-- ICONO DEL SITIO -->
-	<link rel="icon" href="https://icon-icons.com/icons2/861/PNG/512/Soccer_icon-icons.com_67819.png">
+	<link rel="icon" href="img/uefa.jpg">

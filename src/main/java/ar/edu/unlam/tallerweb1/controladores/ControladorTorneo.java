@@ -121,12 +121,20 @@ public class ControladorTorneo {
 		return new ModelAndView("ver-torneos",modelo);
 	}
 	
-	@RequestMapping(path="/detalle-torneo/{id}")
+	/*@RequestMapping(path="/detalle-torneo/{id}" , method = RequestMethod.GET)
 	public ModelAndView DetalleTorneo(@PathVariable Long id) {
 		ModelMap modelo = new ModelMap();
 		List<Partido> partidos = servicioPartido.buscarPorTorneo(id);
 		modelo.put("partidos", partidos);
 		return new ModelAndView("detalle-torneo", modelo);
 		
+	}*/
+	
+	@RequestMapping(path = "/detalle-torneo")
+	public ModelAndView detalleTorneo() {
+		ModelMap modelo = new ModelMap();
+		List<Partido> partidos = servicioPartido.listarTodosLosPartidos();
+		modelo.put("partidos", partidos);
+		return new ModelAndView("detalle-torneo",modelo);
 	}
 }

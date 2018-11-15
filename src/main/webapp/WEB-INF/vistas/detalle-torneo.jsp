@@ -19,10 +19,7 @@
 			<c:forEach items="${partidos}" var="p">
 				<div class="panel panel-primary">
 					<div class="panel-heading text-center">
-						${p.equipoLocal.nombre} 
-					</div>
-					<div class="panel-body text-center">
-						${p.equipoVisitante.nombre}
+						${p.equipoLocal.nombre} - ${p.equipoVisitante.nombre }
 					</div>
 				</div>
 			</c:forEach>

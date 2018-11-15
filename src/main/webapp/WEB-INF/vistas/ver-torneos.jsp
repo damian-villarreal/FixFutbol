@@ -26,7 +26,7 @@
 				<c:forEach items="${torneos}" var="torneo">
 					<tr>
 					<td>
-					<a href="http://localhost:8080/proyecto-limpio-spring/detalle-torneo/${torneo.id}">
+					<a href="http://localhost:8080/proyecto-limpio-spring/detalle-torneo">
 						${torneo.nombre}
 						</a>
 						</td>
