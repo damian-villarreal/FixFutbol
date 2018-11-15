@@ -6,10 +6,8 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 import ar.edu.unlam.tallerweb1.dao.EquipoDao;
-import ar.edu.unlam.tallerweb1.dao.FechaDao;
 import ar.edu.unlam.tallerweb1.dao.PartidoDao;
 import ar.edu.unlam.tallerweb1.dao.TorneoDao;
-import ar.edu.unlam.tallerweb1.modelo.Equipo;
 import ar.edu.unlam.tallerweb1.modelo.Fecha;
 import ar.edu.unlam.tallerweb1.modelo.Partido;
 import ar.edu.unlam.tallerweb1.modelo.Torneo;
@@ -21,15 +19,18 @@ public class ServicioTorneoImpl implements ServicioTorneo {
 
 	@Inject
 	private TorneoDao torneoDao;
-	@Inject
-	private FechaDao fechaDao;
+	
+	/*@Inject
+	private FechaDao fechaDao;*/
+	
 	@Inject
 	private PartidoDao partidoDao;
+	
 	@Inject
 	private EquipoDao equipoDao;
 
-	@Inject
-	private ServicioEquipo servicioEquipo;
+	/*@Inject
+	private ServicioEquipo servicioEquipo;*/
 
 	@Override
 	@Transactional(readOnly = false, propagation = Propagation.REQUIRED, rollbackFor = { Exception.class })
