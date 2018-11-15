@@ -15,6 +15,7 @@ public class Fecha {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	private Integer numero;
+	
 	@ManyToOne(cascade = { CascadeType.ALL } , fetch = FetchType.LAZY)
 	private Torneo torneo;
 	
