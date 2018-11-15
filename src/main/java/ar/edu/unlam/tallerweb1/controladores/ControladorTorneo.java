@@ -6,15 +6,18 @@ import javax.servlet.http.HttpServletRequest;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 import java.util.*;
 import ar.edu.unlam.tallerweb1.modelo.Equipo;
+import ar.edu.unlam.tallerweb1.modelo.Fecha;
 import ar.edu.unlam.tallerweb1.modelo.Partido;
 import ar.edu.unlam.tallerweb1.modelo.Torneo;
 import ar.edu.unlam.tallerweb1.servicios.ServicioEquipo;
-
+import ar.edu.unlam.tallerweb1.servicios.ServicioFecha;
+import ar.edu.unlam.tallerweb1.servicios.ServicioPartido;
 import ar.edu.unlam.tallerweb1.servicios.ServicioTorneo;
 
 
@@ -26,6 +29,11 @@ public class ControladorTorneo {
 	
 	@Inject
 	private ServicioEquipo servicioEquipo;
+	
+	@Inject
+	private ServicioPartido servicioPartido;
+	@Inject
+	private ServicioFecha servicioFecha;
 	
 	@RequestMapping(path = "fixture" , method = RequestMethod.POST)
 	public ModelAndView consultarTorneo(HttpServletRequest request) {
@@ -103,5 +111,22 @@ public class ControladorTorneo {
 	public ModelAndView CrearMundial() {
 		ModelMap modelo = new ModelMap();
 		return new ModelAndView("mundial",modelo);
+	}
+	
+	@RequestMapping(path="/ver-torneos")
+	public ModelAndView VerTorneos() {
+		List<Torneo> torneos = servicioTorneo.listarTodosLosTorneos();
+		ModelMap modelo = new ModelMap();
+		modelo.put("torneos", torneos);
+		return new ModelAndView("ver-torneos",modelo);
+	}
+	
+	@RequestMapping(path="/detalle-torneo/{id}")
+	public ModelAndView DetalleTorneo(@PathVariable Long id) {
+		ModelMap modelo = new ModelMap();
+		List<Partido> partidos = servicioPartido.buscarPorTorneo(id);
+		modelo.put("partidos", partidos);
+		return new ModelAndView("detalle-torneo", modelo);
+		
 	}
 }

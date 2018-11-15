@@ -67,6 +67,8 @@ public class ServicioTorneoImpl implements ServicioTorneo {
 			Fecha fecha = new Fecha();
 			fecha.setNumero(f + 1);
 			fecha.setTorneo(torneo);
+			torneo.setTipoTorneo("Liguilla");
+			torneo.setNombre("Torneo "+String.valueOf(torneoDao.findAll().size()+1));
 
 			auxVisitante = Long.valueOf(cantidadDeEquipos - f);
 			auxLocal = 1L;
@@ -118,6 +120,8 @@ public class ServicioTorneoImpl implements ServicioTorneo {
 				partidoDao.save(partido);
 			}
 		}
+		
+		
 		return partidoDao.findByTournament(torneo.getId());
 	}
 }

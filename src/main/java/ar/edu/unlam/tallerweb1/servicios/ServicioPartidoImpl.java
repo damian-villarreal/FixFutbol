@@ -53,4 +53,9 @@ public class ServicioPartidoImpl implements ServicioPartido {
 		return partidoDao.findUnfinishedMatch();
 	}
 
+	@Override
+	public List<Partido> buscarPorTorneo(Long id) {
+		return partidoDao.findByTournament(id);
+	}
+
 }

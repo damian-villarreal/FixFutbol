@@ -12,6 +12,7 @@ public class Torneo {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	private String nombre;
+	private String tipoTorneo;
 	
 	public String getNombre() {
 		return nombre;
@@ -21,6 +22,12 @@ public class Torneo {
 	}
 	public Long getId() {
 		return id;
+	}
+	public String getTipoTorneo() {
+		return tipoTorneo;
+	}
+	public void setTipoTorneo(String tipoTorneo) {
+		this.tipoTorneo = tipoTorneo;
 	}
 	
 }
