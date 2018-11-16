@@ -32,6 +32,7 @@ public class ControladorTorneo {
 	
 	@Inject
 	private ServicioPartido servicioPartido;
+	
 	@Inject
 	private ServicioFecha servicioFecha;
 	
@@ -96,8 +97,11 @@ public class ControladorTorneo {
 	@RequestMapping(path="/crear-liguilla")
 	public ModelAndView CrearLiguilla() {
 		ModelMap modelo = new ModelMap();
+		Fecha fecha = new Fecha();
 		List<Partido> partidos = servicioTorneo.crearLiguilla();
 		modelo.put("partidos", partidos);
+		List<Fecha> fechas = servicioFecha.listarTodosLasFechas(fecha);
+		modelo.put("fechas", fechas);
 		return new ModelAndView("liguilla",modelo);
 	}
 	
@@ -137,4 +141,11 @@ public class ControladorTorneo {
 		modelo.put("partidos", partidos);
 		return new ModelAndView("detalle-torneo",modelo);
 	}
+	
+	/*@RequestMapping(path = "filtroPorFechas" , method = RequestMethod.POST)
+	public ModelAndView filtrarPorFechas(@ModelAttribute("fecha") Fecha fecha , HttpServletRequest request) {
+		ModelMap modelo = new ModelMap();
+		
+		return new ModelAndView("liguilla",modelo);
+	}*/
 }

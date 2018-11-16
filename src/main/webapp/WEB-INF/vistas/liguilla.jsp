@@ -16,20 +16,23 @@
 					Partidos disponibles
 				</li>
 			</ol>
+			
+			  <form:select path="fecha" name="partido" >
+					<option>Seleccione</option>
+					<c:forEach items="${fechas}" var="f">
+						<form:option value="${f.id}">
+							${f.numero}
+						</form:option>
+					</c:forEach>
+				</form:select>
 			<c:forEach items="${partidos}" var="p">
 				<div class="panel panel-primary">
 					<div class="panel-heading text-center">
-						${p.equipoLocal.nombre} - ${p.equipoVisitante.nombre }
+						${p.equipoLocal.nombre} - ${p.equipoVisitante.nombre}
 					</div>
 					<span class="input-group-addon">
 						<button class="btn btn-success">Cargar Resultado</button>
 					</span>
-					
-					
-					
-					<!-- <div class="panel-body text-center">
-						${p.equipoVisitante.nombre}
-					</div> -->
 				</div>
 				
 			</c:forEach>

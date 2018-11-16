@@ -19,6 +19,7 @@ public class Fecha {
 	@ManyToOne(cascade = { CascadeType.ALL } , fetch = FetchType.LAZY)
 	private Torneo torneo;
 	
+	
 	public Integer getNumero() {
 		return numero;
 	}

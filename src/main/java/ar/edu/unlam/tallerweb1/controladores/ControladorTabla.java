@@ -21,8 +21,8 @@ public class ControladorTabla {
 	@RequestMapping ("/posiciones")
 	public ModelAndView verPosiciones(){
 		ModelMap modelo = new ModelMap();
-		List<Tabla> tabla = servicioTabla.listarTabla();
-		modelo.put("tablas", tabla);
+		List<Tabla> tablas = servicioTabla.listarTabla();
+		modelo.put("tablas", tablas);
 		return new ModelAndView ("tabla", modelo);
 		
 		

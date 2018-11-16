@@ -34,10 +34,11 @@ public class ControladorTorneoTest {
 		MockitoAnnotations.initMocks(this);
 	}
 	
-	/*@Test
+	@Test
 	public void testQuePuedaCrearUnaLiguilla() {
 		when(request.getSession()).thenReturn(sesion);
-		when(servicioTorneo.consultarTorneo(any(Torneo.class))).thenReturn(torneo);
+		System.out.println(sesion);
+		/*when(servicioTorneo.consultarTorneo(any(Torneo.class))).thenReturn(torneo);
 		when(torneo.getId()).thenReturn(91L);
 		when(torneo.getNombre()).thenReturn("Superliga");
 		
@@ -46,7 +47,7 @@ public class ControladorTorneoTest {
 		assertThat(model.getViewName()).isEqualTo("liguilla");
 		assertThat(model.getModel()).isNotEmpty();
 		
-		verify(servicioTorneo , times(1)).listarTodosLosTorneos();
-	}*/
+		verify(servicioTorneo , times(1));*/
+	}
 	
 }

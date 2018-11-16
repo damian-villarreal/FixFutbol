@@ -2,7 +2,10 @@ package ar.edu.unlam.tallerweb1.controladores;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
-
+import org.springframework.web.servlet.ModelAndView;
+import static org.assertj.core.api.Assertions.assertThat;
+import static org.mockito.Mockito.*;
+import org.junit.Test;
 import org.junit.Before;
 
 import org.mockito.InjectMocks;
@@ -33,23 +36,33 @@ public class ControladorLoginTest {
 		MockitoAnnotations.initMocks(this);
 	}
 	
-	/*@Test
+	@Test
 	public void testQueVerificaQueElLoginSeaValido() {
 		when(request.getSession()).thenReturn(sesion);
 		when(servicioLogin.consultarUsuario(any(Usuario.class))).thenReturn(usuario);
-		when(usuario.getId()).thenReturn(91L);
-		when(usuario.getEmail()).thenReturn("admin@fixfutbol.com");
-		when(usuario.getPassword()).thenReturn("admin");
-		when(usuario.getRol()).thenReturn("ADMIN");
+		when(usuario.getRol()).thenReturn("USER");
 		
-		ModelAndView model = controladorLogin.irALogin();
+		ModelAndView modelo = controladorLogin.validarLogin(usuario, request);
 		
-		assertThat(model.getViewName()).isEqualTo("index");
-		assertThat(model.getModel()).isNotEmpty();
+		assertThat(modelo.getViewName()).isEqualTo("redirect:/home");
 		
-		verify(sesion , times(1)).setAttribute("AdminId", 91L);
+		verify(sesion , times(1)).setAttribute("ROL", usuario.getRol());
 		
-	}*/
+	}
+	
+	@Test
+	public void testQueVerificaQueElLoginSeaInvalido() {
+		when(servicioLogin.consultarUsuario(any(Usuario.class))).thenReturn(null);
+		
+		ModelAndView modelo = controladorLogin.validarLogin(usuario, null);
+		
+		assertThat(modelo.getViewName()).isEqualTo("login");
+		assertThat(modelo.getModel().get("error")).isEqualTo("Usuario o clave incorrecta");
+		
+		verify(sesion , never()).setAttribute(anyString(), anyString());
+	}
+	
+	
 	
 	
 	

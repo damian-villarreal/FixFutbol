@@ -14,7 +14,7 @@
 
 <table>
 <tr>
-
+<th>Equipos</th>
 <th> PG </th>
 <th> PE </th>
 <th> PP </th>
@@ -26,6 +26,7 @@
 
 <c:forEach items="${tablas}" var="tabla">
 <tr>
+	<td>${tabla.equipo.nombre}</td>
     <td>${tabla.ganados} </td>
     <td>${tabla.empatados} </td>
     <td>${tabla.perdidos} </td>

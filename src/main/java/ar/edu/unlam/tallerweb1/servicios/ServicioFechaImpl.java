@@ -18,8 +18,8 @@ public class ServicioFechaImpl implements ServicioFecha{
 	private FechaDao fechaDao;
 
 	@Override
-	public List<Fecha> listarTodosLasFechas() {		
-		return fechaDao.findAll();
+	public List<Fecha> listarTodosLasFechas(Fecha fecha) {		
+		return fechaDao.findAll(fecha);
 	}
 
 	@Transactional(readOnly = false , propagation = Propagation.REQUIRED , rollbackFor = { Exception.class } )

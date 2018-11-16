@@ -21,8 +21,9 @@ public class FechaDaoImpl implements FechaDao{
 
 	@SuppressWarnings("unchecked")
 	@Override
-	public List<Fecha> findAll() {
-		List <Fecha> fechas = sessionFactory.getCurrentSession().createCriteria(Fecha.class).list();
+	public List<Fecha> findAll(Fecha fecha) {
+		List <Fecha> fechas = sessionFactory.getCurrentSession().createCriteria(Fecha.class)
+				.add(Restrictions.eq("numero", fecha.getNumero() )).list();
 		return fechas;
 	}
 

@@ -6,7 +6,7 @@ import ar.edu.unlam.tallerweb1.modelo.Fecha;
 
 public interface ServicioFecha {
 
-	List<Fecha> listarTodosLasFechas();
+	List<Fecha> listarTodosLasFechas(Fecha fecha);
 	void guardarFecha(Fecha fecha);
 	void ActualizarFecha(Fecha fecha);
 	void crearLiguilla();
