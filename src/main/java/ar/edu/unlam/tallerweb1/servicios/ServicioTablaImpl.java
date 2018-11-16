@@ -34,9 +34,7 @@ public class ServicioTablaImpl implements ServicioTabla {
 	
 	@Override
 	public List<Tabla> listarTabla() {
-		return tablaDao.findAll();
+		return tablaDao.orderDesc();
 	}
-	
-
 }
 

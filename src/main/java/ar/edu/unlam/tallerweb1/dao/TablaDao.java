@@ -9,5 +9,6 @@ public interface TablaDao {
 	void save(Tabla tabla);
 	void update(Tabla tabla);
 	List<Tabla> findAll();
+	List<Tabla> orderDesc();
 
 }

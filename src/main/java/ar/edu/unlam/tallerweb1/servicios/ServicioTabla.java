@@ -9,6 +9,4 @@ public interface ServicioTabla {
 	void guardarTabla (Tabla tabla);
 	void actualizarTabla(Tabla tabla);
 	List<Tabla> listarTabla();
-
-	
 }

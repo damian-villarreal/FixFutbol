@@ -5,6 +5,7 @@ import java.util.List;
 import javax.inject.Inject;
 
 import org.hibernate.SessionFactory;
+import org.hibernate.criterion.Order;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -34,7 +35,15 @@ public class TablaDaoImpl implements TablaDao {
 				.list();
 		return tabla;
 	}
-
-
+	
+	public List<Tabla> orderDesc(){
+		
+		@SuppressWarnings("unchecked")
+		List<Tabla> tablaOrdenada = sessionFactory.getCurrentSession().createCriteria(Tabla.class)
+				.addOrder(Order.desc("puntos"))
+				.addOrder(Order.desc("diferenciagoles"))
+				.list();
+		return tablaOrdenada;	
+	}
 }
 

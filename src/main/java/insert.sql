@@ -11,8 +11,8 @@ INSERT INTO Equipo 	(id, nombre) VALUES
 					(3, "Racing Club"),
 					(4, "Independiente"),
  					(5, "San Lorenzo"),
-					(6, "Rosario Central");
- 					/*(7, "Newells"),
+					(6, "Rosario Central"),
+ 					(7, "Newells"),
 					(8, "Talleres(CBA)"),
  					(9, "Belgrano"),
 					(10, "Estudiantes LP"),
@@ -25,7 +25,7 @@ INSERT INTO Equipo 	(id, nombre) VALUES
  					(17, "Atletico Tucuman"),
  					(18, "San Martin de Tucuman"), 
  					(19, "Tigre"),
- 					(20, "Colon");*/
+ 					(20, "Colon");
  					
  NSERT INTO Torneo (id, nombre) VALUES
  					(1, "Liguilla"),
