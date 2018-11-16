@@ -14,7 +14,7 @@
 
 <table>
 <tr>
-<th>Equipos</th>
+<th>Equipo</th>
 <th> PG </th>
 <th> PE </th>
 <th> PP </th>

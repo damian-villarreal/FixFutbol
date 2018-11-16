@@ -1,12 +1,8 @@
 package ar.edu.unlam.tallerweb1.modelo;
 
-import javax.persistence.CascadeType;
-import javax.persistence.Entity;
-import javax.persistence.FetchType;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.ManyToOne;
+import javax.persistence.*;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @Entity
 public class Tabla {
@@ -22,8 +18,10 @@ public class Tabla {
 	private Integer diferenciagoles;
 	
 	
-	@ManyToOne (cascade = { CascadeType.ALL } , fetch = FetchType.LAZY)
+	@ManyToOne (cascade = { CascadeType.ALL } , fetch = FetchType.EAGER)
+	@JsonIgnore
 	private Equipo equipo;
+
 	
 	
 	
@@ -78,6 +76,12 @@ public class Tabla {
 	}
 	public void setDiferenciagoles(Integer diferenciagoles) {
 		this.diferenciagoles = diferenciagoles;
+	}
+	public Equipo getEquipo() {
+		return equipo;
+	}
+	public void setEquipo(Equipo equipo) {
+		this.equipo = equipo;
 	}
 	
 	

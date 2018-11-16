@@ -10,6 +10,8 @@ public class Equipo {
 	private Long id;
 	private String nombre;
 	
+	
+	
 	public Long getId() {
 		return id;
 	}
@@ -56,6 +58,7 @@ public class Equipo {
 			return false;
 		return true;
 	}
+
 	
 	
 }
