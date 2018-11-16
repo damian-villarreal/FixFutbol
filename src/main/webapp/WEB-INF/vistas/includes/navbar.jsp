@@ -12,22 +12,37 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="#">FixFútbol</a>
+      <a class="navbar-brand" href="http://localhost:8080/proyecto-limpio-spring">
+      	<span class="glyphicon glyphicon-globe" style="margin-right: 12px"></span>FixFútbol
+      </a>
     </div>
 
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
-        <li class="active"><a href="#">Home <span class="sr-only">(current)</span></a></li>
+        <li class="active"><a href="http://localhost:8080/proyecto-limpio-spring"><span class="glyphicon glyphicon-home" style="margin-right: 12px"></span>Home <span class="sr-only">(current)</span></a></li>
         <li class="dropdown">
-          <a href="" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Tipos de torneos <span class="caret"></span></a>
+         <a href="" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+          	<span class="glyphicon glyphicon-tower" style="margin-right: 12px"></span>
+          		Tipos de torneos 
+          	<span class="caret"></span>
+         </a>
           <ul class="dropdown-menu">
-            <li><a href="#">Liguilla</a></li>
+            <li><a href="http://localhost:8080/proyecto-limpio-spring/crear-liguilla">Liguilla</a></li>
             <li role="separator" class="divider"></li>
-            <li><a href="#">Eliminacion Directa</a></li>
+            <li><a href="#">Eliminacion Directa(Proximamente)</a></li>
             <li role="separator" class="divider"></li>
-            <li><a href="#">Mundial</a></li>
+            <li><a href="#">Mundial(Proximamente)</a></li>
           </ul>
+        </li>
+        <li>
+        	<a href="http://localhost:8080/proyecto-limpio-spring/ver-torneos"><span class="glyphicon glyphicon-search" style="margin-right: 12px"></span>Ver Torneos</a>
+        </li>
+        <li>
+        	<a href="http://localhost:8080/proyecto-limpio-spring/posiciones"><span class="glyphicon glyphicon-indent-left" style="margin-right: 12px"></span>Ver Posiciones</a>
+        </li>
+        <li>
+        	<a href="http://localhost:8080/proyecto-limpio-spring/cargar-resultado"><span class="glyphicon glyphicon-plus" style="margin-right: 12px"></span>Cargar Resultado</a>
         </li>
       </ul>
       
