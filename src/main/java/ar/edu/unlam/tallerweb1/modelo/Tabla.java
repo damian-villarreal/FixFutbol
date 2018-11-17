@@ -10,6 +10,7 @@ public class Tabla {
 	@GeneratedValue (strategy = GenerationType.IDENTITY)
 	private Long id;
 	private Integer puntos;
+	private Integer jugados;
 	private Integer ganados;
 	private Integer empatados;
 	private Integer perdidos;
@@ -82,6 +83,12 @@ public class Tabla {
 	}
 	public void setEquipo(Equipo equipo) {
 		this.equipo = equipo;
+	}
+	public Integer getJugados() {
+		return jugados;
+	}
+	public void setJugados(Integer jugados) {
+		this.jugados = jugados;
 	}
 	
 	

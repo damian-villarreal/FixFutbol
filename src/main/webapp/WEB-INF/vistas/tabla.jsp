@@ -15,9 +15,13 @@
 		
 		<div class="table-responsive">
 			<table class="table table-condensed  table-bordered">
+			
 				<tbody>
+				
 					<tr>
+											
 						<th>Equipo</th>
+						<th> PJ </th>
 						<th> PG </th>
 						<th> PE </th>
 						<th> PP </th>
@@ -27,10 +31,13 @@
 						<th> Puntos </th>
 					</tr>
 				</tbody>
-				<c:forEach items="${tablas}" var="tabla">
+				<c:forEach items="${tablas}" var="tabla"  >
+				
 					<tbody>
 						<tr>
+																				
 							<td>${tabla.equipo.nombre}</td>
+							<td>${tabla.jugados}</td>
     						<td>${tabla.ganados} </td>
     						<td>${tabla.empatados} </td>
     						<td>${tabla.perdidos} </td>
