@@ -25,6 +25,8 @@
 						</form:option>
 					</c:forEach>
 				</form:select>--%>
+				<form:select path="numero" >
+				</form:select>
 			<c:forEach items="${partidos}" var="p">
 				<div class="panel panel-primary">
 					<div class="panel-heading text-center">
