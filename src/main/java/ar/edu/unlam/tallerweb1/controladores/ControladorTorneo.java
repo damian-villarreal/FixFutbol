@@ -107,7 +107,9 @@ public class ControladorTorneo {
 	@RequestMapping(path="/crear-eliminacion")
 	public ModelAndView CrearEliminacion() {
 		ModelMap modelo = new ModelMap();
-		return new ModelAndView("eliminacion",modelo);
+		List<Partido> partidos = servicioTorneo.crearEliminacion();
+		modelo.put("partidos", partidos);
+		return new ModelAndView("eliminacion", modelo);
 	}
 	
 	@RequestMapping(path="/crear-mundial")

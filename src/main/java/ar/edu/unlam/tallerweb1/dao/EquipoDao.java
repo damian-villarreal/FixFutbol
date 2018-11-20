@@ -11,4 +11,5 @@ public interface EquipoDao {
 	Equipo findByMatch(Equipo equipo);
 	Equipo findById(Long id);
 	List<Equipo> findTeamsWithoutMatches(List<Equipo> equipos);
+	Equipo findByName(String nombre);
 }

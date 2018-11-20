@@ -28,7 +28,27 @@ public class Partido {
 	
 	private Boolean isTerminado = false;
 	private Boolean isResultadoFinal = false;
-
+	
+	@ManyToOne
+	private Fase fase;
+	
+	@OneToOne
+	private Equipo ganador; 
+	
+public Partido() {}
+	
+	public Partido(Equipo equipoLocal, Equipo equipoVisitante, Fase fase) {
+		
+		this.equipoLocal = equipoLocal;
+		this.equipoVisitante = equipoVisitante;
+		this.fase = fase; 
+		this.golesLocales = 0; 
+		this.golesVisitantes = 0; 
+		this.isTerminado = false; 
+		this.isResultadoFinal = false;
+	
+	}
+	
 	public Long getId() {
 		return id;
 	}
@@ -176,6 +196,20 @@ public class Partido {
 		} else if (!isTerminado.equals(other.isTerminado))
 			return false;
 		return true;
+	}
+	
+
+	public Equipo getGanador() {
+		return ganador;
+	}
+
+	public void setGanador(Equipo ganador) {
+		
+		if(this.getGolesLocales()>this.getGolesVisitantes()) {
+			this.ganador = this.equipoLocal;
+		} else {
+			this.ganador = this.equipoVisitante;
+		}	
 	}
 
 }

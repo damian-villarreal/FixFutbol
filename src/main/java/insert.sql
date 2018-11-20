@@ -77,4 +77,12 @@ INSERT INTO Fecha (id, numero, torneo_id) VALUES
  	(5,2,0,2,0,0,0,0,5),
  	/*ROSARIO CENTRAL*/
  	(6,3,1,0,1,3,0,3,6);
+ 	
+ INSERT INTO Fase (id, instancia, nombreDeLaFase, siguienteFase_id) VALUES
+ 
+ 	(4, "FINAL", "PARTIDO_FINAL", NULL),
+    (3, "SEMIS", "SEMI_DE_FINAL", 4),
+ 	(2, "CUARTOS", "CUARTOS_DE_FINAL", 3),
+    (1, "OCTAVOS", "OCTAVOS_DE_FINAL", 2);
+ 	
  

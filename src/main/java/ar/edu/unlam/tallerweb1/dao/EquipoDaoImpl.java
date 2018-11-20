@@ -75,4 +75,11 @@ public class EquipoDaoImpl implements EquipoDao {
 				.uniqueResult();
 	}
 
+	@Override
+	public Equipo findByName(String nombre) {
+		return (Equipo) sessionFactory.getCurrentSession().createCriteria(Equipo.class)
+				.add(Restrictions.eq("nombre", nombre))
+				.uniqueResult();
+	
+	}
 }
