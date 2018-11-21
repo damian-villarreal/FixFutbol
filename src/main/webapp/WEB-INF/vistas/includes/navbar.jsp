@@ -20,20 +20,24 @@
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
-        <li class="active"><a href="http://localhost:8080/proyecto-limpio-spring"><span class="glyphicon glyphicon-home" style="margin-right: 12px"></span>Home <span class="sr-only">(current)</span></a></li>
-        <li class="dropdown">
-         <a href="" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
-          	<span class="glyphicon glyphicon-tower" style="margin-right: 12px"></span>
-          		Tipos de torneos 
-          	<span class="caret"></span>
-         </a>
-          <ul class="dropdown-menu">
-            <li><a href="http://localhost:8080/proyecto-limpio-spring/crear-liguilla">Liguilla</a></li>
-            <li role="separator" class="divider"></li>
-            <li><a href="#">Eliminacion Directa(Proximamente)</a></li>
-            <li role="separator" class="divider"></li>
-            <li><a href="#">Mundial(Proximamente)</a></li>
-          </ul>
+        <li class="active">
+        	<a href="http://localhost:8080/proyecto-limpio-spring">
+        		<span class="glyphicon glyphicon-home" style="margin-right: 12px"></span>Home 
+        		<span class="sr-only">(current)</span>
+        	</a>
+        </li>
+        <li>
+        	<a href="http://localhost:8080/proyecto-limpio-spring/crear-liguilla">
+        		Liguilla
+        	</a>
+        </li>
+        <li>
+        	<a href="#">
+        		Eliminacion Directa(Proximamente)
+        	</a>
+        </li>
+        <li>
+        	<a href="#">Mundial(Proximamente)</a>
         </li>
         <li>
         	<a href="http://localhost:8080/proyecto-limpio-spring/ver-torneos"><span class="glyphicon glyphicon-search" style="margin-right: 12px"></span>Ver Torneos</a>
