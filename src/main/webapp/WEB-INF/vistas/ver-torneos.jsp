@@ -23,10 +23,11 @@
 				</tr>
 			</thead>
 			<tbody>
+			
 				<c:forEach items="${torneos}" var="torneo">
 					<tr>
 					<td>
-					<a href="http://localhost:8080/proyecto-limpio-spring/detalle-torneo">
+					<a href="http://localhost:8080/proyecto-limpio-spring/detalle-torneo?idTorneo=${torneo.id}">
 						${torneo.nombre}
 						</a>
 						</td>

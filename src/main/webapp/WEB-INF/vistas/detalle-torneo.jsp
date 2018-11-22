@@ -20,7 +20,7 @@
 								
 				<div class="panel panel-primary">
 					<div class="panel-heading text-center">
-						${p.equipoLocal.nombre} - ${p.equipoVisitante.nombre }
+						${p.equipoLocal.nombre} - ${p.equipoVisitante.nombre}
 					</div>
 				</div>
 			</c:forEach>

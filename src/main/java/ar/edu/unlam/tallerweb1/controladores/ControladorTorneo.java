@@ -6,8 +6,10 @@ import javax.servlet.http.HttpServletRequest;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 import java.util.*;
 import ar.edu.unlam.tallerweb1.modelo.Equipo;
@@ -96,11 +98,11 @@ public class ControladorTorneo {
 	@RequestMapping(path="/crear-liguilla")
 	public ModelAndView CrearLiguilla() {
 		ModelMap modelo = new ModelMap();
-		Fecha fecha = new Fecha();
+//		Fecha fecha = new Fecha();
 		List<Partido> partidos = servicioTorneo.crearLiguilla();
 		modelo.put("partidos", partidos);
-		List<Fecha> fechas = servicioFecha.listarTodosLasFechas(fecha);
-		modelo.put("fechas", fechas);
+//		List<Fecha> fechas = servicioFecha.listarTodosLasFechas(fecha);
+//		modelo.put("fechas", fechas);
 		return new ModelAndView("liguilla",modelo);
 	}
 	
@@ -136,9 +138,9 @@ public class ControladorTorneo {
 	}*/
 	
 	@RequestMapping(path = "/detalle-torneo")
-	public ModelAndView detalleTorneo() {
+	public ModelAndView detalleTorneo(@RequestParam (name="idTorneo")Long idTorneo) {
 		ModelMap modelo = new ModelMap();
-		List<Partido> partidos = servicioPartido.listarTodosLosPartidos();
+		List<Partido> partidos = servicioPartido.buscarPorTorneo(idTorneo);		
 		modelo.put("partidos", partidos);
 		return new ModelAndView("detalle-torneo",modelo);
 	}
