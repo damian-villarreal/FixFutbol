@@ -32,8 +32,8 @@
         	</a>
         </li>
         <li>
-        	<a href="#">
-        		Eliminacion Directa(Proximamente)
+        	<a href="http://localhost:8080/proyecto-limpio-spring/crear-eliminacion">
+        		Eliminacion Directa
         	</a>
         </li>
         <li>
