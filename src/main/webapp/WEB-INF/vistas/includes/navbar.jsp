@@ -45,9 +45,9 @@
         <li>
         	<a href="http://localhost:8080/proyecto-limpio-spring/posiciones"><span class="glyphicon glyphicon-indent-left" style="margin-right: 12px"></span>Ver Posiciones</a>
         </li>
-        <li>
+       <!--   <li>
         	<a href="http://localhost:8080/proyecto-limpio-spring/cargar-resultado"><span class="glyphicon glyphicon-plus" style="margin-right: 12px"></span>Cargar Resultado</a>
-        </li>
+        </li>-->
       </ul>
       
       
