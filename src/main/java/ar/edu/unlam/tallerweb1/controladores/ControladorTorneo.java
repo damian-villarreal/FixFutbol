@@ -46,7 +46,7 @@ public class ControladorTorneo {
 	}
 	
 	@RequestMapping(path = "crear-torneo" , method = RequestMethod.POST)
-	public ModelAndView crearTorneo(@ModelAttribute("torneo") Torneo torneo , HttpServletRequest request) {
+	public ModelAndView crearTorneo(@ModelAttribute("torneo") Torneo torneo) {
 		ModelMap modelo = new ModelMap();
 		if(servicioTorneo.consultarTorneo(torneo) == null) {
 			servicioTorneo.guardarTorneo(torneo);
@@ -91,7 +91,7 @@ public class ControladorTorneo {
 	}
 	
 	@RequestMapping(path="/crear-liguilla")
-	public ModelAndView CrearLiguilla() {
+	public ModelAndView crearLiguilla() {
 		ModelMap modelo = new ModelMap();
 //		Fecha fecha = new Fecha();
 		List<Partido> partidos = servicioTorneo.crearLiguilla();
