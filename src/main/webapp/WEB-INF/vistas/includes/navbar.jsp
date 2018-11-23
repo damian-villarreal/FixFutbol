@@ -28,17 +28,17 @@
         </li>
         <li>
         	<a href="http://localhost:8080/proyecto-limpio-spring/crear-liguilla">
-        		Liguilla
+        		Crear Liguilla
         	</a>
         </li>
-        <li>
+        <!--  <li>
         	<a href="http://localhost:8080/proyecto-limpio-spring/crear-eliminacion">
-        		Eliminacion Directa
+        		Eliminacion Directa(Proximamente)
         	</a>
         </li>
         <li>
         	<a href="#">Mundial(Proximamente)</a>
-        </li>
+        </li>-->
         <li>
         	<a href="http://localhost:8080/proyecto-limpio-spring/ver-torneos"><span class="glyphicon glyphicon-search" style="margin-right: 12px"></span>Ver Torneos</a>
         </li>
