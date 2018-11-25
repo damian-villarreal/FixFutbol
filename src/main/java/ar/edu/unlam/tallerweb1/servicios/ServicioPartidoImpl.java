@@ -58,4 +58,15 @@ public class ServicioPartidoImpl implements ServicioPartido {
 		return partidoDao.findByTournament(id);
 	}
 
+	@Override
+	public void ActualizarResultado(Partido partido) {
+		Partido p = partidoDao.findById(partido.getId());
+		p.setGolesLocales(partido.getGolesLocales());
+		p.setGolesVisitantes(partido.getGolesVisitantes());
+		p.setIsTerminado(true);
+		partidoDao.update(p);
+	}
+	
+	
+
 }

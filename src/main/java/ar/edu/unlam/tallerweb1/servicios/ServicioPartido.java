@@ -12,4 +12,5 @@ public interface ServicioPartido {
 	Partido consultarPartido(Partido partido);
 	List<Partido> listarTodosLosPartidosSinTerminar();
 	List<Partido> buscarPorTorneo(Long id);
+	void ActualizarResultado(Partido partido);
 }

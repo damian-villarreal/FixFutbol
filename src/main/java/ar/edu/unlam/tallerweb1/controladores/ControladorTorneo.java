@@ -10,7 +10,11 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
+import org.springframework.web.servlet.view.RedirectView;
+
 import java.util.*;
+
+import ar.edu.unlam.tallerweb1.dao.PartidoDao;
 import ar.edu.unlam.tallerweb1.modelo.Equipo;
 import ar.edu.unlam.tallerweb1.modelo.Partido;
 import ar.edu.unlam.tallerweb1.modelo.Torneo;
@@ -139,6 +143,22 @@ public class ControladorTorneo {
 		modelo.put("partidos", partidos);
 		return new ModelAndView("detalle-torneo",modelo);
 	}
+	
+	@RequestMapping(path = "/cargar-resultado")
+	public ModelAndView cargarResultado(@RequestParam (name="idPartido") Long idPartido) {
+		ModelMap modelo = new ModelMap();
+		Partido partido = servicioPartido.buscarPorId(idPartido);
+		modelo.put("partido", partido);
+		return new ModelAndView("cargar-resultado", modelo); 
+	}
+	
+	@RequestMapping(path = "/guardar-resultado", method=RequestMethod.POST)
+	public ModelAndView guardarResultado(@ModelAttribute("partido") Partido partido) {
+		servicioPartido.ActualizarResultado(partido);
+		return new ModelAndView("redirect:/index");
+	}
+	
+	
 	
 	/*@RequestMapping(path = "filtroPorFechas" , method = RequestMethod.POST)
 	public ModelAndView filtrarPorFechas(@ModelAttribute("fecha") Fecha fecha , HttpServletRequest request) {

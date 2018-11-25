@@ -13,70 +13,71 @@ public class Partido {
 	private Long id;
 	private Integer golesLocales = 0;
 	private Integer golesVisitantes = 0;
-	
-	@ManyToOne//(cascade = { CascadeType.ALL } , fetch = FetchType.LAZY)
+
+	@ManyToOne // (cascade = { CascadeType.ALL } , fetch = FetchType.LAZY)
 	private Equipo equipoLocal;
-	
-	@ManyToOne//(cascade = { CascadeType.ALL } , fetch = FetchType.LAZY)
+
+	@ManyToOne // (cascade = { CascadeType.ALL } , fetch = FetchType.LAZY)
 	private Equipo equipoVisitante;
-	
+
 	@DateTimeFormat(pattern = "yyyy/MM/dd HH:mm")
 	private Date fechaPartido;
-	
-	@ManyToOne(cascade = { CascadeType.ALL } , fetch = FetchType.LAZY)
+
+	@ManyToOne(cascade = { CascadeType.ALL }, fetch = FetchType.LAZY)
 	private Fecha fecha;
-	
+
 	private Boolean isTerminado = false;
 	private Boolean isResultadoFinal = false;
-	
+
 	@ManyToOne
 	private Fase fase;
-	
+
 	@OneToOne
-	private Equipo ganador; 
-	
-public Partido() {}
-	
+	private Equipo ganador;
+
+	public Partido() {
+	}
+
 	public Partido(Equipo equipoLocal, Equipo equipoVisitante, Fase fase) {
-		
+
 		this.equipoLocal = equipoLocal;
 		this.equipoVisitante = equipoVisitante;
-		this.fase = fase; 
-		this.golesLocales = 0; 
-		this.golesVisitantes = 0; 
-		this.isTerminado = false; 
+		this.fase = fase;
+		this.golesLocales = 0;
+		this.golesVisitantes = 0;
+		this.isTerminado = false;
 		this.isResultadoFinal = false;
-	
+
 	}
-	
+
 	public Long getId() {
 		return id;
 	}
-	
+
 	public void setId(Long id) {
 		this.id = id;
 	}
-	
+
 	public Integer getGolesLocales() {
 		return golesLocales;
 	}
-	
+
 	public void setGolesLocales(Integer golesLocales) {
 		this.golesLocales = golesLocales;
 	}
-	
+
 	public Integer getGolesVisitantes() {
 		return golesVisitantes;
 	}
-	
+
 	public void setGolesVisitantes(Integer golesVisitantes) {
 		this.golesVisitantes = golesVisitantes;
 	}
-	
+
 	public Equipo getEquipoLocal() {
 		return equipoLocal;
 	}
-	
+
 	public void setEquipoLocal(Equipo equipoLocal) {
 		this.equipoLocal = equipoLocal;
 	}
@@ -120,11 +121,12 @@ public Partido() {}
 	public void setIsResultadoFinal(Boolean isResultadoFinal) {
 		this.isResultadoFinal = isResultadoFinal;
 	}
-	
+
 	public String mostrarResultado() {
-		return equipoLocal.getNombre() + " " + this.golesLocales + " - " + this.golesVisitantes + " " + equipoVisitante.getNombre();
+		return equipoLocal.getNombre() + " " + this.golesLocales + " - " + this.golesVisitantes + " "
+				+ equipoVisitante.getNombre();
 	}
-	
+
 	public String getInformacion() {
 		DateFormat dateFormat = new SimpleDateFormat("dd/MM HH:mm");
 		String fechaSimple = dateFormat.format(fecha);
@@ -197,19 +199,18 @@ public Partido() {}
 			return false;
 		return true;
 	}
-	
 
 	public Equipo getGanador() {
 		return ganador;
 	}
 
 	public void setGanador(Equipo ganador) {
-		
-		if(this.getGolesLocales()>this.getGolesVisitantes()) {
+
+		if (this.getGolesLocales() > this.getGolesVisitantes()) {
 			this.ganador = this.equipoLocal;
 		} else {
 			this.ganador = this.equipoVisitante;
-		}	
+		}
 	}
 
 }

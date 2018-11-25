@@ -21,10 +21,27 @@
 				<div class="panel panel-primary">
 					<div class="panel-heading text-center">
 						${p.equipoLocal.nombre} - ${p.equipoVisitante.nombre}
+						
 					</div>
+					<c:choose> 
+					<c:when test="${p.isTerminado == false}">
+					
+					<span class="input-group-addon">
+						<button class="btn btn-success">
+					<a href="http://localhost:8080/proyecto-limpio-spring/cargar-resultado?idPartido=${p.id}">
+						Cargar Resultado</button></a>
+					</span>
+					</c:when>
+					<c:otherwise>
+					<div class="panel-heading text-center">
+						${p.golesLocales} -  ${p.golesVisitantes}						
+					</div>
+					
+					</c:otherwise>
+					</c:choose>
 				</div>
 			</c:forEach>
-		</div>
+		</div>	
 						
 		<!-- Placed at the end of the document so the pages load faster -->
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js" ></script>

@@ -31,6 +31,7 @@
 					<div class="panel-heading text-center">
 						${p.equipoLocal.nombre} - ${p.equipoVisitante.nombre}
 					</div>
+					
 					<span class="input-group-addon">
 						<button class="btn btn-success">Cargar Resultado</button>
 					</span>

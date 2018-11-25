@@ -28,7 +28,6 @@ public class PartidoDaoImpl implements PartidoDao {
 	@Override
 	public void save(Partido partido) {
 		sessionFactory.getCurrentSession().save(partido);
-		
 	}
 
 	@Override
