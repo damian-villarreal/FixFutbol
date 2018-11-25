@@ -238,4 +238,15 @@ public class ServicioTorneoImpl implements ServicioTorneo {
 		
 		partidoDao.update(pasaALaSiguienteFase);
 	}
+
+	@Override
+	public Torneo buscarPorId(Long idTorneo) {
+		return torneoDao.findById(idTorneo);
+	}
+
+	@Override
+	public List<Fecha> obtenerFechas(Long idTorneo) {
+		
+		return torneoDao.getFechas(idTorneo);
+	}
 }

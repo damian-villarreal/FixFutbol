@@ -16,6 +16,7 @@ import java.util.*;
 
 import ar.edu.unlam.tallerweb1.dao.PartidoDao;
 import ar.edu.unlam.tallerweb1.modelo.Equipo;
+import ar.edu.unlam.tallerweb1.modelo.Fecha;
 import ar.edu.unlam.tallerweb1.modelo.Partido;
 import ar.edu.unlam.tallerweb1.modelo.Torneo;
 import ar.edu.unlam.tallerweb1.servicios.ServicioEquipo;
@@ -139,7 +140,9 @@ public class ControladorTorneo {
 	@RequestMapping(path = "/detalle-torneo")
 	public ModelAndView detalleTorneo(@RequestParam (name="idTorneo")Long idTorneo) {
 		ModelMap modelo = new ModelMap();
-		List<Partido> partidos = servicioPartido.buscarPorTorneo(idTorneo);		
+		List<Partido> partidos = servicioPartido.buscarPorTorneo(idTorneo);
+		List<Fecha> fechas = servicioTorneo.obtenerFechas(idTorneo);
+		modelo.put("fechas", fechas);
 		modelo.put("partidos", partidos);
 		return new ModelAndView("detalle-torneo",modelo);
 	}
