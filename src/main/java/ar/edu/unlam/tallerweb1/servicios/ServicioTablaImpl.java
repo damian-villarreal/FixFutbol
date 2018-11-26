@@ -8,8 +8,10 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
+import ar.edu.unlam.tallerweb1.dao.EquipoDao;
 import ar.edu.unlam.tallerweb1.dao.TablaDao;
 import ar.edu.unlam.tallerweb1.modelo.Tabla;
+import ar.edu.unlam.tallerweb1.modelo.Torneo;
 
 @Service ("servicioTabla")
 @Transactional(readOnly = true , propagation = Propagation.SUPPORTS)
@@ -18,11 +20,13 @@ public class ServicioTablaImpl implements ServicioTabla {
 	@Inject
 	private TablaDao tablaDao;
 	
+	@Inject
+	private EquipoDao equipoDao;
+	
 	@Transactional(readOnly = false , propagation = Propagation.REQUIRED , rollbackFor = { Exception.class } )
 	@Override
 	public void guardarTabla(Tabla tabla) {
 		tablaDao.save(tabla);
-		
 	}
 
 	@Transactional(readOnly = false , propagation = Propagation.REQUIRED , rollbackFor = { Exception.class } )
@@ -35,6 +39,29 @@ public class ServicioTablaImpl implements ServicioTabla {
 	@Override
 	public List<Tabla> listarTabla() {
 		return tablaDao.orderDesc();
+	}
+
+	@Transactional(readOnly = false , propagation = Propagation.REQUIRED , rollbackFor = { Exception.class } )
+	@Override
+	public void crearTabla(Torneo torneo, Long idEquipo) {
+		Tabla tabla = new Tabla();
+		tabla.setEquipo(equipoDao.findById(Long.valueOf(idEquipo)));
+		tabla.setTorneo(torneo);
+		tabla.setDiferenciagoles(0);
+		tabla.setEmpatados(0);
+		tabla.setGanados(0);
+		tabla.setGolescontra(0);
+		tabla.setGolesfavor(0);
+		tabla.setJugados(0);
+		tabla.setPerdidos(0);
+		tabla.setPuntos(0);
+		tablaDao.save(tabla);		
+	}
+
+	@Override
+	public List<Tabla> buscarPorTorneo(Long idTorneo) {
+		List<Tabla> tabla = tablaDao.findByTournament(idTorneo);
+		return tabla;
 	}
 }
 

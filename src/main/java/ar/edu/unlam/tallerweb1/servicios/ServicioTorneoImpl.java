@@ -9,11 +9,13 @@ import org.springframework.transaction.annotation.Transactional;
 import ar.edu.unlam.tallerweb1.dao.EquipoDao;
 import ar.edu.unlam.tallerweb1.dao.FaseDao;
 import ar.edu.unlam.tallerweb1.dao.PartidoDao;
+import ar.edu.unlam.tallerweb1.dao.TablaDao;
 import ar.edu.unlam.tallerweb1.dao.TorneoDao;
 import ar.edu.unlam.tallerweb1.modelo.Equipo;
 import ar.edu.unlam.tallerweb1.modelo.Fase;
 import ar.edu.unlam.tallerweb1.modelo.Fecha;
 import ar.edu.unlam.tallerweb1.modelo.Partido;
+import ar.edu.unlam.tallerweb1.modelo.Tabla;
 import ar.edu.unlam.tallerweb1.modelo.Torneo;
 
 @Service("servicioTorneo")
@@ -23,6 +25,12 @@ public class ServicioTorneoImpl implements ServicioTorneo {
 
 	@Inject
 	private TorneoDao torneoDao;
+	
+	@Inject 
+	private ServicioTabla servicioTabla;
+	
+	@Inject
+	private TablaDao tablaDao;
 	
 	/*@Inject
 	private FechaDao fechaDao;*/
@@ -94,9 +102,14 @@ public class ServicioTorneoImpl implements ServicioTorneo {
 		Long auxLocal = null;
 		Long auxVisitante = null;
 
-		Torneo torneo = new Torneo();
-
-		for (Integer f = 0; f < cantidadDeFechas; f++) {
+		Torneo torneo = new Torneo();	
+		torneoDao.save(torneo);
+		
+		for(int t=1; t<=cantidadDeEquipos; t++ ) {
+			servicioTabla.crearTabla(torneo, Long.valueOf(t));
+		}
+		
+		for (int f=0; f < cantidadDeFechas; f++) {
 			Fecha fecha = new Fecha();
 			fecha.setNumero(f + 1);
 			fecha.setTorneo(torneo);
@@ -152,6 +165,7 @@ public class ServicioTorneoImpl implements ServicioTorneo {
 				}
 				partidoDao.save(partido);
 			}
+			
 		}
 		
 		
@@ -249,4 +263,6 @@ public class ServicioTorneoImpl implements ServicioTorneo {
 		
 		return torneoDao.getFechas(idTorneo);
 	}
+	
+	
 }

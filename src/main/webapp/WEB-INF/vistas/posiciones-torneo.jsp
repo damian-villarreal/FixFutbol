@@ -6,7 +6,6 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-	<head>
 		<%@ include file="includes/header.jsp"%>
 	</head>
 	<body>
@@ -14,7 +13,7 @@
 
 	<div class="col-md-8 col-md-offset-2">
 		<ol class="breadcrumb text-center">
-			<li class="breadcrumb-item active">Torneos creados</li>
+			<li class="breadcrumb-item active">Elegir torneo para ver tabla de posiciones</li>
 		</ol>
 		<table class="table bg-">
 			<thead class="thead-dark">
@@ -28,7 +27,7 @@
 				<c:forEach items="${torneos}" var="torneo">
 					<tr>
 					<td>
-					<a href="http://localhost:8080/proyecto-limpio-spring/detalle-torneo?idTorneo=${torneo.id}">
+					<a href="http://localhost:8080/proyecto-limpio-spring/detalle-posiciones?idTorneo=${torneo.id}">
 						${torneo.nombre}
 						</a>
 						</td>

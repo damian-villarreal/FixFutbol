@@ -10,5 +10,6 @@ public interface TablaDao {
 	void update(Tabla tabla);
 	List<Tabla> findAll();
 	List<Tabla> orderDesc();
+	List<Tabla> findByTournament(Long idTorneo);
 
 }

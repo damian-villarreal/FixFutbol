@@ -4,8 +4,10 @@ import java.util.List;
 
 import javax.inject.Inject;
 
+import org.hibernate.Criteria;
 import org.hibernate.SessionFactory;
 import org.hibernate.criterion.Order;
+import org.hibernate.criterion.Restrictions;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -45,5 +47,16 @@ public class TablaDaoImpl implements TablaDao {
 				.list();
 		return tablaOrdenada;	
 	}
+
+	@Override
+	public List<Tabla> findByTournament(Long idTorneo) {
+		List <Tabla> tabla = sessionFactory.getCurrentSession().createCriteria(Tabla.class)
+				.createAlias("torneo", "t")
+				.add(Restrictions.eq("t.id", idTorneo))
+				.list();
+		return tabla;
+	}
+
+	
 }
 

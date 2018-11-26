@@ -35,7 +35,6 @@ public class ServicioEquipoImpl implements ServicioEquipo {
 	@Override
 	public void actualizarEquipo(Equipo equipo) {
 		equipoDao.update(equipo);
-
 	}
 
 	@Override
@@ -46,6 +45,11 @@ public class ServicioEquipoImpl implements ServicioEquipo {
 	@Override
 	public List<Equipo> traerEquiposQueNoJueganPartidos(List<Equipo> equipos) {
 		return equipoDao.findTeamsWithoutMatches(equipos);
+	}
+
+	@Override
+	public Equipo buscarPorId(Long idEquipo) {
+		return equipoDao.findById(idEquipo);
 	}
 
 }

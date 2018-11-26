@@ -6,10 +6,10 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-<%@ include file="includes/header.jsp"%>
-</head>
-<body>
-	<%@ include file="includes/navbar.jsp"%>
+		<%@ include file="includes/header.jsp"%>
+	</head>
+	<body>
+		<%@ include file="includes/navbar.jsp" %>
 
 	<div class="col-md-8 col-md-offset-2">
 		<ol class="breadcrumb text-center">

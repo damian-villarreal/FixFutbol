@@ -9,6 +9,7 @@ public class Tabla {
 	@Id
 	@GeneratedValue (strategy = GenerationType.IDENTITY)
 	private Long id;
+	
 	private Integer puntos;
 	private Integer jugados;
 	private Integer ganados;
@@ -18,16 +19,19 @@ public class Tabla {
 	private Integer golescontra;
 	private Integer diferenciagoles;
 	
-	
 	@ManyToOne (cascade = { CascadeType.ALL } , fetch = FetchType.EAGER)
 	@JsonIgnore
 	private Equipo equipo;
+	
+	public Torneo getTorneo() {
+		return torneo;
+	}
+	public void setTorneo(Torneo torneo) {
+		this.torneo = torneo;
+	}
+	@ManyToOne
+	private Torneo torneo;
 
-	
-	
-	
-	
-	
 	
 	//GETTER Y SETTER
 	public Long getId() {
@@ -90,6 +94,7 @@ public class Tabla {
 	public void setJugados(Integer jugados) {
 		this.jugados = jugados;
 	}
+	
 	
 	
 	

@@ -35,7 +35,6 @@ public class ServicioPartidoImpl implements ServicioPartido {
 	@Override
 	public void actualizarPartido(Partido partido) {
 		partidoDao.update(partido);
-		
 	}
 
 	@Override
@@ -67,6 +66,4 @@ public class ServicioPartidoImpl implements ServicioPartido {
 		partidoDao.update(p);
 	}
 	
-	
-
 }

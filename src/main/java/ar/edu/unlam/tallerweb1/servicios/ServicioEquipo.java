@@ -9,5 +9,6 @@ public interface ServicioEquipo {
 	void guardarEquipo(Equipo equipo);
 	void actualizarEquipo(Equipo equipo);
 	Equipo consultarEquipo(Equipo equipo);
+	Equipo buscarPorId(Long idEquipo);
 	List<Equipo> traerEquiposQueNoJueganPartidos(List<Equipo> equipos);
 }
