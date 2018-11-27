@@ -32,9 +32,9 @@
 						${p.equipoLocal.nombre} - ${p.equipoVisitante.nombre}
 					</div>
 					
-					<span class="input-group-addon">
-						<button class="btn btn-success">Cargar Resultado</button>
-					</span>
+<!-- 					<span class="input-group-addon"> -->
+<!-- 						<button class="btn btn-success">Cargar Resultado</button> -->
+<!-- 					</span> -->
 				</div>
 				
 			</c:forEach>

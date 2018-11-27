@@ -32,11 +32,15 @@
 					<c:when test="${p.isTerminado == false}">
 
 						<span class="input-group-addon">
+						<a href="http://localhost:8080/proyecto-limpio-spring/cargar-resultado?idPartido=${p.id}">
 							<button class="btn btn-success">
-								<a href="http://localhost:8080/proyecto-limpio-spring/cargar-resultado?idPartido=${p.id}">
+								
 									Cargar Resultado
-							</button>
-							</a>
+									</button>
+									
+									</a>
+							
+							
 						</span>
 					</c:when>
 					<c:otherwise>

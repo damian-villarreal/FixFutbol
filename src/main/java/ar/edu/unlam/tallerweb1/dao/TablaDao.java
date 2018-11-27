@@ -11,5 +11,6 @@ public interface TablaDao {
 	List<Tabla> findAll();
 	List<Tabla> orderDesc();
 	List<Tabla> findByTournament(Long idTorneo);
+	Tabla findTeamAndTournament(Long idEquipo, Long idTorneo);
 
 }

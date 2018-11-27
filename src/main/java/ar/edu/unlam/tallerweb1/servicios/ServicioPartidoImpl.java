@@ -19,6 +19,9 @@ public class ServicioPartidoImpl implements ServicioPartido {
 	@Inject
 	private PartidoDao partidoDao;
 	
+	@Inject
+	private ServicioTabla servicioTabla;
+	
 	@Override
 	public List<Partido> listarTodosLosPartidos() {
 		return partidoDao.findAll();
@@ -62,6 +65,7 @@ public class ServicioPartidoImpl implements ServicioPartido {
 		Partido p = partidoDao.findById(partido.getId());
 		p.setGolesLocales(partido.getGolesLocales());
 		p.setGolesVisitantes(partido.getGolesVisitantes());
+		p.setIsResultadoFinal(true);
 		p.setIsTerminado(true);
 		partidoDao.update(p);
 	}

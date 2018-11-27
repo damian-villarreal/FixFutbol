@@ -9,8 +9,10 @@ import ar.edu.unlam.tallerweb1.modelo.Torneo;
 public interface ServicioTabla {
 	
 	void guardarTabla (Tabla tabla);
-	void actualizarTabla(Tabla tabla);
+//	void actualizarTabla(Tabla tabla);
 	List<Tabla> listarTabla();
 	void crearTabla(Torneo torneo, Long idEquipo);
 	List<Tabla> buscarPorTorneo(Long idTorneo);
+	void actualizarTabla(Partido partido);
+	Tabla buscarEquipoTorneo(Long idEquipo, Long idTorneo);
 }

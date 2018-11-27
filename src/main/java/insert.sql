@@ -1,11 +1,14 @@
-/*INSERT INTO `db`.`equipo` (`nombre`) VALUES ('River Plate');
+use db;
+
+INSERT INTO `db`.`equipo` (`nombre`) VALUES ('River Plate');
 INSERT INTO `db`.`equipo` (`nombre`) VALUES ('Racing');
 INSERT INTO `db`.`equipo` (`nombre`) VALUES ('Boca Juniors');
 INSERT INTO `db`.`equipo` (`nombre`) VALUES ('San Lorenzo');
 INSERT INTO `db`.`equipo` (`nombre`) VALUES ('Huracan');
-INSERT INTO `db`.`equipo` (`nombre`) VALUES ('Velez Sarsfield');*/
+INSERT INTO `db`.`equipo` (`nombre`) VALUES ('Velez Sarsfield');
 
-INSERT INTO Equipo 	(id, nombre) VALUES 
+
+/*INSERT INTO Equipo 	(id, nombre) VALUES 
 					(1, "Boca Juniors"),
 					(2, "River Plate"),
 					(3, "Racing Club"),
@@ -26,8 +29,8 @@ INSERT INTO Equipo 	(id, nombre) VALUES
  					(18, "San Martin de Tucuman"), 
  					(19, "Tigre"),
  					(20, "Colon");
- 					
- NSERT INTO Torneo (id, nombre) VALUES
+ 	*/				
+ INSERT INTO Torneo (id, nombre) VALUES
  					(1, "Liguilla"),
  					(2, "Copa Libertadores"),
  					(3, "Copa Sudamericana");

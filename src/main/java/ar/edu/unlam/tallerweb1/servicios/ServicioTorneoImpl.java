@@ -114,7 +114,7 @@ public class ServicioTorneoImpl implements ServicioTorneo {
 			fecha.setNumero(f + 1);
 			fecha.setTorneo(torneo);
 			torneo.setTipoTorneo("Liguilla");
-			torneo.setNombre("Torneo "+String.valueOf(torneoDao.findAll().size()+1));
+			torneo.setNombre("Torneo "+String.valueOf(torneoDao.findAll().size()));
 
 			auxVisitante = Long.valueOf(cantidadDeEquipos - f);
 			auxLocal = 1L;

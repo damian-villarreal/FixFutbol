@@ -16,7 +16,7 @@ public class Fecha {
 	private Long id;
 	private Integer numero;
 	
-	@ManyToOne(cascade = { CascadeType.ALL } , fetch = FetchType.LAZY)
+	@ManyToOne(cascade = { CascadeType.ALL } , fetch = FetchType.EAGER)
 	private Torneo torneo;
 	
 	

@@ -50,13 +50,22 @@ public class TablaDaoImpl implements TablaDao {
 
 	@Override
 	public List<Tabla> findByTournament(Long idTorneo) {
-		List <Tabla> tabla = sessionFactory.getCurrentSession().createCriteria(Tabla.class)
+		return (List <Tabla>) sessionFactory.getCurrentSession().createCriteria(Tabla.class)
 				.createAlias("torneo", "t")
 				.add(Restrictions.eq("t.id", idTorneo))
 				.list();
-		return tabla;
+		
 	}
 
-	
+	@Override
+	public Tabla findTeamAndTournament(Long idEquipo, Long idTorneo) {
+		return (Tabla) sessionFactory.getCurrentSession().createCriteria(Tabla.class)
+				.createAlias("equipo", "e")
+				.createAlias("torneo", "t")
+				.add(Restrictions.eq("e.id", idEquipo))
+				.add(Restrictions.eq("t.id", idTorneo))
+				.uniqueResult();
+	}
+
 }
 

@@ -23,7 +23,7 @@ public class Partido {
 	@DateTimeFormat(pattern = "yyyy/MM/dd HH:mm")
 	private Date fechaPartido;
 
-	@ManyToOne(cascade = { CascadeType.ALL }, fetch = FetchType.LAZY)
+	@ManyToOne(cascade = { CascadeType.ALL }, fetch = FetchType.EAGER)
 	private Fecha fecha;
 
 	private Boolean isTerminado = false;
