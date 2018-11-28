@@ -29,20 +29,16 @@ public class Partido {
 	private Boolean isTerminado = false;
 	private Boolean isResultadoFinal = false;
 
-	@ManyToOne
-	private Fase fase;
-
 	@OneToOne
 	private Equipo ganador;
 
 	public Partido() {
 	}
 
-	public Partido(Equipo equipoLocal, Equipo equipoVisitante, Fase fase) {
+	public Partido(Equipo equipoLocal, Equipo equipoVisitante) {
 
 		this.equipoLocal = equipoLocal;
 		this.equipoVisitante = equipoVisitante;
-		this.fase = fase;
 		this.golesLocales = 0;
 		this.golesVisitantes = 0;
 		this.isTerminado = false;
@@ -212,5 +208,4 @@ public class Partido {
 			this.ganador = this.equipoVisitante;
 		}
 	}
-
 }

@@ -48,6 +48,7 @@ public class TablaDaoImpl implements TablaDao {
 		return tablaOrdenada;	
 	}
 
+	@SuppressWarnings("unchecked")
 	@Override
 	public List<Tabla> findByTournament(Long idTorneo) {
 		return (List <Tabla>) sessionFactory.getCurrentSession().createCriteria(Tabla.class)

@@ -49,6 +49,7 @@ public class TorneoDaoImpl implements TorneoDao{
 				.uniqueResult();
 	}
 
+	@SuppressWarnings("unchecked")
 	@Override
 	public List<Fecha> getFechas(Long idTorneo) {
 			
