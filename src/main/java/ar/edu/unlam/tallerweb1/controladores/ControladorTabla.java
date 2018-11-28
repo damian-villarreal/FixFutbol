@@ -27,7 +27,7 @@ public class ControladorTabla {
 	@RequestMapping ("/detalle-posiciones")
 	public ModelAndView verPosiciones(@RequestParam(name = "idTorneo") Long idTorneo){
 		ModelMap modelo = new ModelMap();
-		List<Tabla> tablas = servicioTabla.buscarPorTorneo(idTorneo);
+		List<Tabla> tablas = servicioTabla.listarTabla();
 		modelo.put("tablas", tablas);
 		return new ModelAndView ("detalle-posiciones", modelo);
 	}
