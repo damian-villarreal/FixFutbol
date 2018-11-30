@@ -10,7 +10,7 @@ public interface ServicioTabla {
 	
 	void guardarTabla (Tabla tabla);
 //	void actualizarTabla(Tabla tabla);
-	List<Tabla> listarTabla();
+	List<Tabla> listarTabla(Long idTorneo);
 	void crearTabla(Torneo torneo, Long idEquipo);
 	List<Tabla> buscarPorTorneo(Long idTorneo);
 	void actualizarTabla(Partido partido);

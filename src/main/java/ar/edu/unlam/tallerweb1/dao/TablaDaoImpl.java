@@ -38,10 +38,12 @@ public class TablaDaoImpl implements TablaDao {
 		return tabla;
 	}
 	
-	public List<Tabla> orderDesc(){
+	public List<Tabla> orderDesc(Long idTorneo){
 		
 		@SuppressWarnings("unchecked")
 		List<Tabla> tablaOrdenada = sessionFactory.getCurrentSession().createCriteria(Tabla.class)
+				.createAlias("torneo", "t")
+				.add(Restrictions.eq("t.id",idTorneo))
 				.addOrder(Order.desc("puntos"))
 				.addOrder(Order.desc("diferenciagoles"))
 				.list();

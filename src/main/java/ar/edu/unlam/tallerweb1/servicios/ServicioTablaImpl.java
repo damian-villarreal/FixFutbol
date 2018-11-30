@@ -38,8 +38,8 @@ public class ServicioTablaImpl implements ServicioTabla {
 	// }
 
 	@Override
-	public List<Tabla> listarTabla() {
-		return tablaDao.orderDesc();
+	public List<Tabla> listarTabla(Long idTorneo) {
+		return tablaDao.orderDesc(idTorneo);
 	}
 
 	@Transactional(readOnly = false, propagation = Propagation.REQUIRED, rollbackFor = { Exception.class })
