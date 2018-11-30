@@ -13,20 +13,21 @@
 <%@ include file="includes/navbar.jsp" %>
 
 	<div class="panel-heading text-center">
-
-		<form:form action="guardar-resultado" method="POST"
-			modelAttribute="partido">
+		<form:form action="guardar-resultado" method="POST" modelAttribute="partido">
+		
 			<form:hidden path="id"/>
 			<form:label path="equipoLocal">${partido.equipoLocal.nombre}</form:label>
 			<form:input path="golesLocales" />
 
 			<form:label path="equipoVisitante">${partido.equipoVisitante.nombre}</form:label>
 			<form:input path="golesVisitantes" />
-
-			<form:button type="Submit">Guardar resultado</form:button>
-
-		</form:form>
-
+			
+			<b>Figura del partido</b>
+			<form:input path="figura"/>	
+			
+			<form:button type="Submit">Guardar datos</form:button>
+	
+		</form:form>		
 	</div>
 </body>
 </html>

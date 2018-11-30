@@ -9,7 +9,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
+
+import ar.edu.unlam.tallerweb1.modelo.Figura;
 import ar.edu.unlam.tallerweb1.modelo.Partido;
+import ar.edu.unlam.tallerweb1.servicios.ServicioFigura;
 import ar.edu.unlam.tallerweb1.servicios.ServicioPartido;
 import ar.edu.unlam.tallerweb1.servicios.ServicioTabla;
 
@@ -21,7 +24,10 @@ public class ControladorPartido {
 
 	@Inject
 	public ServicioTabla servicioTabla;
-
+	
+	@Inject
+	public ServicioFigura servicioFigura;
+	
 	@RequestMapping(path = "/cargar-resultado")
 	public ModelAndView cargarResultado(@RequestParam(value = "idPartido") Long idPartido) {
 		ModelMap modelo = new ModelMap();
@@ -35,6 +41,7 @@ public class ControladorPartido {
 		servicioPartido.ActualizarResultado(partido);
 		Partido partidoActualizarTabla = servicioPartido.buscarPorId(partido.getId());
 		servicioTabla.actualizarTabla(partidoActualizarTabla);
+		servicioFigura.guardarFigura(partido.getFigura());
 		return new ModelAndView("redirect:index");
 	}
 }

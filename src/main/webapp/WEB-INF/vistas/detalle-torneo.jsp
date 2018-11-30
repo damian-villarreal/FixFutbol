@@ -15,8 +15,7 @@
 		<ol class="breadcrumb text-center">
 			<li class="breadcrumb-item active">Partidos disponibles</li>
 		</ol>
-
-
+	
 		<p>Seleccione número de fecha:</p>
 		<div class="form-group">
 			<select class="form-control">
@@ -26,8 +25,7 @@
 				</c:forEach>
 			</select>
 		</div>
-
-
+	
 		<c:forEach var="f" items="${fechas}">
 			<div class="panel panel-primary">
 				<div class="panel-heading text-center" id="${f.numero}">Fecha
@@ -47,17 +45,18 @@
 							<c:otherwise>
 								<div class="col-md-4">${p.equipoLocal.nombre}</div>
 								<div class="col-md-4">
-									<a
-										href="http://localhost:8080/proyecto-limpio-spring/cargar-resultado?idPartido=${p.id}">
-										<button class="btn btn-success">Cargar Resultado</button>
-									</a>
+									<a href="http://localhost:8080/proyecto-limpio-spring/cargar-resultado?idPartido=${p.id}">
+										<button class="btn btn-success">Cargar Resultado y Figura</button>
+									</a>							
 								</div>
+								
 								<div class="col-md-4">${p.equipoVisitante.nombre}</div>
-							</c:otherwise>
-
+								
+							</c:otherwise>		
 						</c:choose>
 					</div>
 				</c:forEach>
+
 			</div>
 		</c:forEach>
 

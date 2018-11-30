@@ -12,6 +12,6 @@ public class ControladorCargarResultado {
 	@RequestMapping(path = "/cargarResultado" , method = RequestMethod.POST)
 	public ModelAndView cargarResultado() {
 		ModelMap modelo = new ModelMap();
-		return new ModelAndView("cargar-resultado",modelo);
+		return new ModelAndView("cargar-resultado", modelo);
 	}
 }

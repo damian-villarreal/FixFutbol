@@ -10,7 +10,7 @@ public class Equipo {
 	private Long id;
 	private String nombre;
 	
-	
+	public Equipo () {}
 	
 	public Long getId() {
 		return id;

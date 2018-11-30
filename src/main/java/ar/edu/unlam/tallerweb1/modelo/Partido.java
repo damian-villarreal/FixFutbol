@@ -28,12 +28,11 @@ public class Partido {
 
 	private Boolean isTerminado = false;
 	private Boolean isResultadoFinal = false;
-
-	@OneToOne
-	private Equipo ganador;
-
-	public Partido() {
-	}
+	
+	@ManyToOne
+	private Figura figura;
+	
+	public Partido() {}
 
 	public Partido(Equipo equipoLocal, Equipo equipoVisitante) {
 
@@ -43,7 +42,6 @@ public class Partido {
 		this.golesVisitantes = 0;
 		this.isTerminado = false;
 		this.isResultadoFinal = false;
-
 	}
 
 	public Long getId() {
@@ -128,6 +126,14 @@ public class Partido {
 		String fechaSimple = dateFormat.format(fecha);
 		return equipoLocal.getNombre() + " Vs " + equipoVisitante.getNombre() + " - " + fechaSimple + "Hs";
 	}
+	
+	public Figura getFigura() {
+		return figura;
+	}
+
+	public void setFigura(Figura figura) {
+		this.figura = figura;
+	}
 
 	@Override
 	public int hashCode() {
@@ -194,18 +200,5 @@ public class Partido {
 		} else if (!isTerminado.equals(other.isTerminado))
 			return false;
 		return true;
-	}
-
-	public Equipo getGanador() {
-		return ganador;
-	}
-
-	public void setGanador(Equipo ganador) {
-
-		if (this.getGolesLocales() > this.getGolesVisitantes()) {
-			this.ganador = this.equipoLocal;
-		} else {
-			this.ganador = this.equipoVisitante;
-		}
 	}
 }
