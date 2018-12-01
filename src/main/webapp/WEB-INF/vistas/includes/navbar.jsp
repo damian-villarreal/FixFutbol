@@ -27,7 +27,7 @@
         	</a>
         </li>
         <li>
-        	<a href="http://localhost:8080/proyecto-limpio-spring/crear-liguilla">
+        	<a href="http://localhost:8080/proyecto-limpio-spring/crear-liguilla" id="crearLiguilla">
         		Crear Liguilla
         	</a>
         </li>

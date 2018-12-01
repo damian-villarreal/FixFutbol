@@ -10,7 +10,7 @@
 	<script type="text/javascript" src="js/bootstrap.min.js"></script>
 	
 	<!-- ACÁ DEBERÍA IR CSS Y JS PROPIOS -->
-	
+	<script type="text/javascript" src="js/validaciones.js"></script>
 	
 	
 	<!-- TÍTULO DEL PROYECTO -->
