@@ -17,14 +17,15 @@
 				</li>
 			</ol>
 			
-	<%-- 		<form:select path="numero" name="fecha" > 
+	<%--<form:select path="numero" name="fecha" > 
 					<option>Seleccione</option>
 					<c:forEach items="${fechas}" var="f">
 						<form:option value="${f.id}">
 							${f.numero}
 						</form:option>
 					</c:forEach>
-				</form:select>--%>
+				</form:select>
+ --%>
 				
 			<c:forEach items="${partidos}" var="p">
 				<div class="panel panel-primary">
