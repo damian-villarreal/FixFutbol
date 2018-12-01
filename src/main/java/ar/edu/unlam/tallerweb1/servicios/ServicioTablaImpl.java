@@ -116,4 +116,17 @@ public class ServicioTablaImpl implements ServicioTabla {
 		return tabla;
 	}
 
+	@Override
+	public boolean ValidarCampeonAnticipado(List<Tabla> tablas) {
+		Tabla equipoPrimeroEnLaTabla = tablas.get(0);
+		Tabla equipoSegundoEnLaTabla = tablas.get(1);
+		Integer CantidadDePartidosAJugar = tablas.size()-1;
+		Integer CantidadDePartidosQueLeQuedanAlSegundo = CantidadDePartidosAJugar-equipoSegundoEnLaTabla.getJugados();
+		
+		if(equipoPrimeroEnLaTabla.getPuntos()>(equipoSegundoEnLaTabla.getPuntos()+(CantidadDePartidosQueLeQuedanAlSegundo*3))) {
+			return true;
+		}		
+		return false;
+	}
+
 }

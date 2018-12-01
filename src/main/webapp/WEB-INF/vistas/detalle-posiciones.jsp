@@ -13,6 +13,8 @@
 
 		<h1>Tabla de Posiciones</h1>
 		
+		<h2>${mensaje}</h2>
+		
 		<div class="table-responsive">
 			<table class="table table-condensed  table-bordered">
 			

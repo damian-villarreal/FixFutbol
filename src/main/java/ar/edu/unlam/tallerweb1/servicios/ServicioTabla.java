@@ -15,4 +15,5 @@ public interface ServicioTabla {
 	List<Tabla> buscarPorTorneo(Long idTorneo);
 	void actualizarTabla(Partido partido);
 	Tabla buscarEquipoTorneo(Long idEquipo, Long idTorneo);
+	boolean ValidarCampeonAnticipado(List<Tabla> tablas);
 }

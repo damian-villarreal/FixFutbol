@@ -28,6 +28,11 @@ public class ControladorTabla {
 	public ModelAndView verPosiciones(@RequestParam(name = "idTorneo") Long idTorneo){
 		ModelMap modelo = new ModelMap();
 		List<Tabla> tablas = servicioTabla.listarTabla(idTorneo);
+		
+		if(servicioTabla.ValidarCampeonAnticipado(tablas)) {
+			modelo.put("mensaje", "El Campeon es "+tablas.get(0).getEquipo().getNombre()+". Ya no hay equipos que lo puedan alcanzar");	
+		}
+		
 		modelo.put("tablas", tablas);
 		return new ModelAndView ("detalle-posiciones", modelo);
 	}
