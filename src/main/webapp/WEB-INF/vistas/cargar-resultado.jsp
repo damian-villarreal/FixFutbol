@@ -17,11 +17,11 @@
 		
 			<form:hidden path="id"/>
 			<form:label path="equipoLocal">${partido.equipoLocal.nombre}</form:label>
-			<form:input path="golesLocales" />
+			<form:input type="number" min="0" pattern="^[0-9]+"  required="true" path="golesLocales" />
 
 			<form:label path="equipoVisitante">${partido.equipoVisitante.nombre}</form:label>
-			<form:input path="golesVisitantes" />
-			
+			<form:input type="number" min="0" pattern="^[0-9]+" required="true" path="golesVisitantes" />
+			<br><br>
 			<b>Figura del partido</b>
 			<form:input path="figura"/>	
 			

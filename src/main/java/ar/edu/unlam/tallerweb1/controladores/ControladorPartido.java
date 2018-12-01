@@ -42,6 +42,6 @@ public class ControladorPartido {
 		Partido partidoActualizarTabla = servicioPartido.buscarPorId(partido.getId());
 		servicioTabla.actualizarTabla(partidoActualizarTabla);
 		servicioFigura.guardarFigura(partido.getFigura());
-		return new ModelAndView("redirect:index");
+		return new ModelAndView("redirect:ver-torneos");
 	}
 }
