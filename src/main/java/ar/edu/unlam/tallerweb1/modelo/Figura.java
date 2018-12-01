@@ -22,6 +22,11 @@ public class Figura {
 	}
 	
 	
+	public Figura() {
+		
+	}
+
+
 	public Long getId() {
 		return id;
 	}
