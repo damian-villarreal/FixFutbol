@@ -9,6 +9,7 @@ import ar.edu.unlam.tallerweb1.dao.EquipoDao;
 import ar.edu.unlam.tallerweb1.dao.PartidoDao;
 import ar.edu.unlam.tallerweb1.dao.TablaDao;
 import ar.edu.unlam.tallerweb1.dao.TorneoDao;
+import ar.edu.unlam.tallerweb1.dao.TorneoDaoImpl;
 import ar.edu.unlam.tallerweb1.modelo.Fecha;
 import ar.edu.unlam.tallerweb1.modelo.Partido;
 import ar.edu.unlam.tallerweb1.modelo.Torneo;
@@ -69,7 +70,9 @@ public class ServicioTorneoImpl implements ServicioTorneo {
 		Long auxLocal = null;
 		Long auxVisitante = null;
 
-		Torneo torneo = new Torneo();	
+		Torneo torneo = new Torneo();
+		torneo.setCantPartidosJugados(0);
+		torneo.setCantPartidos(cantidadDePartidosPorFecha*cantidadDeFechas);
 		torneoDao.save(torneo);
 		
 		for(int t=1; t<=cantidadDeEquipos; t++ ) {
@@ -134,8 +137,6 @@ public class ServicioTorneoImpl implements ServicioTorneo {
 			}
 			
 		}
-		
-		
 		return partidoDao.findByTournament(torneo.getId());
 	}
 
@@ -144,10 +145,30 @@ public class ServicioTorneoImpl implements ServicioTorneo {
 		return torneoDao.findById(idTorneo);
 	}
 
-
-
 	@Override
 	public List<Fecha> obtenerFechas(Long idTorneo) {
 		return torneoDao.getFechas(idTorneo);
 	}
+	
+	@Override
+	public boolean validarTorneoFinalizado(Long idTorneo) {
+		Torneo torneo = buscarPorId(idTorneo);
+		Integer cantidadDePartidosTorneo = torneo.getCantPartidos();
+		Integer cantidadDePartidosJugados = torneo.getCantPartidosJugados();
+		if(cantidadDePartidosJugados == cantidadDePartidosTorneo) {
+			torneo.setIsTerminado(true);
+			torneoDao.update(torneo);
+		}
+		return torneo.getIsTerminado();
+	}
+	
+	@Override
+	public void actualizarPartidosJugados(Long idTorneo) {
+		Torneo torneo = torneoDao.findById(idTorneo);
+		torneo.setCantPartidosJugados(torneo.getCantPartidosJugados()+1);
+		torneoDao.update(torneo);
+	}
+	
+	
+	
 }

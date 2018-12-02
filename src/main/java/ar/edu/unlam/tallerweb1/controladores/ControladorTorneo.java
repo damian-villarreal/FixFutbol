@@ -17,6 +17,7 @@ import ar.edu.unlam.tallerweb1.modelo.Partido;
 import ar.edu.unlam.tallerweb1.modelo.Torneo;
 import ar.edu.unlam.tallerweb1.servicios.ServicioEquipo;
 import ar.edu.unlam.tallerweb1.servicios.ServicioPartido;
+import ar.edu.unlam.tallerweb1.servicios.ServicioTabla;
 import ar.edu.unlam.tallerweb1.servicios.ServicioTorneo;
 
 @Controller
@@ -30,6 +31,10 @@ public class ControladorTorneo {
 
 	@Inject
 	private ServicioPartido servicioPartido;
+	
+	@Inject
+	private ServicioTabla servicioTabla;
+	
 
 //	@RequestMapping(path = "fixture", method = RequestMethod.POST)
 //	public ModelAndView consultarTorneo(HttpServletRequest request) {
@@ -131,16 +136,15 @@ public class ControladorTorneo {
 		ModelMap modelo = new ModelMap();
 		List<Partido> partidos = servicioPartido.buscarPorTorneo(idTorneo);
 		List<Fecha> fechas = servicioTorneo.obtenerFechas(idTorneo);
+		
+		if(servicioTorneo.validarTorneoFinalizado(idTorneo))
+		{
+			modelo.put("mensaje", "Torneo Finalizado. El campeon es: "+servicioTabla.listarTabla(idTorneo).get(0).getEquipo().getNombre());
+		}		
 		modelo.put("fechas", fechas);
 		modelo.put("partidos", partidos);
 		return new ModelAndView("detalle-torneo", modelo);
 	}
-
-	
-
-
-
-
 
 	/*
 	 * @RequestMapping(path = "filtroPorFechas" , method = RequestMethod.POST)

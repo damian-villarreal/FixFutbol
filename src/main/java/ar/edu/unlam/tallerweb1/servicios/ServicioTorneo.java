@@ -21,4 +21,8 @@ public interface ServicioTorneo {
 	Torneo buscarPorId(Long idTorneo);
 
 	List<Fecha> obtenerFechas(Long idTorneo);
+
+	boolean validarTorneoFinalizado(Long idTorneo);
+	
+	void actualizarPartidosJugados(Long idTorneo);
 }

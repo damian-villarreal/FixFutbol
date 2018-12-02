@@ -15,6 +15,8 @@
 		<ol class="breadcrumb text-center">
 			<li class="breadcrumb-item active">Partidos disponibles</li>
 		</ol>
+		
+		<h1>${mensaje}</h1>
 
 		<p>Seleccione número de fecha:</p>
 		<div class="form-group">
