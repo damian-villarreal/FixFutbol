@@ -37,13 +37,19 @@
 						<div class="panel-body text-center">
 							<c:choose>
 								<c:when test="${p.isTerminado == true}">
-									<div class="col-md-4">${p.equipoLocal.nombre}</div>
+									<div class="col-md-4">
+									<img alt="" height="50px" src="${p.equipoLocal.logo}">
+									${p.equipoLocal.nombre}
+									</div>
 									<div class="col-md-4">${p.golesLocales}-
 										${p.golesVisitantes}</div>
-									<div class="col-md-4">${p.equipoVisitante.nombre}</div>
+									<div class="col-md-4">${p.equipoVisitante.nombre}
+									<img alt="" height="50px" src="${p.equipoVisitante.logo}"></div>
 								</c:when>
 								<c:otherwise>
-									<div class="col-md-4">${p.equipoLocal.nombre}</div>
+									<div class="col-md-4">
+									<img alt="" height="50px" src="${p.equipoLocal.logo}">
+									${p.equipoLocal.nombre}</div>
 									<div class="col-md-4">
 										<a
 											href="http://localhost:8080/proyecto-limpio-spring/cargar-resultado?idPartido=${p.id}">
@@ -51,7 +57,9 @@
 												Figura</button>
 										</a>
 									</div>
-									<div class="col-md-4">${p.equipoVisitante.nombre}</div>
+									<div class="col-md-4">${p.equipoVisitante.nombre}
+									<img alt="" height="50px" src="${p.equipoVisitante.logo}">
+									</div>
 
 								</c:otherwise>
 							</c:choose>

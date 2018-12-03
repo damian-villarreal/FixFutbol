@@ -16,7 +16,7 @@ public interface ServicioTorneo {
 
 	List<Torneo> listarTodosLosTorneos();
 
-	List<Partido> crearLiguilla();
+	Torneo crearLiguilla();
 
 	Torneo buscarPorId(Long idTorneo);
 

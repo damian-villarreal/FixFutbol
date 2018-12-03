@@ -62,7 +62,7 @@ public class ServicioTorneoImpl implements ServicioTorneo {
 		return torneoDao.findAll();
 	}
 
-	public List<Partido> crearLiguilla() {
+	public Torneo crearLiguilla() {
 
 		Integer cantidadDeEquipos = equipoDao.findAll().size();
 		Integer cantidadDeFechas = cantidadDeEquipos - 1;
@@ -137,7 +137,7 @@ public class ServicioTorneoImpl implements ServicioTorneo {
 			}
 			
 		}
-		return partidoDao.findByTournament(torneo.getId());
+		return torneo;
 	}
 
 	@Override

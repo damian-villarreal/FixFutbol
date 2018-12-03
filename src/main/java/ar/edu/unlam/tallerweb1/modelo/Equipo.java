@@ -9,6 +9,7 @@ public class Equipo {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	private String nombre;
+	private String logo;
 	
 	public Equipo () {}
 	
@@ -57,6 +58,14 @@ public class Equipo {
 		} else if (!nombre.equals(other.nombre))
 			return false;
 		return true;
+	}
+
+	public String getLogo() {
+		return logo;
+	}
+
+	public void setLogo(String logo) {
+		this.logo = logo;
 	}
 
 	

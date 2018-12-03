@@ -94,7 +94,10 @@ public class ControladorTorneo {
 	@RequestMapping(path = "/crear-liguilla")
 	public ModelAndView crearLiguilla() {
 		ModelMap modelo = new ModelMap();
-		List<Partido> partidos = servicioTorneo.crearLiguilla();
+		Torneo torneo = servicioTorneo.crearLiguilla();	
+		List<Fecha> fechas = servicioTorneo.obtenerFechas(torneo.getId());
+		List<Partido> partidos = servicioPartido.buscarPorTorneo(torneo.getId());
+		modelo.put("fechas", fechas);
 		modelo.put("partidos", partidos);
 		return new ModelAndView("liguilla", modelo);
 	}
