@@ -7,9 +7,7 @@ import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 import ar.edu.unlam.tallerweb1.dao.EquipoDao;
 import ar.edu.unlam.tallerweb1.dao.PartidoDao;
-import ar.edu.unlam.tallerweb1.dao.TablaDao;
 import ar.edu.unlam.tallerweb1.dao.TorneoDao;
-import ar.edu.unlam.tallerweb1.dao.TorneoDaoImpl;
 import ar.edu.unlam.tallerweb1.modelo.Fecha;
 import ar.edu.unlam.tallerweb1.modelo.Partido;
 import ar.edu.unlam.tallerweb1.modelo.Torneo;
@@ -26,19 +24,10 @@ public class ServicioTorneoImpl implements ServicioTorneo {
 	private ServicioTabla servicioTabla;
 	
 	@Inject
-	private TablaDao tablaDao;
-	
-	/*@Inject
-	private FechaDao fechaDao;*/
-	
-	@Inject
 	private PartidoDao partidoDao;
 	
 	@Inject
 	private EquipoDao equipoDao;
-	
-	/*@Inject
-	private ServicioEquipo servicioEquipo;*/
 	
 	@Override
 	@Transactional(readOnly = false, propagation = Propagation.REQUIRED, rollbackFor = { Exception.class })

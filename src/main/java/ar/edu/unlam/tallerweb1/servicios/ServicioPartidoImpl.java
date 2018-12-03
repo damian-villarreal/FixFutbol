@@ -20,9 +20,6 @@ public class ServicioPartidoImpl implements ServicioPartido {
 	private PartidoDao partidoDao;
 	
 	@Inject
-	private ServicioTabla servicioTabla;
-	
-	@Inject
 	private ServicioTorneo servicioTorneo;
 	
 	
