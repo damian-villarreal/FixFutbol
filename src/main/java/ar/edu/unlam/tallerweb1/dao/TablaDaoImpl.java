@@ -3,8 +3,6 @@ package ar.edu.unlam.tallerweb1.dao;
 import java.util.List;
 
 import javax.inject.Inject;
-
-import org.hibernate.Criteria;
 import org.hibernate.SessionFactory;
 import org.hibernate.criterion.Order;
 import org.hibernate.criterion.Restrictions;

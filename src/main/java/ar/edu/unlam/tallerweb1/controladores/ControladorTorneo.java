@@ -1,21 +1,19 @@
 package ar.edu.unlam.tallerweb1.controladores;
 
 import javax.inject.Inject;
-import javax.servlet.http.HttpServletRequest;
+
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
-import org.springframework.web.bind.annotation.ModelAttribute;
+
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
+
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 import java.util.*;
-import ar.edu.unlam.tallerweb1.modelo.Equipo;
 import ar.edu.unlam.tallerweb1.modelo.Fecha;
 import ar.edu.unlam.tallerweb1.modelo.Partido;
 import ar.edu.unlam.tallerweb1.modelo.Torneo;
-import ar.edu.unlam.tallerweb1.servicios.ServicioEquipo;
 import ar.edu.unlam.tallerweb1.servicios.ServicioPartido;
 import ar.edu.unlam.tallerweb1.servicios.ServicioTabla;
 import ar.edu.unlam.tallerweb1.servicios.ServicioTorneo;
@@ -25,9 +23,6 @@ public class ControladorTorneo {
 
 	@Inject
 	private ServicioTorneo servicioTorneo;
-
-	@Inject
-	private ServicioEquipo servicioEquipo;
 
 	@Inject
 	private ServicioPartido servicioPartido;
