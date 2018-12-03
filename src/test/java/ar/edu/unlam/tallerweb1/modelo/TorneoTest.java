@@ -50,4 +50,30 @@ public class TorneoTest extends SpringTest {
 		assertThat(torneos.get(0).getNombre()).isNotEqualTo("Copa Libertadores");
 		assertThat(torneos.get(0).getNombre()).isNotEqualTo("Uefa Champions League");
 	}
+	
+	@SuppressWarnings("unchecked")
+	@Test
+	@Transactional
+	@Rollback
+	public void testQueDefineQueElTorneoEsUnaLiguilla() {
+		torneoUno.setTipoTorneo("Liguilla");
+		torneoDos.setTipoTorneo("Copa Libertadores");
+		torneoTres.setTipoTorneo("Copa Argentina");
+		
+		sesion.save(torneoUno);
+		sesion.save(torneoDos);
+		sesion.save(torneoTres);
+		
+		torneos = sesion.createCriteria(Torneo.class)
+				.add(Restrictions.eq("tipoTorneo", "Liguilla"))
+				.list();
+		
+		assertThat(torneos).hasSize(1);
+		assertThat(torneos).isNotEmpty();
+		assertThat(torneos.get(0).getTipoTorneo()).isEqualTo("Liguilla");
+		assertThat(torneos.get(0).getTipoTorneo()).isNotEqualTo("Copa Libertadores");
+		assertThat(torneos.get(0).getTipoTorneo()).isNotEqualTo("Copa Argentina");
+	}
+	
+	
 }
