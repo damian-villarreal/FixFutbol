@@ -20,8 +20,8 @@ public class ServicioFiguraImpl implements ServicioFigura {
 		figuraDao.save(figura);
 	}
 
-	public Figura buscarPorNombreYEquipo(String nombreCompleto, Long idEquipo) {
-		return figuraDao.findByNameAndTeam(nombreCompleto,idEquipo);		 
+	public Figura buscarFigura(Figura figura) {
+		return figuraDao.find(figura);		 
 	}
 	
 	

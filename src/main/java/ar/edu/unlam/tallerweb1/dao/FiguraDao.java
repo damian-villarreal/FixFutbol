@@ -6,6 +6,6 @@ public interface FiguraDao {
 	
 	void save(Figura figura);
 
-	Figura findByNameAndTeam(String nombreCompleto, Long IdEquipo);
+	Figura find(Figura figura);
 
 }

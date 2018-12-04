@@ -77,8 +77,7 @@ public class ServicioPartidoImpl implements ServicioPartido {
 	public void actualizarFigura(Partido partido) {
 		Partido p = buscarPorId(partido.getId());
 		Figura figura = new Figura();
-		figura = servicioFigura.buscarPorNombreYEquipo(partido.getFigura().getNombreCompleto(),
-				partido.getFigura().getEquipo().getId());
+		figura = servicioFigura.buscarFigura(partido.getFigura());
 		if (figura != null) {
 			p.setFigura(figura);
 		} else {

@@ -21,11 +21,11 @@ public class FiguraDaoImpl implements FiguraDao {
 	}
 
 	@Override
-	public Figura findByNameAndTeam(String nombreCompleto, Long idEquipo) {
+	public Figura find(Figura figura) {
 		return (Figura) sessionFactory.getCurrentSession().createCriteria(Figura.class)
-		.add(Restrictions.eq("nombreCompleto", nombreCompleto))
+		.add(Restrictions.eq("nombreCompleto", figura.getNombreCompleto()))
 		.createAlias("equipo", "e")
-		.add(Restrictions.eq("e.id", idEquipo))
+		.add(Restrictions.eq("e.id", figura.getEquipo().getId()))
 		.uniqueResult();
 	}
 }
