@@ -23,8 +23,6 @@ public class ServicioPartidoImpl implements ServicioPartido {
 	@Inject
 	private ServicioFigura servicioFigura;
 
-	@Inject
-	private ServicioEquipo servicioEquipo;
 
 	@Override
 	public List<Partido> listarTodosLosPartidos() {
