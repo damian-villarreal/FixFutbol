@@ -13,6 +13,7 @@ public class Figura {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	private String nombreCompleto;
+	private Integer vecesFigura;
 	
 	@ManyToOne
 	private Equipo equipo;
@@ -46,5 +47,13 @@ public class Figura {
 
 	public void setEquipo(Equipo equipo) {
 		this.equipo = equipo;
+	}
+
+	public Integer getVecesFigura() {
+		return vecesFigura;
+	}
+
+	public void setVecesFigura(Integer vecesFigura) {
+		this.vecesFigura = vecesFigura;
 	}		
 }

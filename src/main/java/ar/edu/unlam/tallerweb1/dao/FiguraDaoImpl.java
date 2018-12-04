@@ -1,5 +1,7 @@
 package ar.edu.unlam.tallerweb1.dao;
 
+import java.util.List;
+
 import javax.inject.Inject;
 
 import org.hibernate.SessionFactory;
@@ -28,4 +30,12 @@ public class FiguraDaoImpl implements FiguraDao {
 		.add(Restrictions.eq("e.id", figura.getEquipo().getId()))
 		.uniqueResult();
 	}
+	
+	@SuppressWarnings("unchecked")
+	@Override
+	public List<Figura> listFiguras(Long idTorneo) {
+		return sessionFactory.getCurrentSession()
+				.createCriteria(Figura.class)
+				.list();
+	}	
 }

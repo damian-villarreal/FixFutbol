@@ -13,39 +13,28 @@
 
 		<h1>Tabla de Figuras</h1>
 		
-		<h2>${mensaje}</h2>
-		
 		<div class="table-responsive">
 			<table class="table table-condensed  table-bordered">
 			
 				<tbody>
-				
 					<tr>
 						<th>Nombre<th>					
 						<th>Equipo</th>
-						<th>Veces Figura</th>
-				
+						
 					</tr>
 				</tbody>
-				<!--<c:forEach items="${tablas}" var="tabla"  >
 				
+				<c:forEach items="${figuras}" var="figura">
 					<tbody>
-						<tr>
-																				
-							<td>${tabla.equipo.nombre}</td>
-							<td>${tabla.jugados}</td>
-    						<td>${tabla.ganados} </td>
-    						<td>${tabla.empatados} </td>
-    						<td>${tabla.perdidos} </td>
-    						<td>${tabla.golesfavor} </td>
-    						<td>${tabla.golescontra} </td>
-    						<td>${tabla.diferenciagoles} </td>
-    						<td>${tabla.puntos} </td>
+						<tr>													
+							<td>${figura.nombreCompleto}</td>
+							<td>${figura.equipo.nombre}</td>
+    						
 						</tr>       
 					</tbody>  
-      			</c:forEach>-->
+      			</c:forEach>
+			
 			</table>
 		</div>
-		
 </body>
 </html>

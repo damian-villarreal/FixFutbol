@@ -1,5 +1,7 @@
 package ar.edu.unlam.tallerweb1.servicios;
 
+import java.util.List;
+
 import javax.inject.Inject;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Propagation;
@@ -20,9 +22,14 @@ public class ServicioFiguraImpl implements ServicioFigura {
 		figuraDao.save(figura);
 	}
 
+	
 	public Figura buscarFigura(Figura figura) {
 		return figuraDao.find(figura);		 
 	}
 	
+	@Override
+	public List<Figura> listarFiguras(Long idTorneo) {
+		return figuraDao.listFiguras(idTorneo);
+	}	
 	
 }

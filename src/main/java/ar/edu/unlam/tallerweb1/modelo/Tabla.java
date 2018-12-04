@@ -23,17 +23,9 @@ public class Tabla {
 	@JsonIgnore
 	private Equipo equipo;
 	
-	public Torneo getTorneo() {
-		return torneo;
-	}
-	public void setTorneo(Torneo torneo) {
-		this.torneo = torneo;
-	}
 	@ManyToOne
 	private Torneo torneo;
-
 	
-	//GETTER Y SETTER
 	public Long getId() {
 		return id;
 	}
@@ -95,10 +87,10 @@ public class Tabla {
 		this.jugados = jugados;
 	}
 	
-	
-	
-	
-	
-	
-
+	public Torneo getTorneo() {
+		return torneo;
+	}
+	public void setTorneo(Torneo torneo) {
+		this.torneo = torneo;
+	}
 }
