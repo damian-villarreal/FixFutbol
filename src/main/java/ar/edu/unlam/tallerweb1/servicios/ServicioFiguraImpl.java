@@ -1,11 +1,9 @@
 package ar.edu.unlam.tallerweb1.servicios;
 
 import javax.inject.Inject;
-
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
-
 import ar.edu.unlam.tallerweb1.dao.FiguraDao;
 import ar.edu.unlam.tallerweb1.modelo.Figura;
 
@@ -16,9 +14,15 @@ public class ServicioFiguraImpl implements ServicioFigura {
 	
 	@Inject
 	private FiguraDao figuraDao;
-
+	
 	@Override
 	public void guardarFigura(Figura figura) {
-		figuraDao.save(figura);		
+		figuraDao.save(figura);
 	}
+
+	public Figura buscarPorNombreYEquipo(String nombreCompleto, Long idEquipo) {
+		return figuraDao.findByNameAndTeam(nombreCompleto,idEquipo);		 
+	}
+	
+	
 }

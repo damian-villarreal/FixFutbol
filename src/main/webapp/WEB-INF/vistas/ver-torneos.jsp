@@ -16,7 +16,7 @@
 		<ol class="breadcrumb text-center">
 			<li class="breadcrumb-item active">Torneos creados</li>
 		</ol>
-		<table class="table bg-">
+		<table class="table">
 			<thead class="thead-dark">
 				<tr>
 					<td>Nombre</td>

@@ -25,7 +25,6 @@
 				</c:forEach>
 			</select>
 		</div>
-
 		<c:forEach var="f" items="${fechas}">
 			<div class="panel panel-primary" id="${f.numero}">
 				<div class="panel-heading text-center" id="${f.numero}">Fecha
@@ -33,26 +32,21 @@
 				<c:forEach items="${partidos}" var="p">
 					<c:if test="${f.numero == p.fecha.numero }">
 						<div class="panel-body text-center">
-							
-									<div class="col-md-4">
-									<img alt="" height="50px" src="${p.equipoLocal.logo}">
-									${p.equipoLocal.nombre}</div>
-									<div class="col-md-4">
-										<p>VS</p>
-				
-									</div>
-									<div class="col-md-4">${p.equipoVisitante.nombre}
-									<img alt="" height="50px" src="${p.equipoVisitante.logo}">
-									</div>
-
-						
+							<div class="col-md-4">
+								<img alt="" height="50px" src="${p.equipoLocal.logo}">
+								${p.equipoLocal.nombre}
+							</div>
+							<div class="col-md-4">
+								<p>VS</p>
+							</div>
+							<div class="col-md-4">${p.equipoVisitante.nombre}
+								<img alt="" height="50px" src="${p.equipoVisitante.logo}">
+							</div>
 						</div>
 					</c:if>
 				</c:forEach>
-
 			</div>
 		</c:forEach>
-		
 	</div>
 
 	<!-- Placed at the end of the document so the pages load faster -->
