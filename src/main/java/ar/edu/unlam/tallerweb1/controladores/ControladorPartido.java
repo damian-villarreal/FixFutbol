@@ -26,6 +26,7 @@ public class ControladorPartido {
 	
 	@Inject
 	public ServicioFigura servicioFigura;
+
 	
 	@RequestMapping(path = "/cargar-resultado")
 	public ModelAndView cargarResultado(@RequestParam(value = "idPartido") Long idPartido) {

@@ -29,20 +29,10 @@ public class Partido {
 	private Boolean isTerminado = false;
 	private Boolean isResultadoFinal = false;
 	
-	@ManyToOne
+	@ManyToOne (cascade = { CascadeType.ALL }, fetch = FetchType.EAGER)
 	private Figura figura;
 	
 	public Partido() {}
-
-	public Partido(Equipo equipoLocal, Equipo equipoVisitante) {
-
-		this.equipoLocal = equipoLocal;
-		this.equipoVisitante = equipoVisitante;
-		this.golesLocales = 0;
-		this.golesVisitantes = 0;
-		this.isTerminado = false;
-		this.isResultadoFinal = false;
-	}
 
 	public Long getId() {
 		return id;

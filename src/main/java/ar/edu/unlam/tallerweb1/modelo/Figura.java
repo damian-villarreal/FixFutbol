@@ -21,10 +21,7 @@ public class Figura {
 		this.nombreCompleto = nombreCompleto;
 	}
 	
-	
-	public Figura() {
-		
-	}
+	public Figura() {}
 
 
 	public Long getId() {
