@@ -31,37 +31,6 @@ public class ControladorTorneo {
 	private ServicioTabla servicioTabla;
 	
 
-//	@RequestMapping(path = "fixture", method = RequestMethod.POST)
-//	public ModelAndView consultarTorneo(HttpServletRequest request) {
-//		ModelMap modelo = new ModelMap();
-//		Torneo torneo = new Torneo();
-//		modelo.put("torneo", torneo);
-//		List<Torneo> torneos = servicioTorneo.listarTodosLosTorneos();
-//		modelo.put("torneos", torneos);
-//		return new ModelAndView("fixture", modelo);
-//	}
-
-//	@RequestMapping(path = "crear-torneo", method = RequestMethod.POST)
-//	public ModelAndView crearTorneo(@ModelAttribute("torneo") Torneo torneo) {
-//		ModelMap modelo = new ModelMap();
-//		if (servicioTorneo.consultarTorneo(torneo) == null) {
-//			servicioTorneo.guardarTorneo(torneo);
-//			modelo.put("aviso", "Se creo la liguilla correctamente");
-//		} else {
-//			modelo.put("aviso", "No se pudo crear la liguilla correctamente");
-//		}
-//
-//		Torneo torneoNuevo = new Torneo();
-//		modelo.put("torneo", torneoNuevo);
-//
-//		List<Equipo> equipos = servicioEquipo.listarTodosLosEquipo();
-//		modelo.put("equipos", equipos);
-//
-//		List<Equipo> equiposSinPartidos = servicioEquipo.traerEquiposQueNoJueganPartidos(equipos);
-//		modelo.put("equiposSinPartidos", equiposSinPartidos);
-//
-//		return new ModelAndView("fixture", modelo);
-//	}
 
 //	@RequestMapping(path = "actualizar-torneo", method = RequestMethod.POST)
 //	public ModelAndView actualizarTorneo(@ModelAttribute("torneo") Torneo torneo, HttpServletRequest request) {
@@ -97,19 +66,6 @@ public class ControladorTorneo {
 		return new ModelAndView("liguilla", modelo);
 	}
 
-//	@RequestMapping(path = "/crear-eliminacion")
-//	public ModelAndView CrearEliminacion() {
-//		ModelMap modelo = new ModelMap();
-//		List<Partido> partidos = servicioTorneo.crearEliminacion();
-//		modelo.put("partidos", partidos);
-//		return new ModelAndView("eliminacion", modelo);
-//	}
-
-//	@RequestMapping(path = "/crear-mundial")
-//	public ModelAndView CrearMundial() {
-//		ModelMap modelo = new ModelMap();
-//		return new ModelAndView("mundial", modelo);
-//	}
 
 	@RequestMapping(path = "/ver-torneos")
 	public ModelAndView VerTorneos() {
