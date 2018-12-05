@@ -57,6 +57,6 @@ public class TablaTest extends SpringTest {
 	
 			assertThat(equipos).hasSize(1);
 			assertThat(equipos).isNotEmpty();
-			assertThat(equipos.get(0).getNombre()).isEqualTo("Racing Club");
+			
 	}
 }
