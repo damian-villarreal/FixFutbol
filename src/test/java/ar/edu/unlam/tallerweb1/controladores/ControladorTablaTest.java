@@ -12,7 +12,9 @@ import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
 
+import ar.edu.unlam.tallerweb1.modelo.Equipo;
 import ar.edu.unlam.tallerweb1.modelo.Tabla;
+import ar.edu.unlam.tallerweb1.modelo.Torneo;
 import ar.edu.unlam.tallerweb1.servicios.ServicioTabla;
 
 public class ControladorTablaTest {
@@ -37,9 +39,14 @@ public class ControladorTablaTest {
 		MockitoAnnotations.initMocks(this);
 	}
 	
-	/*@Test
-	public void testQueDevuelveLasPosicionesDeLosEquipos() {
-		when(request.getSession()).thenReturn(sesion);
-		when(servicioTabla.consultarTabla(any(Tabla.class))).thenReturn(tabla);
-	}*/
+	@Test
+	public void testQueVeTodasLasPosicionesCorrectamente() {
+		
+		ModelAndView modelo = controladorTabla.verPosiciones(tabla.getTorneo().getId());
+		
+		assertThat(modelo.getViewName()).isEqualTo("posiciones");
+		
+		verify(sesion , times(1));
+	}
+	
 }

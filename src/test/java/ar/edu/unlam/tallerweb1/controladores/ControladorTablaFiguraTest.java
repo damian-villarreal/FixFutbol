@@ -41,7 +41,7 @@ public class ControladorTablaFiguraTest {
 	@Test
 	public void testQueBuscaLaFigura() {
 		when(servicioFigura.buscarFigura(any(Figura.class))).thenReturn(figura);
-		when(figura.getId()).thenReturn(1L);
+		//when(figura.getId()).thenReturn(1L);
 		
 		ModelAndView modelo = controladorTablaFigura.verFigura(figura.getId());
 		
