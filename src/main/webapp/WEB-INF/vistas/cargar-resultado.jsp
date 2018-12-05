@@ -23,7 +23,7 @@
 			<form:input type="number" min="0" pattern="^[0-9]+" required="true" path="golesVisitantes" />
 			<br><br>
 			<b>Figura del partido</b>
-			<form:input path="figura"/>
+			<form:input path="figura" type="text" required="true"/>
 			<form:label path="figura.equipo.id">Equipo de la figura</form:label>
 			<form:select path="figura.equipo.id">
 				<form:option value="${partido.equipoLocal.id}">${partido.equipoLocal.nombre}</form:option>

@@ -52,11 +52,12 @@ public class TablaTest extends SpringTest {
 		
 		equipos = sesion.createCriteria(Tabla.class)
 				.createAlias("equipo", "e")
-				.add(Restrictions.eq("e.nombre" , "Racing Club"))
+				.add(Restrictions.like("e.nombre" , "Racing Club"))
 				.list();
 	
 			assertThat(equipos).hasSize(1);
 			assertThat(equipos).isNotEmpty();
+			assertThat(tablaUno.getEquipo().getNombre()).isEqualTo("Racing Club");
 			
 	}
 }
