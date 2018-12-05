@@ -3,6 +3,7 @@ package ar.edu.unlam.tallerweb1.controladores;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 import org.springframework.web.servlet.ModelAndView;
+
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.mockito.Mockito.*;
 import org.junit.Test;
@@ -12,25 +13,25 @@ import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
 
-import ar.edu.unlam.tallerweb1.modelo.Tabla;
-import ar.edu.unlam.tallerweb1.servicios.ServicioTabla;
+import ar.edu.unlam.tallerweb1.modelo.Figura;
+import ar.edu.unlam.tallerweb1.servicios.ServicioFigura;
 
-public class ControladorTablaTest {
+public class ControladorTablaFiguraTest {
 
 	@Mock
-	private ServicioTabla servicioTabla;
+	private ServicioFigura servicioFigura;
 	
 	@Mock
-	private Tabla tabla;
-	
-	@Mock
-	private HttpServletRequest request;
+	private Figura figura;
 	
 	@Mock
 	private HttpSession sesion;
 	
+	@Mock
+	private HttpServletRequest request;
+	
 	@InjectMocks
-	private ControladorTabla controladorTabla;
+	private ControladorTablaFigura controladorTablaFigura;
 	
 	@Before
 	public void injectionOfMocksInitialized() {
@@ -38,13 +39,16 @@ public class ControladorTablaTest {
 	}
 	
 	/*@Test
-	public void testQueVeTodasLasPosicionesCorrectamente() {
+	public void testQueBuscaLaFigura() {
+		when(servicioFigura.buscarFigura(any(Figura.class))).thenReturn(figura);
+		//when(figura.getId()).thenReturn(1L);
 		
-		ModelAndView modelo = controladorTabla.verPosiciones(tabla.getTorneo().getId());
+		ModelAndView modelo = controladorTablaFigura.verFigura(figura.getId());
 		
-		assertThat(modelo.getViewName()).isEqualTo("posiciones");
+		assertThat(modelo.getViewName()).isEqualTo("figuras");
 		
 		verify(sesion , times(1));
+
 	}*/
-	
+
 }
