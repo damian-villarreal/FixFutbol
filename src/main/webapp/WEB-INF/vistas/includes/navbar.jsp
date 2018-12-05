@@ -2,6 +2,7 @@
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
+
 <nav class="navbar navbar-default">
   <div class="container-fluid">
     <!-- Brand and toggle get grouped for better mobile display -->
@@ -27,7 +28,7 @@
         	</a>
         </li>
         <li>
-        	<a href="http://localhost:8080/proyecto-limpio-spring/crear-liguilla" id="crearLiguilla">
+        	<a href="http://localhost:8080/proyecto-limpio-spring/crear-liguilla" id="crearLiguilla"  >
         		Crear Liguilla
         	</a>
         </li>

@@ -18,6 +18,10 @@ public class Figura {
 	@ManyToOne
 	private Equipo equipo;
 	
+	
+	
+	
+
 	public Figura(String nombreCompleto) {
 		this.nombreCompleto = nombreCompleto;
 	}

@@ -32,7 +32,7 @@ public class EquipoTest extends SpringTest {
 	@Rollback
 	public void testQueBuscaTodosLosEquiposConNombreQueEmpiezanConB() {
 		equipoUno.setNombre("Boca Juniors");
-		equipoDos.setNombre("Racing Club");
+		equipoDos.setNombre("Boca Unidos");
 		equipoTres.setNombre("Tigre");
 		
 		sesion.save(equipoUno);
@@ -40,12 +40,12 @@ public class EquipoTest extends SpringTest {
 		sesion.save(equipoTres);
 		
 		equipos = sesion.createCriteria(Equipo.class)
-				.add(Restrictions.eq("nombre", "Boca Juniors"))
+				.add(Restrictions.like("nombre", "B%"))
 				.list();
 		
-		assertThat(equipos).hasSize(1);
+		assertThat(equipos).hasSize(2);
 		assertThat(equipos).isNotEmpty();
-		assertThat(equipos.get(0).getNombre()).isEqualTo("Boca Juniors");
+		
 		
 	}
 }
