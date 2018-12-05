@@ -29,14 +29,6 @@ public class ServicioTablaImpl implements ServicioTabla {
 		tablaDao.save(tabla);
 	}
 
-	// @Transactional(readOnly = false , propagation = Propagation.REQUIRED ,
-	// rollbackFor = { Exception.class } )
-	// @Override
-	// public void actualizarTabla(Tabla tabla) {
-	// tablaDao.update(tabla);
-	//
-	// }
-
 	@Override
 	public List<Tabla> listarTabla(Long idTorneo) {
 		return tablaDao.orderDesc(idTorneo);
@@ -120,12 +112,13 @@ public class ServicioTablaImpl implements ServicioTabla {
 	public boolean ValidarCampeonAnticipado(List<Tabla> tablas) {
 		Tabla equipoPrimeroEnLaTabla = tablas.get(0);
 		Tabla equipoSegundoEnLaTabla = tablas.get(1);
-		Integer CantidadDePartidosAJugar = tablas.size()-1;
-		Integer CantidadDePartidosQueLeQuedanAlSegundo = CantidadDePartidosAJugar-equipoSegundoEnLaTabla.getJugados();
-		
-		if(equipoPrimeroEnLaTabla.getPuntos()>(equipoSegundoEnLaTabla.getPuntos()+(CantidadDePartidosQueLeQuedanAlSegundo*3))) {
+		Integer CantidadDePartidosAJugar = tablas.size() - 1;
+		Integer CantidadDePartidosQueLeQuedanAlSegundo = CantidadDePartidosAJugar - equipoSegundoEnLaTabla.getJugados();
+
+		if (equipoPrimeroEnLaTabla
+				.getPuntos() > (equipoSegundoEnLaTabla.getPuntos() + (CantidadDePartidosQueLeQuedanAlSegundo * 3))) {
 			return true;
-		}		
+		}
 		return false;
 	}
 

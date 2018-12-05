@@ -22,19 +22,12 @@ public class ControladorTablaFigura {
 	@Inject
 	private ServicioTorneo servicioTorneo;
 	
-	@RequestMapping ("/detalle-figura")
+	@RequestMapping ("/figuras")
 	public ModelAndView verFigura(@RequestParam(name = "idTorneo") Long idTorneo){
 		ModelMap modelo = new ModelMap();
 		List<Figura> figuras = servicioFigura.listarFiguras(idTorneo);
 		modelo.put("figuras", figuras);
-		return new ModelAndView ("detalle-figura", modelo);
+		return new ModelAndView ("figuras", modelo);
 	}
 		
-	@RequestMapping(path = "/posiciones-figura")
-	public ModelAndView VerPosiciones() {
-		List<Torneo> torneos = servicioTorneo.listarTodosLosTorneos();
-		ModelMap modelo = new ModelMap();
-		modelo.put("torneos", torneos);
-		return new ModelAndView("posiciones-figura", modelo);
-	}
 }

@@ -19,16 +19,16 @@ public class ServicioTorneoImpl implements ServicioTorneo {
 
 	@Inject
 	private TorneoDao torneoDao;
-	
-	@Inject 
+
+	@Inject
 	private ServicioTabla servicioTabla;
-	
+
 	@Inject
 	private PartidoDao partidoDao;
-	
+
 	@Inject
 	private EquipoDao equipoDao;
-	
+
 	@Override
 	@Transactional(readOnly = false, propagation = Propagation.REQUIRED, rollbackFor = { Exception.class })
 	public void guardarTorneo(Torneo torneo) {
@@ -61,19 +61,19 @@ public class ServicioTorneoImpl implements ServicioTorneo {
 
 		Torneo torneo = new Torneo();
 		torneo.setCantPartidosJugados(0);
-		torneo.setCantPartidos(cantidadDePartidosPorFecha*cantidadDeFechas);
+		torneo.setCantPartidos(cantidadDePartidosPorFecha * cantidadDeFechas);
 		torneoDao.save(torneo);
-		
-		for(int t=1; t<=cantidadDeEquipos; t++ ) {
+
+		for (int t = 1; t <= cantidadDeEquipos; t++) {
 			servicioTabla.crearTabla(torneo, Long.valueOf(t));
 		}
-		
-		for (int f=0; f < cantidadDeFechas; f++) {
+
+		for (int f = 0; f < cantidadDeFechas; f++) {
 			Fecha fecha = new Fecha();
 			fecha.setNumero(f + 1);
 			fecha.setTorneo(torneo);
 			torneo.setTipoTorneo("Liguilla");
-			torneo.setNombre("Torneo "+String.valueOf(torneoDao.findAll().size()));
+			torneo.setNombre("Torneo " + String.valueOf(torneoDao.findAll().size()));
 
 			auxVisitante = Long.valueOf(cantidadDeEquipos - f);
 			auxLocal = 1L;
@@ -124,7 +124,7 @@ public class ServicioTorneoImpl implements ServicioTorneo {
 				}
 				partidoDao.save(partido);
 			}
-			
+
 		}
 		return torneo;
 	}
@@ -138,30 +138,28 @@ public class ServicioTorneoImpl implements ServicioTorneo {
 	public List<Fecha> obtenerFechas(Long idTorneo) {
 		return torneoDao.getFechas(idTorneo);
 	}
-	
+
 	@Override
 	public boolean validarTorneoFinalizado(Long idTorneo) {
 		Torneo torneo = buscarPorId(idTorneo);
 		Integer cantidadDePartidosTorneo = torneo.getCantPartidos();
 		Integer cantidadDePartidosJugados = torneo.getCantPartidosJugados();
-		if(cantidadDePartidosJugados == cantidadDePartidosTorneo) {
+		if (cantidadDePartidosJugados == cantidadDePartidosTorneo) {
 			torneo.setIsTerminado(true);
 			torneoDao.update(torneo);
 		}
 		return torneo.getIsTerminado();
 	}
-	
+
 	@Override
 	public void actualizarPartidosJugados(Long idTorneo) {
 		Torneo torneo = torneoDao.findById(idTorneo);
-		torneo.setCantPartidosJugados(torneo.getCantPartidosJugados()+1);
+		torneo.setCantPartidosJugados(torneo.getCantPartidosJugados() + 1);
 		torneoDao.update(torneo);
 	}
-	
+
 	public void obtenerFiguraDelTorneo(Long idTorneo) {
-		
+
 	}
-	
-	
-	
+
 }

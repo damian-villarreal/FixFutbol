@@ -42,12 +42,12 @@
         <li>
         	<a href="http://localhost:8080/proyecto-limpio-spring/ver-torneos"><span class="glyphicon glyphicon-search" style="margin-right: 12px"></span>Ver Torneos</a>
         </li>
-        <li>
-        	<a href="http://localhost:8080/proyecto-limpio-spring/posiciones-torneo"><span class="glyphicon glyphicon-indent-left" style="margin-right: 12px"></span>Ver Posiciones</a>
-        </li>
-        <li>
-        	<a href="http://localhost:8080/proyecto-limpio-spring/posiciones-figura"><span class="glyphicon glyphicon-indent-left" style="margin-right: 12px"></span>Ver Figuras</a>
-        </li>
+<!--         <li> -->
+<!--         	<a href="http://localhost:8080/proyecto-limpio-spring/posiciones-torneo"><span class="glyphicon glyphicon-indent-left" style="margin-right: 12px"></span>Ver Posiciones</a> -->
+<!--         </li> -->
+<!--         <li> -->
+<!--         	<a href="http://localhost:8080/proyecto-limpio-spring/posiciones-figura"><span class="glyphicon glyphicon-indent-left" style="margin-right: 12px"></span>Ver Figuras</a> -->
+<!--         </li> -->
        <!--   <li>
         	<a href="http://localhost:8080/proyecto-limpio-spring/cargar-resultado"><span class="glyphicon glyphicon-plus" style="margin-right: 12px"></span>Cargar Resultado</a>
         </li>-->

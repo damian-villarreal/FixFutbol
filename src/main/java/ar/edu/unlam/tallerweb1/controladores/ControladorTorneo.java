@@ -2,12 +2,9 @@ package ar.edu.unlam.tallerweb1.controladores;
 
 import javax.inject.Inject;
 
-
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
-
 import org.springframework.web.bind.annotation.RequestMapping;
-
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 import java.util.*;
@@ -26,46 +23,20 @@ public class ControladorTorneo {
 
 	@Inject
 	private ServicioPartido servicioPartido;
-	
+
 	@Inject
 	private ServicioTabla servicioTabla;
-	
-
-
-//	@RequestMapping(path = "actualizar-torneo", method = RequestMethod.POST)
-//	public ModelAndView actualizarTorneo(@ModelAttribute("torneo") Torneo torneo, HttpServletRequest request) {
-//		ModelMap modelo = new ModelMap();
-//
-//		if (servicioTorneo.consultarTorneo(torneo) == null) {
-//			servicioTorneo.actualizarTorneo(torneo);
-//			modelo.put("aviso", "Se actualizo correctamente");
-//		} else {
-//			modelo.put("aviso", "El nombre se encuentra en uso");
-//		}
-//
-//		Torneo torneoCreado = new Torneo();
-//		modelo.put("torneo", torneoCreado);
-//
-//		List<Equipo> equipos = servicioEquipo.listarTodosLosEquipo();
-//		modelo.put("equipos", equipos);
-//
-//		List<Equipo> equiposSinEncuentros = servicioEquipo.traerEquiposQueNoJueganPartidos(equipos);
-//		modelo.put("equiposSinPartidos", equiposSinEncuentros);
-//
-//		return new ModelAndView("fixture", modelo);
-//	}
 
 	@RequestMapping(path = "/crear-liguilla")
 	public ModelAndView crearLiguilla() {
 		ModelMap modelo = new ModelMap();
-		Torneo torneo = servicioTorneo.crearLiguilla();	
+		Torneo torneo = servicioTorneo.crearLiguilla();
 		List<Fecha> fechas = servicioTorneo.obtenerFechas(torneo.getId());
 		List<Partido> partidos = servicioPartido.buscarPorTorneo(torneo.getId());
 		modelo.put("fechas", fechas);
 		modelo.put("partidos", partidos);
 		return new ModelAndView("liguilla", modelo);
 	}
-
 
 	@RequestMapping(path = "/ver-torneos")
 	public ModelAndView VerTorneos() {
@@ -75,37 +46,19 @@ public class ControladorTorneo {
 		return new ModelAndView("ver-torneos", modelo);
 	}
 
-	/*
-	 * @RequestMapping(path="/detalle-torneo/{id}" , method = RequestMethod.GET)
-	 * public ModelAndView DetalleTorneo(@PathVariable Long id) { ModelMap modelo =
-	 * new ModelMap(); List<Partido> partidos = servicioPartido.buscarPorTorneo(id);
-	 * modelo.put("partidos", partidos); return new ModelAndView("detalle-torneo",
-	 * modelo);
-	 * 
-	 * }
-	 */
-
-	@RequestMapping(path = "/detalle-torneo")
+	@RequestMapping(path = "/torneo")
 	public ModelAndView detalleTorneo(@RequestParam(name = "idTorneo") Long idTorneo) {
 		ModelMap modelo = new ModelMap();
 		List<Partido> partidos = servicioPartido.buscarPorTorneo(idTorneo);
 		List<Fecha> fechas = servicioTorneo.obtenerFechas(idTorneo);
-		
-		if(servicioTorneo.validarTorneoFinalizado(idTorneo))
-		{
-			modelo.put("mensaje", "Torneo Finalizado. El campeon es: "+servicioTabla.listarTabla(idTorneo).get(0).getEquipo().getNombre());
-		}		
+
+		if (servicioTorneo.validarTorneoFinalizado(idTorneo)) {
+			modelo.put("mensaje", "Torneo Finalizado! El campeon es: "
+					+ servicioTabla.listarTabla(idTorneo).get(0).getEquipo().getNombre());
+		}
+		modelo.put("idTorneo", idTorneo);
 		modelo.put("fechas", fechas);
 		modelo.put("partidos", partidos);
-		return new ModelAndView("detalle-torneo", modelo);
+		return new ModelAndView("torneo", modelo);
 	}
-
-	/*
-	 * @RequestMapping(path = "filtroPorFechas" , method = RequestMethod.POST)
-	 * public ModelAndView filtrarPorFechas(@ModelAttribute("fecha") Fecha fecha ,
-	 * HttpServletRequest request) { ModelMap modelo = new ModelMap();
-	 * 
-	 * return new ModelAndView("liguilla",modelo); }
-	 */
-
 }

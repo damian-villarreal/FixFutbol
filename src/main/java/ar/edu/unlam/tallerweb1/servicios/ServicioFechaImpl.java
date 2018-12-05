@@ -11,18 +11,18 @@ import ar.edu.unlam.tallerweb1.dao.FechaDao;
 import ar.edu.unlam.tallerweb1.modelo.Fecha;
 
 @Service("servicioFecha")
-@Transactional(readOnly = true , propagation = Propagation.SUPPORTS)
-public class ServicioFechaImpl implements ServicioFecha{
-	
-	@Inject 
+@Transactional(readOnly = true, propagation = Propagation.SUPPORTS)
+public class ServicioFechaImpl implements ServicioFecha {
+
+	@Inject
 	private FechaDao fechaDao;
 
 	@Override
-	public List<Fecha> listarTodosLasFechas(Fecha fecha) {		
+	public List<Fecha> listarTodosLasFechas(Fecha fecha) {
 		return fechaDao.findAll(fecha);
 	}
 
-	@Transactional(readOnly = false , propagation = Propagation.REQUIRED , rollbackFor = { Exception.class } )
+	@Transactional(readOnly = false, propagation = Propagation.REQUIRED, rollbackFor = { Exception.class })
 	@Override
 	public void guardarFecha(Fecha fecha) {
 		fechaDao.save(fecha);
@@ -30,12 +30,8 @@ public class ServicioFechaImpl implements ServicioFecha{
 
 	@Override
 	public void ActualizarFecha(Fecha fecha) {
-		fechaDao.update(fecha);		
+		fechaDao.update(fecha);
 	}
 
-	@Override
-	public void crearLiguilla() {
-				
-	}
 
 }

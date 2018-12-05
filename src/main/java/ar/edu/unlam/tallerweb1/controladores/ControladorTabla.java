@@ -15,32 +15,29 @@ import ar.edu.unlam.tallerweb1.servicios.ServicioTorneo;
 
 @Controller
 public class ControladorTabla {
-	
+
 	@Inject
 	private ServicioTabla servicioTabla;
-	
+
 	@Inject
 	private ServicioTorneo servicioTorneo;
-	
-	@RequestMapping ("/detalle-posiciones")
-	public ModelAndView verPosiciones(@RequestParam(name = "idTorneo") Long idTorneo){
+
+	@RequestMapping("/posiciones")
+	public ModelAndView verPosiciones(@RequestParam(name = "idTorneo") Long idTorneo) {
 		ModelMap modelo = new ModelMap();
 		List<Tabla> tablas = servicioTabla.listarTabla(idTorneo);
-		
-		if(servicioTabla.ValidarCampeonAnticipado(tablas)) {
-			modelo.put("mensaje", "El Campeon es "+tablas.get(0).getEquipo().getNombre()+". Ya no hay equipos que lo puedan alcanzar");	
+		if (!(servicioTorneo.buscarPorId(idTorneo).getIsTerminado())) {
+			if (servicioTabla.ValidarCampeonAnticipado(tablas)) {
+				modelo.put("mensaje", "El Campeon es " + tablas.get(0).getEquipo().getNombre()
+						+ ". Ya no hay equipos que lo puedan alcanzar");
+			}
+		} else {
+			modelo.put("mensaje", "Torneo Finalizado! El campeon es: "
+					+ servicioTabla.listarTabla(idTorneo).get(0).getEquipo().getNombre());
 		}
-		
+
 		modelo.put("tablas", tablas);
-		return new ModelAndView ("detalle-posiciones", modelo);
+		return new ModelAndView("posiciones", modelo);
 	}
-		
-	@RequestMapping(path = "/posiciones-torneo")
-	public ModelAndView VerPosiciones() {
-		List<Torneo> torneos = servicioTorneo.listarTodosLosTorneos();
-		ModelMap modelo = new ModelMap();
-		modelo.put("torneos", torneos);
-		return new ModelAndView("posiciones-torneo", modelo);
-	}
-	
+
 }
