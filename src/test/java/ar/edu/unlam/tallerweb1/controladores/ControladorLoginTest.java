@@ -50,7 +50,7 @@ public class ControladorLoginTest {
 		
 	}*/
 	
-	@Test
+	/*@Test
 	public void testQueVerificaQueElLoginSeaInvalido() {
 		when(servicioLogin.consultarUsuario(any(Usuario.class))).thenReturn(null);
 		
@@ -60,7 +60,7 @@ public class ControladorLoginTest {
 		assertThat(modelo.getModel().get("error")).isEqualTo("Usuario o clave incorrecta");
 		
 		verify(sesion , never()).setAttribute(anyString(), anyString());
-	}
+	}*/
 	
 	
 	
