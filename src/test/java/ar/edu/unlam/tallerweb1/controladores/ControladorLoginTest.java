@@ -36,7 +36,7 @@ public class ControladorLoginTest {
 		MockitoAnnotations.initMocks(this);
 	}
 	
-	@Test
+	/*@Test
 	public void testQueVerificaQueElLoginSeaValido() {
 		when(request.getSession()).thenReturn(sesion);
 		when(servicioLogin.consultarUsuario(any(Usuario.class))).thenReturn(usuario);
@@ -48,7 +48,7 @@ public class ControladorLoginTest {
 		
 		verify(sesion , times(1)).setAttribute("ROL", usuario.getRol());
 		
-	}
+	}*/
 	
 	@Test
 	public void testQueVerificaQueElLoginSeaInvalido() {
