@@ -50,11 +50,9 @@ public class ControladorPartidoTest {
 		
 		assertThat(modelo.getViewName()).isEqualTo("cargar-resultado");
 		
-		verify(sesion , never()).setAttribute(anyString(), anyString());
+		verify(sesion , times(1));
 	}
 	
-	@Test
-	public void testQueGuardaUnResultado() {
-		when(servicioPartido.consultarPartido(any(Partido.class))).thenReturn(partido);
-	}
+
+	
 }
