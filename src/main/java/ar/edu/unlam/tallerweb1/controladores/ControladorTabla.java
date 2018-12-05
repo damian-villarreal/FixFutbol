@@ -9,7 +9,6 @@ import org.springframework.web.servlet.ModelAndView;
 import java.util.*;
 
 import ar.edu.unlam.tallerweb1.modelo.Tabla;
-import ar.edu.unlam.tallerweb1.modelo.Torneo;
 import ar.edu.unlam.tallerweb1.servicios.ServicioTabla;
 import ar.edu.unlam.tallerweb1.servicios.ServicioTorneo;
 

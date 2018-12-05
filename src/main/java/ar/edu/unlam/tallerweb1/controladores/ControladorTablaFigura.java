@@ -9,18 +9,13 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 import ar.edu.unlam.tallerweb1.modelo.Figura;
-import ar.edu.unlam.tallerweb1.modelo.Torneo;
 import ar.edu.unlam.tallerweb1.servicios.ServicioFigura;
-import ar.edu.unlam.tallerweb1.servicios.ServicioTorneo;
 
 @Controller
 public class ControladorTablaFigura {
 	
 	@Inject
 	private ServicioFigura servicioFigura;
-
-	@Inject
-	private ServicioTorneo servicioTorneo;
 	
 	@RequestMapping ("/figuras")
 	public ModelAndView verFigura(@RequestParam(name = "idTorneo") Long idTorneo){
