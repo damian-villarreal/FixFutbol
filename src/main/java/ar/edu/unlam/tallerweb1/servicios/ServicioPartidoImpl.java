@@ -80,10 +80,14 @@ public class ServicioPartidoImpl implements ServicioPartido {
 		figura = servicioFigura.buscarFigura(partido.getFigura());
 		if (figura != null) {
 			p.setFigura(figura);
+			figura.setVecesFigura(figura.getVecesFigura()+1);
+			servicioFigura.actualizarFigura(figura);
 		} else {
 			Figura f = new Figura();
 			f.setNombreCompleto(partido.getFigura().getNombreCompleto());
 			f.setEquipo(partido.getFigura().getEquipo());
+			f.setVecesFigura(1);
+			servicioFigura.guardarFigura(f);
 			p.setFigura(f);
 		}
 		actualizarPartido(p);

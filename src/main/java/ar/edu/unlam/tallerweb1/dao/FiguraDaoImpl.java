@@ -37,5 +37,11 @@ public class FiguraDaoImpl implements FiguraDao {
 		return sessionFactory.getCurrentSession()
 				.createCriteria(Figura.class)
 				.list();
+	}
+
+	@Override
+	public void update(Figura figura) {
+		sessionFactory.getCurrentSession().update(figura);
+		
 	}	
 }

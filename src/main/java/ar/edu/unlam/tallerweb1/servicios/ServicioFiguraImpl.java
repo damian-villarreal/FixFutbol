@@ -21,6 +21,10 @@ public class ServicioFiguraImpl implements ServicioFigura {
 	public void guardarFigura(Figura figura) {
 		figuraDao.save(figura);
 	}
+	
+	public void actualizarFigura(Figura figura) {
+		figuraDao.update(figura);
+	}
 
 	
 	public Figura buscarFigura(Figura figura) {
