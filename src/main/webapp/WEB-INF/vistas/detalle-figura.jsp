@@ -18,9 +18,9 @@
 			
 				<tbody>
 					<tr>
-						<th>Nombre<th>					
+						<th>Nombre</th>					
 						<th>Equipo</th>
-						
+						<th>Veces Figura</th>	
 					</tr>
 				</tbody>
 				
@@ -29,6 +29,7 @@
 						<tr>													
 							<td>${figura.nombreCompleto}</td>
 							<td>${figura.equipo.nombre}</td>
+							<td>${figura.vecesFigura}</td>
     						
 						</tr>       
 					</tbody>  

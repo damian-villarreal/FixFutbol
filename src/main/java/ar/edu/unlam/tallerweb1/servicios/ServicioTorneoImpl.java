@@ -158,6 +158,10 @@ public class ServicioTorneoImpl implements ServicioTorneo {
 		torneoDao.update(torneo);
 	}
 	
+	public void obtenerFiguraDelTorneo(Long idTorneo) {
+		
+	}
+	
 	
 	
 }

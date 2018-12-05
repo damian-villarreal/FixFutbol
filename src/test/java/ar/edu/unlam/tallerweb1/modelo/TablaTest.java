@@ -38,28 +38,25 @@ public class TablaTest extends SpringTest {
 	public void testQueVerificaQueElEquipoRacingSeEncuentraEnLaTabla() {
 		
 		
-		tablaUno.setEquipo(equipoUno);
-		tablaUno.setEquipo(equipoDos);
-		tablaUno.setEquipo(equipoTres);
 		equipoUno.setNombre("River Plate");
 		equipoDos.setNombre("Boca Juniors");
 		equipoTres.setNombre("Racing Club");
+		tablaUno.setEquipo(equipoUno);
+		tablaUno.setEquipo(equipoDos);
+		tablaUno.setEquipo(equipoTres);
 				
-		
 		sesion.save(equipoUno);
 		sesion.save(equipoDos);
 		sesion.save(equipoTres);
+		sesion.save(tablaUno);
 		
 		equipos = sesion.createCriteria(Tabla.class)
 				.createAlias("equipo", "e")
 				.add(Restrictions.eq("e.nombre" , "Racing Club"))
 				.list();
-		
-		assertThat(equipos).hasSize(0);
-		//assertThat(equipos).isNotEmpty();
-		//assertThat(equipos.get(0).getNombre()).isEqualTo("Racing Club");
-						
-		
-		
+	
+			assertThat(equipos).hasSize(1);
+			assertThat(equipos).isNotEmpty();
+			//assertThat(equipos.get(0).getNombre()).isEqualTo("Racing Club");
 	}
 }

@@ -29,7 +29,7 @@ public class Partido {
 	private Boolean isTerminado = false;
 	private Boolean isResultadoFinal = false;
 	
-	@ManyToOne (cascade = { CascadeType.ALL }, fetch = FetchType.EAGER)
+	@ManyToOne //(cascade = { CascadeType.ALL }, fetch = FetchType.EAGER)
 	private Figura figura;
 	
 	public Partido() {}
