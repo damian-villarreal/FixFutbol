@@ -70,6 +70,7 @@ public class PartidoDaoImpl implements PartidoDao {
 				
 	}
 
+	@SuppressWarnings("unchecked")
 	@Override
 	public List<Partido> findByTorneoYFigura(Long idFigura, Long idTorneo) {
 		return (List<Partido>) sessionFactory.getCurrentSession().createCriteria(Partido.class)

@@ -1,19 +1,15 @@
 package ar.edu.unlam.tallerweb1.dao;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import javax.inject.Inject;
 
 import org.hibernate.SessionFactory;
 import org.hibernate.criterion.Order;
-import org.hibernate.criterion.Projections;
 import org.hibernate.criterion.Restrictions;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import ar.edu.unlam.tallerweb1.modelo.Figura;
-import ar.edu.unlam.tallerweb1.modelo.FiguraTabla;
-import ar.edu.unlam.tallerweb1.modelo.Partido;
 
 @Service("FiguraDao")
 @Transactional

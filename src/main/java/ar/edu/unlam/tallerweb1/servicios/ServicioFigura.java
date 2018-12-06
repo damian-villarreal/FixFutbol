@@ -4,7 +4,6 @@ import java.util.List;
 
 import ar.edu.unlam.tallerweb1.modelo.Figura;
 import ar.edu.unlam.tallerweb1.modelo.FiguraTabla;
-import ar.edu.unlam.tallerweb1.modelo.Partido;
 
 public interface ServicioFigura {
 	
