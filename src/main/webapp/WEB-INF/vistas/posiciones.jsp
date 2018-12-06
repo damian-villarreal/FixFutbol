@@ -16,7 +16,7 @@
 			<li class="breadcrumb-item active">Tabla de Posiciones</li>
 		</ol>
 		
-		<h2>${mensaje}</h2>
+		<h2 style="color:white;">${mensaje}</h2>
 		
 		<div class="table-responsive">
 			<table class="table table-condensed  table-bordered" style="background-color: white">
