@@ -48,8 +48,8 @@ public class FiguraTest extends SpringTest {
 		figuraTres.setEquipo(equipoDos);
 		
 		sesion.save(figuraUno);
-		sesion.save(equipoDos);
-		sesion.save(equipoTres);
+		sesion.save(figuraDos);
+		sesion.save(figuraTres);
 		sesion.save(equipoUno);
 		sesion.save(equipoDos);
 		sesion.save(equipoTres);
@@ -63,5 +63,45 @@ public class FiguraTest extends SpringTest {
 		assertThat(figuras).hasSize(1);
 		assertThat(figuras).isNotEmpty();
 		assertThat(figuras.get(0).getEquipo().getNombre()).isEqualTo("Boca Juniors");
+	}
+	
+	@SuppressWarnings("unchecked")
+	@Test
+	@Transactional
+	@Rollback
+	public void testQueValidaQueElJugadorPonzioDelEquipoRiverPlateSalioFiguraMasDeDosVeces() {
+		
+		figuraUno.setNombreCompleto("Leonardo Ponzio");
+		figuraDos.setNombreCompleto("Lisandro Lopez");
+		figuraTres.setNombreCompleto("Martin Benitez");
+		
+		equipoUno.setNombre("River Plate");
+		equipoDos.setNombre("Racing Club");
+		equipoTres.setNombre("Independiente");
+		
+		figuraUno.setEquipo(equipoUno);
+		figuraDos.setEquipo(equipoDos);
+		figuraTres.setEquipo(equipoTres);
+		figuraUno.setVecesFigura(3);
+		
+		sesion.save(figuraUno);
+		sesion.save(figuraDos);
+		sesion.save(figuraTres);
+		sesion.save(equipoUno);
+		sesion.save(equipoDos);
+		sesion.save(equipoTres);
+		
+		figuras = sesion.createCriteria(Figura.class)
+					.add(Restrictions.eq("nombreCompleto", "Leonardo Ponzio"))
+					.add(Restrictions.gt("vecesFigura", 2))
+					.createAlias("equipo", "e")
+					.add(Restrictions.eq("e.nombre", "River Plate"))
+					.list();
+		
+		assertThat(figuras).hasSize(1);
+		assertThat(figuras).isNotEmpty();
+		assertThat(figuras.get(0).getEquipo().getNombre()).isEqualTo("River Plate");
+		assertThat(figuras.get(0).getNombreCompleto()).isEqualTo("Leonardo Ponzio");
+		assertThat(figuras.get(0).getVecesFigura()).isGreaterThan(2);
 	}
 }
