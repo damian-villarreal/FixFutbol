@@ -1,7 +1,15 @@
 $(document).ready(function() {
-	$("#crearLiguilla").hover(function(){
+	/*$("#crearLiguilla").hover(function(){
 		alert("Puede crear la liguilla una vez");
-	});
+	});*/
+	
+	if($("#crearLiguilla").val() == 1) {
+		$("#crearLiguilla").attr('disabled','disabled');
+	} else {
+		$("#crearLiguilla").removeAttr("disabled");
+	}
+	
+	
 });
 
 
