@@ -80,4 +80,56 @@ public class PartidoTest extends SpringTest {
 		assertThat(partidos.get(0).getGolesVisitantes()).isEqualTo(0);
 		
 	}
+	
+	@SuppressWarnings("unchecked")
+	@Test
+	@Transactional
+	@Rollback
+	public void testQueValidaQueElPartidoEntreIndependienteYRacingPorLaFechaDosSalioEmpatadoConMezaComoFigura() {
+		
+		partidoUno.setGolesLocales(1);
+		partidoUno.setGolesVisitantes(1);
+		
+		equipoUno.setNombre("Independiente");
+		equipoDos.setNombre("Racing Club");
+		
+		fechaUno.setNumero(2);
+		
+		figuraUno.setNombreCompleto("Meza");
+		
+		partidoUno.setEquipoLocal(equipoUno);
+		partidoUno.setEquipoVisitante(equipoDos);
+		partidoUno.setFecha(fechaUno);
+		partidoUno.setFigura(figuraUno);
+		
+		sesion.save(partidoUno);
+		sesion.save(equipoUno);
+		sesion.save(equipoDos);
+		sesion.save(figuraUno);
+		sesion.save(fechaUno);
+		
+		partidos = sesion.createCriteria(Partido.class)
+				.createAlias("equipoLocal", "local")
+					.add(Restrictions.eq("local.nombre", "Independiente"))
+				.createAlias("equipoVisitante", "visitante")
+					.add(Restrictions.eq("visitante.nombre", "Racing Club"))
+				.createAlias("fecha", "f")
+					.add(Restrictions.eq("f.numero", 2))
+				.createAlias("figura", "fig")
+					.add(Restrictions.eq("fig.nombreCompleto", "Meza"))
+					.add(Restrictions.eq("golesLocales", 1))
+					.add(Restrictions.eq("golesVisitantes", 1))
+				.list();
+		
+		assertThat(partidos).hasSize(1);
+		assertThat(partidos).isNotEmpty();
+		assertThat(partidos.get(0).getEquipoLocal().getNombre()).isEqualTo("Independiente");
+		assertThat(partidos.get(0).getEquipoVisitante().getNombre()).isEqualTo("Racing Club");
+		assertThat(partidos.get(0).getFecha().getNumero()).isEqualTo(2);
+		assertThat(partidos.get(0).getFigura().getNombreCompleto()).isEqualTo("Meza");
+		assertThat(partidos.get(0).getGolesLocales()).isEqualTo(1);
+		assertThat(partidos.get(0).getGolesVisitantes()).isEqualTo(1);
+		
+		
+	}
 }
