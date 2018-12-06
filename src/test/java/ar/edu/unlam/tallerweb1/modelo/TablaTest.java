@@ -18,8 +18,9 @@ public class TablaTest extends SpringTest {
 
 	private Tabla tablaUno;
 	private Equipo equipoUno , equipoDos , equipoTres;
+	private Torneo torneoUno;
 	private Session sesion;
-	private List<Equipo> equipos;
+	private List<Tabla> tablas;
 	
 	@Before
 	public void init() {
@@ -27,37 +28,39 @@ public class TablaTest extends SpringTest {
 		equipoUno = new Equipo();
 		equipoDos = new Equipo();
 		equipoTres = new Equipo();
+		torneoUno = new Torneo();
 		sesion = getSession();
-		equipos = new ArrayList<Equipo>();
+		tablas= new ArrayList<Tabla>();
 	}
 	
 	@SuppressWarnings("unchecked")
 	@Test
 	@Transactional
 	@Rollback
-	public void testQueVerificaQueElEquipoRacingSeEncuentraEnLaTabla() {
-		
-		
+	public void testQueVerificaQueElEquipoRacingSeEncuentraEnLaTablaDelTorneo() {
+			
 		equipoUno.setNombre("River Plate");
 		equipoDos.setNombre("Boca Juniors");
 		equipoTres.setNombre("Racing Club");
+		
 		tablaUno.setEquipo(equipoUno);
 		tablaUno.setEquipo(equipoDos);
 		tablaUno.setEquipo(equipoTres);
 				
+		sesion.save(torneoUno);
 		sesion.save(equipoUno);
 		sesion.save(equipoDos);
 		sesion.save(equipoTres);
 		sesion.save(tablaUno);
 		
-		equipos = sesion.createCriteria(Tabla.class)
+		tablas = sesion.createCriteria(Tabla.class)
 				.createAlias("equipo", "e")
-				.add(Restrictions.like("e.nombre" , "Racing Club"))
+				.add(Restrictions.eq("e.nombre" , "Racing Club"))
 				.list();
 	
-			assertThat(equipos).hasSize(1);
-			assertThat(equipos).isNotEmpty();
-			assertThat(tablaUno.getEquipo().getNombre()).isEqualTo("Racing Club");
+			assertThat(tablas).hasSize(1);
+			assertThat(tablas).isNotEmpty();
+			assertThat(tablas.get(0).getEquipo().getNombre()).isEqualTo("Racing Club");
 			
 	}
 }
