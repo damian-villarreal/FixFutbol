@@ -31,14 +31,14 @@ public class ResultadoTest extends SpringTest {
 		resultados = new ArrayList<Resultado>();
 	}
 	
-	/*@SuppressWarnings("unchecked")
+	@SuppressWarnings("unchecked")
 	@Test
 	@Transactional
 	@Rollback
 	public void testQueVerificaQueElResultadoDelPartidoEsDosParaRiverYTresParaRacing() {
 		
 		
-		equipoLocal.setNombre("River Plate");
+		/*equipoLocal.setNombre("River Plate");
 		equipoVisitante.setNombre("Racing Club");
 		
 		partidoUno.setEquipoLocal(equipoLocal);
@@ -61,9 +61,9 @@ public class ResultadoTest extends SpringTest {
 					//.add(Restrictions.eq("p.golesVisitanes", 3))
 					.list();
 	
-		assertThat(resultados).hasSize(1);
+		assertThat(resultados).hasSize(1);*/
 		
-	}*/
+	}
 	
 	
 	
