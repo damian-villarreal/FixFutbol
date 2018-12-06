@@ -6,6 +6,7 @@ import java.util.List;
 import javax.inject.Inject;
 
 import org.hibernate.SessionFactory;
+import org.hibernate.criterion.Order;
 import org.hibernate.criterion.Projections;
 import org.hibernate.criterion.Restrictions;
 import org.springframework.stereotype.Service;
@@ -37,6 +38,7 @@ public class FiguraDaoImpl implements FiguraDao {
 	@Override
 	public List<Figura> listFiguras() {
 		return sessionFactory.getCurrentSession().createCriteria(Figura.class)
+				.addOrder(Order.desc("vecesFigura"))
 				.list();
 	}
 
