@@ -16,15 +16,15 @@
 			<li class="breadcrumb-item active">Partidos disponibles</li>
 		</ol>
 
-		<p>Seleccione número de fecha:</p>
-		<div class="form-group">
-			<select class="form-control">
-				<option>Todas</option>
-				<c:forEach var="f" items="${fechas}">
-					<option value="${f.numero}">${f.numero}</option>>
-				</c:forEach>
-			</select>
-		</div>
+<!-- 		<p>Seleccione número de fecha:</p> -->
+<!-- 		<div class="form-group"> -->
+<!-- 			<select class="form-control"> -->
+<!-- 				<option>Todas</option> -->
+<%-- 				<c:forEach var="f" items="${fechas}"> --%>
+<%-- 					<option value="${f.numero}">${f.numero}</option>> --%>
+<%-- 				</c:forEach> --%>
+<!-- 			</select> -->
+<!-- 		</div> -->
 		<c:forEach var="f" items="${fechas}">
 			<div class="panel panel-primary" id="${f.numero}">
 				<div class="panel-heading text-center" id="${f.numero}">Fecha
