@@ -2,12 +2,13 @@ package ar.edu.unlam.tallerweb1.dao;
 
 import java.util.List;
 import ar.edu.unlam.tallerweb1.modelo.Figura;
+import ar.edu.unlam.tallerweb1.modelo.Partido;
 
 public interface FiguraDao {
 	
 	void save(Figura figura);
 	void update(Figura figura);
 	Figura find(Figura figura);
-	List<Figura> listFiguras (Long idTorneo);
+	List<Figura> listFiguras();
 
 }

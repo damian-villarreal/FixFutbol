@@ -68,5 +68,16 @@ public class PartidoDaoImpl implements PartidoDao {
 				.add(Restrictions.eq("t.id", id))
 				.list();
 				
+	}
+
+	@Override
+	public List<Partido> findByTorneoYFigura(Long idFigura, Long idTorneo) {
+		return (List<Partido>) sessionFactory.getCurrentSession().createCriteria(Partido.class)
+				.createAlias("fecha","f")
+				.createAlias("f.torneo", "t")
+				.createAlias("figura", "fig")
+				.add(Restrictions.eq("t.id", idTorneo))
+				.add(Restrictions.eq("fig.id", idFigura))
+				.list();
 	}	
 }

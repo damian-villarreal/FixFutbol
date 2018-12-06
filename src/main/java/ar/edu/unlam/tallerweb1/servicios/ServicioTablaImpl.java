@@ -9,6 +9,7 @@ import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 import ar.edu.unlam.tallerweb1.dao.EquipoDao;
 import ar.edu.unlam.tallerweb1.dao.TablaDao;
+import ar.edu.unlam.tallerweb1.modelo.FiguraTabla;
 import ar.edu.unlam.tallerweb1.modelo.Partido;
 import ar.edu.unlam.tallerweb1.modelo.Tabla;
 import ar.edu.unlam.tallerweb1.modelo.Torneo;
@@ -121,5 +122,8 @@ public class ServicioTablaImpl implements ServicioTabla {
 		}
 		return false;
 	}
+
+	
+	
 
 }

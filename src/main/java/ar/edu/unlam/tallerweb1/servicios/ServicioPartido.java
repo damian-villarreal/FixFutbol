@@ -14,4 +14,5 @@ public interface ServicioPartido {
 	List<Partido> buscarPorTorneo(Long id);
 	void ActualizarResultado(Partido partido);
 	void actualizarFigura(Partido partido);
+	List<Partido> buscarPorFiguraYTorneo(Long idFigura, Long idTorneo);
 }

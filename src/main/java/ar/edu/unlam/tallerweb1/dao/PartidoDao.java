@@ -12,4 +12,5 @@ public interface PartidoDao {
 	Partido findByMatch(Partido partido);
 	List<Partido> findUnfinishedMatch();
 	List<Partido> findByTournament (Long id);
+	List<Partido> findByTorneoYFigura(Long idFigura, Long idTorneo);
 }

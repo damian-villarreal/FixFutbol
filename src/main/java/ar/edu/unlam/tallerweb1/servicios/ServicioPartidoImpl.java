@@ -92,4 +92,10 @@ public class ServicioPartidoImpl implements ServicioPartido {
 		}
 		actualizarPartido(p);
 	}
+
+	@Override
+	public List<Partido> buscarPorFiguraYTorneo(Long idFigura, Long idTorneo) {
+		
+		return partidoDao.findByTorneoYFigura(idFigura,idTorneo);
+	}
 }

@@ -25,14 +25,16 @@
 				</tbody>
 				
 				<c:forEach items="${figuras}" var="figura">
+				<c:if test="${figura.cantFigura!=0}">
 					<tbody>
 						<tr>													
-							<td>${figura.nombreCompleto}</td>
-							<td>${figura.equipo.nombre}</td>
-							<td>${figura.vecesFigura}</td>
+							<td>${figura.figura.nombreCompleto}</td>
+							<td>${figura.figura.equipo.nombre}</td>
+							<td>${figura.cantFigura}</td>
     						
 						</tr>       
 					</tbody>  
+      		</c:if>
       			</c:forEach>
 			
 			</table>
