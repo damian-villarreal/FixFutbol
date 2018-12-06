@@ -56,7 +56,6 @@ public class ServicioTorneoImpl implements ServicioTorneo {
 
 	public Torneo crearLiguilla() {
 	
-		
 		if (equipoDao.findAll().size() % 2 == 0) {
 
 			List<Equipo> equipos = equipoDao.findAll();
