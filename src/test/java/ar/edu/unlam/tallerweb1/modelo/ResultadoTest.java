@@ -15,46 +15,55 @@ import ar.edu.unlam.tallerweb1.SpringTest;
 
 public class ResultadoTest extends SpringTest {
 	
-	private Equipo equipoUno , equipoDos ;
+	private Resultado resultado;
+	private Equipo equipoLocal , equipoVisitante ;
 	private Partido partidoUno;
 	private Session sesion;
-	
 	private List<Resultado> resultados;
 	
 	@Before
 	public void init() {
-		equipoUno = new Equipo();
-		equipoDos = new Equipo();
+		resultado = new Resultado();
+		equipoLocal = new Equipo();
+		equipoVisitante = new Equipo();
 		partidoUno = new Partido();
 		sesion = getSession();
 		resultados = new ArrayList<Resultado>();
 	}
 	
-	@SuppressWarnings("unchecked")
+	/*@SuppressWarnings("unchecked")
 	@Test
 	@Transactional
 	@Rollback
-	public void testQueVerificaQueElResultadoDelPartdidoEsDosParaElEquipoUnoYTresParaElEquipoDos (){
+	public void testQueVerificaQueElResultadoDelPartidoEsDosParaRiverYTresParaRacing() {
 		
 		
+		equipoLocal.setNombre("River Plate");
+		equipoVisitante.setNombre("Racing Club");
 		
-		/*partidoUno.setEquipoLocal(equipoUno);
-		partidoUno.setEquipoVisitante(equipoDos);
+		partidoUno.setEquipoLocal(equipoLocal);
+		partidoUno.setEquipoVisitante(equipoVisitante);
 		
 		partidoUno.setGolesLocales(2);
 		partidoUno.setGolesVisitantes(3);
 		
 		sesion.save(partidoUno);
+		sesion.save(equipoLocal);
+		sesion.save(equipoVisitante);
 		
 		resultados = sesion.createCriteria(Resultado.class)
-					.createAlias("partido", "p")
-					.add(Restrictions.eq("p.golesLocales", 2))
-					.add(Restrictions.eq("p.golesVisitanes", 3))
+					.createAlias("equipoLocal", "local")
+						.add(Restrictions.eq("local.nombre", "River Plate"))
+					//.createAlias("equipoVisitante", "visitante")
+						//.add(Restrictions.eq("visitante.nombre", "Racing Club"))
+					//.createAlias("partido", "p")
+					//.add(Restrictions.eq("p.golesLocales", 2))
+					//.add(Restrictions.eq("p.golesVisitanes", 3))
 					.list();
 	
-		//assertThat(resultados).hasSize(0);*/
+		assertThat(resultados).hasSize(1);
 		
-	}
+	}*/
 	
 	
 	
