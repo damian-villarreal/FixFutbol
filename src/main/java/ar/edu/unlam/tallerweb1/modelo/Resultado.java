@@ -37,4 +37,38 @@ public class Resultado {
 	public void setNumero(Integer numero) {
 		this.numero = numero;
 	}
+
+	public Partido getPartido() {
+		return partido;
+	}
+
+	public void setPartido(Partido partido) {
+		this.partido = partido;
+	}
+
+	public Equipo getEquipoLocal() {
+		return equipoLocal;
+	}
+
+	public void setEquipoLocal(Equipo equipoLocal) {
+		this.equipoLocal = equipoLocal;
+	}
+
+	public Equipo getEquipoVisitante() {
+		return equipoVisitante;
+	}
+
+	public void setEquipoVisitante(Equipo equipoVisitante) {
+		this.equipoVisitante = equipoVisitante;
+	}
+
+	public Tabla getTabla() {
+		return tabla;
+	}
+
+	public void setTabla(Tabla tabla) {
+		this.tabla = tabla;
+	}
+	
+	
 }

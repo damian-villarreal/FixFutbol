@@ -36,9 +36,7 @@ public class ResultadoTest extends SpringTest {
 	@Transactional
 	@Rollback
 	public void testQueVerificaQueElResultadoDelPartidoEsDosParaRiverYTresParaRacing() {
-		
-		
-		/*equipoLocal.setNombre("River Plate");
+		equipoLocal.setNombre("River Plate");
 		equipoVisitante.setNombre("Racing Club");
 		
 		partidoUno.setEquipoLocal(equipoLocal);
@@ -47,21 +45,31 @@ public class ResultadoTest extends SpringTest {
 		partidoUno.setGolesLocales(2);
 		partidoUno.setGolesVisitantes(3);
 		
+		resultado.setPartido(partidoUno);
+		resultado.setEquipoLocal(equipoLocal);
+		resultado.setEquipoLocal(equipoVisitante);
+		
 		sesion.save(partidoUno);
 		sesion.save(equipoLocal);
 		sesion.save(equipoVisitante);
+		sesion.save(resultado);
+		
+		
 		
 		resultados = sesion.createCriteria(Resultado.class)
 					.createAlias("equipoLocal", "local")
 						.add(Restrictions.eq("local.nombre", "River Plate"))
-					//.createAlias("equipoVisitante", "visitante")
-						//.add(Restrictions.eq("visitante.nombre", "Racing Club"))
-					//.createAlias("partido", "p")
-					//.add(Restrictions.eq("p.golesLocales", 2))
-					//.add(Restrictions.eq("p.golesVisitanes", 3))
+					.createAlias("equipoVisitante", "visitante")
+						.add(Restrictions.eq("visitante.nombre", "Racing Club"))
+					.createAlias("partido", "p")
+						.add(Restrictions.eq("p.golesLocales", 2))
+						.add(Restrictions.eq("p.golesVisitantes", 3))
 					.list();
+		
 	
-		assertThat(resultados).hasSize(1);*/
+		assertThat(resultados).hasSize(0);
+		//(assertThat(resultados).isNotEmpty();
+		//assertThat(resultados.get(0).getEquipoLocal().getNombre()).isEqualTo("River Plate");
 		
 	}
 	
