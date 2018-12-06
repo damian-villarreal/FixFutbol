@@ -11,16 +11,19 @@
 	<body>
 		<%@ include file="includes/navbar.jsp" %>
 
-		<h1>Tabla de Figuras</h1>
+		<!-- <h1 style="color:white">Tabla de Figuras</h1> -->
+		<ol class="breadcrumb text-center">
+			<li class="breadcrumb-item active">Tabla de Figuras</li>
+		</ol>
 		
 		<div class="table-responsive">
-			<table class="table table-condensed  table-bordered">
+			<table class="table table-condensed  table-bordered" style="background-color: white">
 			
 				<tbody>
 					<tr>
 						<th>Nombre</th>					
 						<th>Equipo</th>
-						<th>Veces Figura</th>	
+						<th>Cantidad en la que fue Figura</th>	
 					</tr>
 				</tbody>
 				

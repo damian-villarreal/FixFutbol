@@ -10,6 +10,7 @@
 	<body>
 		<%@ include file="includes/navbar.jsp" %>
 		
+		
 		<h1 style="color: white;font-size: 150px;text-align: center;">FixFutbol</h1>
 		<h1 style="color: white;font-size: 50px;text-align: center;">Crea y gestiona tus torneos</h1>
 		

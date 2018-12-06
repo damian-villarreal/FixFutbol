@@ -16,9 +16,9 @@
 			<li class="breadcrumb-item active">Partidos disponibles</li>
 		</ol>
 		
-		<a href="http://localhost:8080/proyecto-limpio-spring/posiciones?idTorneo=${idTorneo}"><span class="glyphicon glyphicon-indent-left" style="margin-right: 12px"></span>Tabla de posiciones</a>
-		
-		<a href="http://localhost:8080/proyecto-limpio-spring/figuras?idTorneo=${idTorneo}"><span class="glyphicon glyphicon-indent-left" style="margin-right: 12px"></span>Figuras del torneo</a>
+		<a href="http://localhost:8080/proyecto-limpio-spring/posiciones?idTorneo=${idTorneo}" style="color:white;"><span class="glyphicon glyphicon-indent-left" style="margin-right: 12px"></span>Tabla de posiciones</a>
+		&nbsp;&nbsp;&nbsp;
+		<a href="http://localhost:8080/proyecto-limpio-spring/figuras?idTorneo=${idTorneo}"  style="color:white;"><span class="glyphicon glyphicon-indent-left" style="margin-right: 12px"></span>Figuras del torneo</a>
 		
 		
 		<h1>${mensaje}</h1>

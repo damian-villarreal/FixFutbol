@@ -16,7 +16,7 @@
 		<ol class="breadcrumb text-center">
 			<li class="breadcrumb-item active">Torneos creados</li>
 		</ol>
-		<table class="table">
+		<table class="table table-bordered" style="color:black;background-color: white;">
 			<thead class="thead-dark">
 				<tr>
 					<td>Nombre</td>
@@ -28,7 +28,7 @@
 				<c:forEach items="${torneos}" var="torneo">
 					<tr>
 					<td>
-					<a href="http://localhost:8080/proyecto-limpio-spring/torneo?idTorneo=${torneo.id}">
+					<a href="http://localhost:8080/proyecto-limpio-spring/torneo?idTorneo=${torneo.id}" style="color:black; font-weight: bold;">
 						${torneo.nombre}
 						</a>
 						</td>

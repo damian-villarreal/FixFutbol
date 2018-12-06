@@ -11,12 +11,15 @@
 	<body>
 		<%@ include file="includes/navbar.jsp" %>
 
-		<h1>Tabla de Posiciones</h1>
+		<!-- <h1 style="color:white">Tabla de Posiciones</h1> -->
+		<ol class="breadcrumb text-center">
+			<li class="breadcrumb-item active">Tabla de Posiciones</li>
+		</ol>
 		
 		<h2>${mensaje}</h2>
 		
 		<div class="table-responsive">
-			<table class="table table-condensed  table-bordered">
+			<table class="table table-condensed  table-bordered" style="background-color: white">
 			
 				<tbody>
 				
