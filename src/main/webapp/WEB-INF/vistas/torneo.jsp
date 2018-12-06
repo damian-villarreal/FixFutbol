@@ -21,7 +21,7 @@
 		<a href="http://localhost:8080/proyecto-limpio-spring/figuras?idTorneo=${idTorneo}"  style="color:white;"><span class="glyphicon glyphicon-indent-left" style="margin-right: 12px"></span>Figuras del torneo</a>
 		
 		
-		<h1>${mensaje}</h1>
+		<h1><font color="white">${mensaje}</font></h1>
 
 <!-- 		<p>Seleccione número de fecha:</p> -->
 <!-- 		<div class="form-group"> -->
