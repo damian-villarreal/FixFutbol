@@ -1,5 +1,7 @@
 package ar.edu.unlam.tallerweb1.servicios;
 
+import java.util.Collection;
+import java.util.Collections;
 import java.util.List;
 import javax.inject.Inject;
 import org.springframework.stereotype.Service;
@@ -8,6 +10,7 @@ import org.springframework.transaction.annotation.Transactional;
 import ar.edu.unlam.tallerweb1.dao.EquipoDao;
 import ar.edu.unlam.tallerweb1.dao.PartidoDao;
 import ar.edu.unlam.tallerweb1.dao.TorneoDao;
+import ar.edu.unlam.tallerweb1.modelo.Equipo;
 import ar.edu.unlam.tallerweb1.modelo.Fecha;
 import ar.edu.unlam.tallerweb1.modelo.Partido;
 import ar.edu.unlam.tallerweb1.modelo.Torneo;
@@ -52,81 +55,89 @@ public class ServicioTorneoImpl implements ServicioTorneo {
 	}
 
 	public Torneo crearLiguilla() {
+	
+		
+		if (equipoDao.findAll().size() % 2 == 0) {
 
-		Integer cantidadDeEquipos = equipoDao.findAll().size();
-		Integer cantidadDeFechas = cantidadDeEquipos - 1;
-		Integer cantidadDePartidosPorFecha = cantidadDeEquipos / 2;
-		Long auxLocal = null;
-		Long auxVisitante = null;
+			List<Equipo> equipos = equipoDao.findAll();
 
-		Torneo torneo = new Torneo();
-		torneo.setCantPartidosJugados(0);
-		torneo.setCantPartidos(cantidadDePartidosPorFecha * cantidadDeFechas);
-		torneoDao.save(torneo);
+			Collections.shuffle(equipos);
+			Integer cantidadDeEquipos = equipoDao.findAll().size();
+			Integer cantidadDeFechas = cantidadDeEquipos - 1;
+			Integer cantidadDePartidosPorFecha = cantidadDeEquipos / 2;
+			Integer auxLocal = null;
+			Integer auxVisitante = null;
 
-		for (int t = 1; t <= cantidadDeEquipos; t++) {
-			servicioTabla.crearTabla(torneo, Long.valueOf(t));
-		}
+			Torneo torneo = new Torneo();
+			torneo.setCantPartidosJugados(0);
+			torneo.setCantPartidos(cantidadDePartidosPorFecha * cantidadDeFechas);
+			torneoDao.save(torneo);
 
-		for (int f = 0; f < cantidadDeFechas; f++) {
-			Fecha fecha = new Fecha();
-			fecha.setNumero(f + 1);
-			fecha.setTorneo(torneo);
-			torneo.setTipoTorneo("Liguilla");
-			torneo.setNombre("Torneo " + String.valueOf(torneoDao.findAll().size()));
+			for (int t = 0; t < cantidadDeEquipos; t++) {
+				servicioTabla.crearTabla(torneo, equipos.get(t));
+			}
 
-			auxVisitante = Long.valueOf(cantidadDeEquipos - f);
-			auxLocal = 1L;
+			for (int f = 0; f < cantidadDeFechas; f++) {
+				Fecha fecha = new Fecha();
+				fecha.setNumero(f + 1);
+				fecha.setTorneo(torneo);
+				torneo.setTipoTorneo("Liguilla");
+				torneo.setNombre("Torneo " + String.valueOf(torneoDao.findAll().size()));
 
-			for (Integer p = 0; p < cantidadDePartidosPorFecha; p++) {
-				Partido partido = new Partido();
-				partido.setFecha(fecha);
+				auxVisitante = cantidadDeEquipos - f;
+				auxLocal = 0;
 
-				if (p == 0) {
-					partido.setEquipoLocal(equipoDao.findById(1L));
-					partido.setEquipoVisitante(equipoDao.findById(Long.valueOf(cantidadDeEquipos - f)));
-					auxVisitante = partido.getEquipoVisitante().getId();
-					auxLocal = auxVisitante;
-				}
+				for (Integer p = 0; p < cantidadDePartidosPorFecha; p++) {
+					Partido partido = new Partido();
+					partido.setFecha(fecha);
 
-				else {
-					if (p == 1) {
-						if (auxVisitante == Long.valueOf(cantidadDeEquipos)) {
-							partido.setEquipoLocal(equipoDao.findById(2L));
-						} else {
-							partido.setEquipoLocal(equipoDao.findById(auxVisitante + 1L));
-						}
-						auxLocal = partido.getEquipoLocal().getId();
-
-						if (auxVisitante == 2L) {
-							partido.setEquipoVisitante(equipoDao.findById(Long.valueOf(cantidadDeEquipos)));
-						} else {
-							partido.setEquipoVisitante(equipoDao.findById(auxVisitante - 1L));
-						}
-						auxVisitante = partido.getEquipoVisitante().getId();
+					if (p == 0) {
+						partido.setEquipoLocal(equipos.get(0));
+						partido.setEquipoVisitante(equipos.get(cantidadDeEquipos - f - 1));
+						auxVisitante = equipos.indexOf(partido.getEquipoVisitante());
+						auxLocal = auxVisitante;
 					}
 
 					else {
-						if (auxLocal == Long.valueOf(cantidadDeEquipos)) {
-							partido.setEquipoLocal(equipoDao.findById(2L));
-						} else {
-							partido.setEquipoLocal(equipoDao.findById(auxLocal + 1L));
-						}
-						auxLocal = partido.getEquipoLocal().getId();
+						if (p == 1) {
+							if (auxVisitante == cantidadDeEquipos - 1) {
+								partido.setEquipoLocal(equipos.get(1));
+							} else {
+								partido.setEquipoLocal(equipos.get((auxVisitante + 1)));
+							}
+							auxLocal = equipos.indexOf(partido.getEquipoLocal());
 
-						if (auxVisitante == 2L) {
-							partido.setEquipoVisitante(equipoDao.findById(Long.valueOf(cantidadDeEquipos)));
-						} else {
-							partido.setEquipoVisitante(equipoDao.findById(auxVisitante - 1L));
+							if (auxVisitante == 1) {
+								partido.setEquipoVisitante(equipos.get(cantidadDeEquipos - 1));
+							} else {
+								partido.setEquipoVisitante(equipos.get(auxVisitante - 1));
+							}
+							auxVisitante = equipos.indexOf(partido.getEquipoVisitante());
 						}
-						auxVisitante = partido.getEquipoVisitante().getId();
+
+						else {
+							if (auxLocal == (cantidadDeEquipos - 1)) {
+								partido.setEquipoLocal(equipos.get(1));
+							} else {
+								partido.setEquipoLocal(equipos.get(auxLocal + 1));
+							}
+							auxLocal = equipos.indexOf(partido.getEquipoLocal());
+
+							if (auxVisitante == 1) {
+								partido.setEquipoVisitante(equipos.get(cantidadDeEquipos - 1));
+							} else {
+								partido.setEquipoVisitante(equipos.get(auxVisitante - 1));
+							}
+							auxVisitante = equipos.indexOf(partido.getEquipoVisitante());
+						}
 					}
+					partidoDao.save(partido);
 				}
-				partidoDao.save(partido);
-			}
 
+			}
+			return torneo;
 		}
-		return torneo;
+		return null;
 	}
 
 	@Override

@@ -9,6 +9,7 @@ import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 import ar.edu.unlam.tallerweb1.dao.EquipoDao;
 import ar.edu.unlam.tallerweb1.dao.TablaDao;
+import ar.edu.unlam.tallerweb1.modelo.Equipo;
 import ar.edu.unlam.tallerweb1.modelo.FiguraTabla;
 import ar.edu.unlam.tallerweb1.modelo.Partido;
 import ar.edu.unlam.tallerweb1.modelo.Tabla;
@@ -37,9 +38,9 @@ public class ServicioTablaImpl implements ServicioTabla {
 
 	@Transactional(readOnly = false, propagation = Propagation.REQUIRED, rollbackFor = { Exception.class })
 	@Override
-	public void crearTabla(Torneo torneo, Long idEquipo) {
+	public void crearTabla(Torneo torneo, Equipo equipo) {
 		Tabla tabla = new Tabla();
-		tabla.setEquipo(equipoDao.findById(Long.valueOf(idEquipo)));
+		tabla.setEquipo(equipo);
 		tabla.setTorneo(torneo);
 		tabla.setDiferenciagoles(0);
 		tabla.setEmpatados(0);
