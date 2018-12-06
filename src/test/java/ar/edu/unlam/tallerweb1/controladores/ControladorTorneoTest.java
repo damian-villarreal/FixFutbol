@@ -5,6 +5,7 @@ import javax.servlet.http.HttpSession;
 import org.springframework.web.servlet.ModelAndView;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.mockito.Mockito.*;
+
 import org.junit.Test;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
@@ -34,20 +35,42 @@ public class ControladorTorneoTest {
 		MockitoAnnotations.initMocks(this);
 	}
 	
-	/*@Test
+	@Test
 	public void testQuePuedaCrearUnaLiguilla() {
-		when(request.getSession()).thenReturn(sesion);
-		System.out.println(sesion);
-		when(servicioTorneo.consultarTorneo(any(Torneo.class))).thenReturn(torneo);
-		when(torneo.getId()).thenReturn(91L);
-		when(torneo.getNombre()).thenReturn("Superliga");
+		try {
+			when(servicioTorneo.consultarTorneo(any(Torneo.class))).thenReturn(torneo);
+			when(torneo.getId()).thenReturn(91L);
+			when(torneo.getNombre()).thenReturn("Superliga");
+			ModelAndView model = controladorTorneo.crearLiguilla();
+			
+			assertThat(model.getViewName()).isEqualTo("liguilla");
+			
+			verify(sesion , times(1)).setAttribute(anyString(), anyString());
+		} catch(Exception e) {
+			e.getMessage();
+		}
 		
-		ModelAndView model = controladorTorneo.CrearLiguilla();
 		
-		assertThat(model.getViewName()).isEqualTo("liguilla");
-		assertThat(model.getModel()).isNotEmpty();
 		
-		verify(servicioTorneo , times(1));
-	}*/
+	}
+	
+	@Test
+	public void testQueDaElDetalleDelTorneo() {
+		try {
+			when(request.getSession()).thenReturn(sesion);
+			when(servicioTorneo.consultarTorneo(any(Torneo.class))).thenReturn(torneo);
+			when(torneo.getId()).thenReturn(91L);
+			
+			ModelAndView modelo = controladorTorneo.detalleTorneo(torneo.getId());
+			
+			assertThat(modelo.getViewName()).isEqualTo("torneo");
+			
+			verify(sesion , times(1)).setAttribute(anyString(), anyString());
+		} catch(Exception e) {
+			e.getMessage();
+		}
+		
+		
+	}
 	
 }

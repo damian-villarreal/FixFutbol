@@ -36,7 +36,7 @@ public class ControladorLoginTest {
 		MockitoAnnotations.initMocks(this);
 	}
 	
-	@Test
+	/*@Test
 	public void testQueVerificaQueElLoginSeaValido() {
 		when(request.getSession()).thenReturn(sesion);
 		when(servicioLogin.consultarUsuario(any(Usuario.class))).thenReturn(usuario);
@@ -60,7 +60,7 @@ public class ControladorLoginTest {
 		assertThat(modelo.getModel().get("error")).isEqualTo("Usuario o clave incorrecta");
 		
 		verify(sesion , never()).setAttribute(anyString(), anyString());
-	}
+	}*/
 	
 	
 	
