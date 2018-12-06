@@ -1,8 +1,6 @@
 $(document).ready(function() {
 	$("#crearLiguilla").hover(function(){
-		$(this).append($("<span>Puede seleccionar una vez</span>"));
-	}, function(){
-		$(this).find()
+		alert("Puede crear la liguilla una vez");
 	});
 });
 
